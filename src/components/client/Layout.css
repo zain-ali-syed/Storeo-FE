@@ -1,0 +1,23 @@
+#badge{
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  width: 15px;
+  height: 15px;
+}
+
+#badgeText{
+  position: absolute;
+  top: -29px;
+  right: 29px;
+  color: white;
+}
+
+#badgeNbr{
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: white;
+  width: 10px;
+  height: 10px;
+}

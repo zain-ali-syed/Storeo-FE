@@ -9,7 +9,6 @@ export default class CategoryContainer extends Component {
       <div className="col s12" id="catCont">
         <div className="card blue-grey darken-1">
           <div className="card-content white-text">
-            <span className="card-title">Product categories</span>
             <CategoryCard />
           </div>
         </div>

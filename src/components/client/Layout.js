@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import '../client/Layout.css';
 import M from 'materialize-css';
 
 class Layout extends Component {
@@ -13,25 +15,31 @@ class Layout extends Component {
         <header>
           <nav className="blue-grey darken-2" role="navigation">
             <div className="nav-wrapper container">
-              <a id="logo-container" href="#" className="brand-logo">Client Section</a>
+              <Link id="logo-container" to="#" className="brand-logo">Client Section</Link>
+
+
               <ul className="right hide-on-med-and-down">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Basket</a></li>
-                <li><a href="#"></a></li>
+                <li><Link to="/">
+                <i className="material-icons white-text">home</i>
+                </Link></li>
+                <li><Link to="#">Login</Link></li>
+                <li><Link to="/basket">
+                <i className="material-icons white-text">shopping_cart</i>
+                <div className="badge red" id="badge"></div>
+                <div id="badgeNbr"></div><p id="badgeText">4</p>
+                </Link></li>
+                <li><Link to="#"></Link></li>
               </ul>
               <ul id="nav-mobile" className="sidenav">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Basket</a></li>
-                <li><a href="#"></a></li>
+                <li><Link to="#">Login</Link></li>
+                <li><Link to="#">Basket</Link></li>
+                <li><Link to="#">Contact</Link></li>
               </ul>
-              <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+              <Link to="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
 
             </div>
-
           </nav>
-
         </header>
-
 
 
         <main className="row">
@@ -41,6 +49,8 @@ class Layout extends Component {
           <div className="col s12 m10"> {this.props.children} </div>
           <div className="col s12 m1"></div>
         </main>
+
+
 
         <footer className="page-footer blue-grey darken-3">
           <div className="container">

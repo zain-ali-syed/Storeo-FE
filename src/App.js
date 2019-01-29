@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -15,6 +15,9 @@ import Dashboard from './components/admin/Dashboard';
 import Home from './components/client/Home';
 import Contact from './components/client/Contact';
 import { Basket } from './components/client/Basket';
+import ProductCard from './components/client/cards/prod-card';
+import ProductsList from './components/client/ProductsList';
+import Checkout from './components/client/Checkout';
 
 
 class App extends Component {
@@ -26,6 +29,9 @@ class App extends Component {
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/basket" component={Basket}></Route>
+          <Route exact path="/productcard" component={ProductCard}></Route>
+          <Route exact path="/productslist" component={ProductsList}></Route>
+          <Route exact path="/checkout" component={Checkout}></Route>
         </Switch>
       </BrowserRouter>
     );

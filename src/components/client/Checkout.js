@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import Layout from '../Layout';
+import Layout from './Layout';
 
-export default class ProductCard extends Component {
+export default class Checkout extends Component {
   render() {
     return (
       <Layout>
-        Product
+        Checkout
       </Layout>
     )
   }
 }
-
