@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  background-image: white;
+  color:black;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-top:30px;
+}
+
+.container {
+  min-height:100%;
+  position:relative;
+}
+
+
+nav{
+  font-weight:200;
+}
+
+
+.dashboard{
+  height:65vh;
+}
+
+.dashboard .section {
+  position: relative;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+i{
+  color:black;
+}
+footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+h3{
+  color:#37474f;
+}
+
+.mediumTable{
+  margin-top:40px;
+  width:80%;
+}
+
+.large_td {
+  width: 90%;
+}
+
+.action_header{
+  font-size:3rem;
+  color:#388e3c;
+}
+
+.profile_pic{
+  height:50px;
+  background-color: #388e3c;
+}
+
+
+ .material-icons{
+     display: inline-flex;
+     vertical-align: top;
+ }
