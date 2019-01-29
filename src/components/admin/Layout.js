@@ -15,7 +15,7 @@ class Layout extends Component {
             <div className="nav-wrapper container">
               <a id="logo-container" href="#" className="brand-logo">Admin Section</a>
               <ul className="right hide-on-med-and-down">
-                <li><a href="#"></a></li>
+                <li><a href=""></a></li>
                 <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
               </ul>

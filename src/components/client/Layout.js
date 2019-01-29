@@ -15,13 +15,13 @@ class Layout extends Component {
             <div className="nav-wrapper container">
               <a id="logo-container" href="#" className="brand-logo">Client Section</a>
               <ul className="right hide-on-med-and-down">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Basket</a></li>
                 <li><a href="#"></a></li>
               </ul>
               <ul id="nav-mobile" className="sidenav">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Basket</a></li>
                 <li><a href="#"></a></li>
               </ul>
               <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>

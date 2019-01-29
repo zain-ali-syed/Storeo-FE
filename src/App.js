@@ -14,6 +14,7 @@ import Dashboard from './components/admin/Dashboard';
 //Client Components
 import Home from './components/client/Home';
 import Contact from './components/client/Contact';
+import { Basket } from './components/client/Basket';
 
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path="/admin" component={Dashboard}></Route>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
+          <Route exact path="/basket" component={Basket}></Route>
         </Switch>
       </BrowserRouter>
     );

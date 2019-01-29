@@ -1,13 +1,14 @@
 import React from 'react';
 import Layout from './Layout';
+import CategoryContainer from './containers/category';
+import ProductContainer from './containers/product';
 
 
 const Home = () => {
     return (
         <Layout>
-            <div>
-                This is the home component
-            </div>
+            <CategoryContainer />
+            <ProductContainer />
         </Layout>
 
     );
