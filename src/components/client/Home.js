@@ -9,6 +9,7 @@ const Home = () => {
         <Layout>
             <CategoryContainer />
             <ProductContainer />
+            <ProductContainer />
         </Layout>
 
     );

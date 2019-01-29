@@ -35,11 +35,11 @@ class Layout extends Component {
 
 
         <main className="row">
-          <div className="col s12 m2 hide-on-small-only">
+          <div className="col s12 m1 hide-on-small-only">
 
           </div>
-          <div className="col s12 m8"> {this.props.children} </div>
-          <div className="col s12 m2"></div>
+          <div className="col s12 m10"> {this.props.children} </div>
+          <div className="col s12 m1"></div>
         </main>
 
         <footer className="page-footer blue-grey darken-3">
