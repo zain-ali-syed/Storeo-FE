@@ -18,7 +18,7 @@ async componentDidMount() {
 
 displayCategories = () => {
   return this.state.categories.map((category, index) => {
-      if(index < maxItems ) return <div className="col s12 m3 l3 "><CategoryCard key={category.id} {...category}/></div>
+      if(index < maxItems ) return <div className="col s12 m12 l3 "><CategoryCard key={category.id} {...category}/></div>
   })
 }
 

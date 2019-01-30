@@ -1,6 +1,8 @@
 const initState = {
     user: { name: "", email: "", isAdmin: false, token: "" },
-    basket: []
+    basket: [],
+    categories: [],
+    products: []
 }
 
 const rootReducer = (state = initState, action) => {

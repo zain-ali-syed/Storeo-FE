@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../client/Layout.css';
+import SideNav from './containers/SideNav';
 import M from 'materialize-css';
 
 class Layout extends Component {
@@ -13,11 +14,10 @@ class Layout extends Component {
     return (
       <React.Fragment>
         <header>
+        <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper container">
               <Link id="logo-container" to="#" className="brand-logo">Store Front</Link>
-
-
               <ul className="right hide-on-med-and-down">
                 <li><Link to="/">
                 <i className="material-icons white-text">home</i>
@@ -30,17 +30,9 @@ class Layout extends Component {
                 </Link></li>
                 <li><Link to="#"></Link></li>
               </ul>
-              <ul id="nav-mobile" className="sidenav">
-                <li><Link to="#">Login</Link></li>
-                <li><Link to="#">Basket</Link></li>
-                <li><Link to="#">Contact</Link></li>
-              </ul>
-              <Link to="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
-
             </div>
           </nav>
         </header>
-
 
         <main className="row">
           <div className="col s12 m1 hide-on-small-only">
@@ -50,7 +42,7 @@ class Layout extends Component {
           <div className="col s12 m1"></div>
         </main>
 
-
+        <SideNav />
 
         {/* <footer className="page-footer grey darken-1">
           <div className="container">
