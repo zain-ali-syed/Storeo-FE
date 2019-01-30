@@ -13,15 +13,32 @@ const ProductCard = () => {
             <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt="" className="responsive-img"></img>
           </div>
         </div>
-          <div className="col s3 m3 l3">
-            <img src="https://res.cloudinary.com/ohcash/image/upload/v1547302800/photo-1534972195531-d756b9bfa9f2.jpg" alt="" className="responsive-img"></img>
+
+        
+          <div className="col s3">
+            <div className="card hoverable">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547302800/photo-1534972195531-d756b9bfa9f2.jpg" ></img>
+              </div>
+            </div>
           </div>
-          <div className="col s3 m3 l3">
-            <img src="https://res.cloudinary.com/ohcash/image/upload/v1547302800/photo-1534972195531-d756b9bfa9f2.jpg" alt="" className="responsive-img"></img>
+
+          <div className="col s3">
+            <div className="card hoverable">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547296138/photo-1486684338211-1a7ced564b0d.jpg" ></img>
+              </div>
+            </div>
           </div>
-          <div className="col s3 m3 l3">
-            <img src="https://res.cloudinary.com/ohcash/image/upload/v1547302800/photo-1534972195531-d756b9bfa9f2.jpg" alt="" className="responsive-img"></img>
+
+          <div className="col s3">
+            <div className="card hoverable">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" ></img>
+              </div>
+            </div>
           </div>
+            
         </div>
       
 
@@ -34,8 +51,18 @@ const ProductCard = () => {
                 I am convenient because I require little markup to use effectively. I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively. I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
-                <button className="waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_more</i></button>
-                <button className="waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_less</i></button>
+               
+                <div className="col s12 m12">
+                
+                <button className="col s2 waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_more</i></button>
+
+                <div className="col s1">
+                  <p className="black-text">5</p>
+                </div>
+
+                <button className="col s2 waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_less</i></button>
+                </div>
+
             <div className="card-action center">
             <button className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left">add</i>Add to basket</button>
             </div>

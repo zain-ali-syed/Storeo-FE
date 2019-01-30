@@ -15,7 +15,7 @@ class SideNav extends Component {
 
   displayCategories = () => {
     return this.state.categories.map((category, index) => {
-        return <a className="waves-effect" href="/productslist">{category.name}</a>
+        return <a className="waves-effect" href="/productslist" key={category.id}>{category.name}</a>
     })
   }
 
