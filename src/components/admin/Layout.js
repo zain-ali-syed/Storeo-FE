@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
+import { NavLink } from 'react-router-dom';
 
 class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
   }
+
+  getMenu = () => (
+    <React.Fragment>
+      <li><NavLink to="/admin/products">Manage Products</NavLink></li>
+      <li><NavLink to="/admin/categories">Manage Categories</NavLink></li>
+      <li><NavLink to="/admin/orders">View Orders</NavLink></li>
+    </React.Fragment>
+  )
 
   render() {
     return (
@@ -14,16 +23,9 @@ class Layout extends Component {
           <nav className="blue-grey darken-2" role="navigation">
             <div className="nav-wrapper container">
               <a id="logo-container" href="#" className="brand-logo">Admin Section</a>
-              <ul className="right hide-on-med-and-down">
-                <li><a href=""></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-              </ul>
-              <ul id="nav-mobile" className="sidenav">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-              </ul>
+
+              <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
+              <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
               <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
             </div>
@@ -35,9 +37,7 @@ class Layout extends Component {
 
 
         <main className="row">
-          <div className="col s12 m2 hide-on-small-only">
-
-          </div>
+          <div className="col s12 m2 hide-on-small-only"></div>
           <div className="col s12 m8"> {this.props.children} </div>
           <div className="col s12 m2"></div>
         </main>

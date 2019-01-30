@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { getCategories } from '../../../helpers/api'
+
 
 
 class CategoryList extends Component {
@@ -7,11 +9,12 @@ class CategoryList extends Component {
         categories: []
     }
 
-    componentDidMount() {
-        this.setState((prevState) => ({ categories: [{ id: 1, name: "Electronics" }, { id: 2, name: "Books" }, { id: 3, name: "Clothes" }] }))
+    async componentDidMount() {
+        const categories = await getCategories() //resolved promise
+        this.setState((prevState) => ({ categories: categories.data }))
     }
 
-    getCategories = () => {
+    displayCategories = () => {
         return this.state.categories.map(category => {
             return <tr key={category}>
                 <td className="large_td">{category.name}</td>
@@ -24,7 +27,7 @@ class CategoryList extends Component {
     render() {
         return (
             <table className="mediumTable">
-                {this.getCategories()}
+                {this.displayCategories()}
             </table>
         );
     }
