@@ -10,7 +10,6 @@ class Layout extends Component {
     M.AutoInit();
   }
 
-
   render() {
     return (
       <React.Fragment>
@@ -18,7 +17,7 @@ class Layout extends Component {
         <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper container">
-              <Link id="logo-container" to="#" className="brand-logo">Store Front</Link>
+              <Link id="logo-container" to="#" className="brand-logo">Storeo</Link>
               <ul className="right hide-on-med-and-down">
                 <li><Link to="/">
                 <i className="material-icons white-text">home</i>
@@ -58,7 +57,8 @@ class Layout extends Component {
             </div>
           </div>
         </footer> */}
-      </ React.Fragment >
+
+      </React.Fragment>
     );
   }
 }

@@ -35,6 +35,7 @@ class App extends Component {
           <Route exact path="/admin/category/add_edit/:id" component={CategoryAddEdit}></Route>
           <Route exact path="/admin/products" component={Product}></Route>
           <Route exact path="/admin/orders" component={Orders}></Route>
+
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/basket" component={Basket}></Route>

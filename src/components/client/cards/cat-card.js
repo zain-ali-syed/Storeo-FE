@@ -8,7 +8,7 @@ const CategoryCard = ({name}) => {
           <Link to="/productslist" >
               <div >
                 <div  id="catCard">
-                <div className="card">
+                <div className="card hoverable">
                   <div className="card blue lighten-2">
                     <div className="card-action center">
                     <p>{name}</p>
