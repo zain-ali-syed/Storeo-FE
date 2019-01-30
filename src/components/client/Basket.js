@@ -10,6 +10,7 @@ export class Basket extends Component {
       <Layout>
         <div>Basket</div>
         <Link to="/checkout" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left">check</i>Checkout</Link>
+        <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
       </Layout>
     )
   }

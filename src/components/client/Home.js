@@ -19,6 +19,8 @@ componentDidMount () {
             <CategoryContainer />
             <ProductContainer />
             <ProductContainer />
+            <ProductContainer />
+            <ProductContainer />
         </Layout>
 
         );
