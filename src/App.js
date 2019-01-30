@@ -9,6 +9,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 //Admin Components
 import Dashboard from './components/admin/Dashboard';
+import Category from './components/admin/category';
+import CategoryAddEdit from './components/admin/category/CategoryAddEdit';
+import Product from './components/admin/product';
+import Orders from './components/admin/orders';
 
 
 //Client Components
@@ -22,6 +26,11 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/admin" component={Dashboard}></Route>
+          <Route exact path="/admin/categories" component={Category}></Route>
+          <Route exact path="/admin/category/add_edit" component={CategoryAddEdit}></Route>
+          <Route exact path="/admin/category/add_edit/:id" component={CategoryAddEdit}></Route>
+          <Route exact path="/admin/products" component={Product}></Route>
+          <Route exact path="/admin/orders" component={Orders}></Route>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
         </Switch>
