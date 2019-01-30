@@ -7,7 +7,7 @@ export default class ProductContainer extends Component {
     return (
       <div className="row">
       <div className="col s12" id="prodCont">
-        <div className="card blue-grey darken-1">
+        <div className="card grey lighten-3">
           <div className="card-content white-text">
           <span className="card-title" id="catName">Category name</span>
             <ProductSmallCard />

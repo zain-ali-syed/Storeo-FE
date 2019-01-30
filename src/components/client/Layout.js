@@ -13,7 +13,7 @@ class Layout extends Component {
     return (
       <React.Fragment>
         <header>
-          <nav className="blue-grey darken-2" role="navigation">
+          <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper container">
               <Link id="logo-container" to="#" className="brand-logo">Client Section</Link>
 
@@ -52,7 +52,7 @@ class Layout extends Component {
 
 
 
-        <footer className="page-footer blue-grey darken-3">
+        {/* <footer className="page-footer grey darken-1">
           <div className="container">
             <div className="row">
               <div className="col l6 s12">
@@ -61,7 +61,7 @@ class Layout extends Component {
               </div>
             </div>
           </div>
-        </footer>
+        </footer> */}
       </ React.Fragment >
     );
   }

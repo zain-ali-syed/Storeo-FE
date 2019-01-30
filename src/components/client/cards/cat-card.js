@@ -8,15 +8,22 @@ export default class CategoryCard extends Component {
       <Link to="/productslist" >
         <div className="row">
           <div className="col s6 m3" id="catCard">
-            <div className="card blue-grey darken-1">
-                <div className="card-action center">
-                <p>Category</p>
+           <div class="card">
+            <div className="card blue lighten-2">
+              <div className="card-action center">
+              <p>Category</p>
               </div>
+            </div>
+            <div class="card-image">
+              <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg"></img>
             </div>
           </div>
         </div>
-        </Link>
+      </div>
+    </Link>
     )
   }
 }
+
+
 

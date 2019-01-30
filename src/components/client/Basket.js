@@ -9,7 +9,7 @@ export class Basket extends Component {
     return (
       <Layout>
         <div>Basket</div>
-        <Link to="/checkout" className="waves-effect waves-light btn"><i className="material-icons left">cloud</i>Checkout</Link>
+        <Link to="/checkout" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left">check</i>Checkout</Link>
       </Layout>
     )
   }
