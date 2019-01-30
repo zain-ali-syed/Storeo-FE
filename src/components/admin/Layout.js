@@ -23,6 +23,7 @@ class Layout extends Component {
           <nav className="blue-grey darken-2" role="navigation">
             <div className="nav-wrapper container">
               <a id="logo-container" href="#" className="brand-logo">Admin Section</a>
+
               <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
               <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
               <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
