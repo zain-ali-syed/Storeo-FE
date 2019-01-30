@@ -10,6 +10,7 @@ class Layout extends Component {
     M.AutoInit();
   }
 
+
   render() {
     return (
       <React.Fragment>
@@ -42,7 +43,10 @@ class Layout extends Component {
           <div className="col s12 m1"></div>
         </main>
 
+      
         <SideNav />
+        
+        
 
         {/* <footer className="page-footer grey darken-1">
           <div className="container">
