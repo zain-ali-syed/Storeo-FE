@@ -1,19 +1,35 @@
 import React, { Component } from 'react'
 import CategoryCard from '../cards/cat-card';
+import { getCategories } from '../../../helpers/api'
 import '../containers/category.css'
 
+const maxItems = 4;
+
 export default class CategoryContainer extends Component {
+
+  state = {
+    categories: []
+}
+
+async componentDidMount() {
+    const categories = await getCategories() //resolved promise
+    this.setState((prevState) => ({ categories: categories.data }))
+}
+
+displayCategories = () => {
+  return this.state.categories.map((category, index) => {
+      if(index < maxItems ) return <div className="col s12 m3 l3 "><CategoryCard key={category.id} {...category}/></div>
+  })
+}
+
+
   render() {
     return (
-      <div className="row">
-      <div className="col s12" id="catCont">
-        <div className="card grey lighten-3">
-          <div className="card-content white-text">
-            <CategoryCard />
+        <div className="" > 
+          <div className="row" >
+            {this.displayCategories()}
           </div>
         </div>
-      </div>
-    </div>
     )
   }
 }

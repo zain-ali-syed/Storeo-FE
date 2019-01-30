@@ -15,7 +15,7 @@ class Layout extends Component {
         <header>
           <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper container">
-              <Link id="logo-container" to="#" className="brand-logo">Client Section</Link>
+              <Link id="logo-container" to="#" className="brand-logo">Store Front</Link>
 
 
               <ul className="right hide-on-med-and-down">

@@ -8,10 +8,6 @@ import { apiConstants } from '../../constants/api.constants';
 
 export default class Home extends Component {
 
-componentDidMount () {
-    axios.get(apiConstants.PRODUCTS_URL)
-    .then(json => console.log(json))
-}
 
     render() {
     return (
