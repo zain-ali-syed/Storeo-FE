@@ -6,7 +6,9 @@ import Layout from './Layout';
 const ProductsList = () => {
   return (
     <Layout>
+      <div className="col s6 m6 l2">
       <ProductSmallCard />
+      </div>
     </Layout>
   );
 };

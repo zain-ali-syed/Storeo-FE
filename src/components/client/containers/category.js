@@ -25,7 +25,7 @@ displayCategories = () => {
 
   render() {
     return (
-        <div className="" > 
+        <div > 
           <div className="row" >
             {this.displayCategories()}
           </div>

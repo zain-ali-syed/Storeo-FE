@@ -6,7 +6,7 @@ import ProdBasket from './cards/prod-basket';
 
 export class Basket extends Component {
 
-// loop rendering for ProdBasket goes in here 
+// ProdBasket loop rendering logic goes here 
 
 
   render() {

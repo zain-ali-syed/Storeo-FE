@@ -12,9 +12,13 @@ export default class Home extends Component {
     return (
         <Layout>
             <CategoryContainer />
+            <p className="black-text">Category Name</p>
             <ProductContainer />
+            <p className="black-text">Category Name</p>
             <ProductContainer />
+            <p className="black-text">Category Name</p>
             <ProductContainer />
+            <p className="black-text">Category Name</p>
             <ProductContainer />
         </Layout>
 
