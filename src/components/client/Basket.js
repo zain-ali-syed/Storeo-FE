@@ -18,7 +18,7 @@ export class Basket extends Component {
 
           <div className="col s12">
 
-              <div className="col s6">
+              <div className="col s12 m8 l6">
 
               <ul className="collection">
                     <li className="collection-item avatar">
@@ -42,7 +42,7 @@ export class Basket extends Component {
               </div>
 
             
-              <div className="card col s5">
+              <div className="card col s12 m8 l6">
                 <span className="card-title">Your basket</span>
 
                   <div className="card-content">
