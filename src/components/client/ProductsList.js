@@ -14,10 +14,9 @@ class ProductsList extends Component {
     this.props.getProdByCatId(products.data)
   }
 
-
   displayProducts = () => {
-    return this.props.products.map((product, index) => {
-        return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard {...product}/></div>
+    return this.props.products.map((product) => {
+        return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard checkCatId={this.props.match.params.id} {...product}/></div>
     })
   }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 import { Link } from 'react-router-dom';
-import ProductSmallCard from './cards/prod-sml-card';
+
 import ProdCheckout from './cards/prod-checkout';
 
 export default class Checkout extends Component {
@@ -75,6 +75,7 @@ export default class Checkout extends Component {
      
          </div>
       </div>
+
 
       </Layout>
     )

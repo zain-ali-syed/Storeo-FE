@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getCategories } from '../../../helpers/api';
+import { getCateg } from '../../../actions/example.actions';
+import { connect } from 'react-redux';
+
 
 class SideNav extends Component {
 
-  state = {
-    categories: []
-  }
 
   async componentDidMount() {
-      const categories = await getCategories() //resolved promise
-      this.setState((prevState) => ({ categories: categories.data }))
-  }
+    const categories = await getCategories()
+    this.props.getCateg(categories.data)
+}
 
   displayCategories = () => {
-    return this.state.categories.map((category, index) => {
-        return <a className="waves-effect" href="/productslist" key={category.id}>{category.name}</a>
+    return this.props.categories.map((category) => {
+        return <Link className="waves-effect" to={`/productslist/${category.id}`} key={category.id}>{category.name}</Link>
     })
   }
 
@@ -39,4 +39,16 @@ class SideNav extends Component {
   }
 }
 
-export default SideNav;
+const mapStateToProps = (state) => ({
+  categories: state.categories,
+
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getCateg: (data) => dispatch(getCateg(data)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SideNav);
