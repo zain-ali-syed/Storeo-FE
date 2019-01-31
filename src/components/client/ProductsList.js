@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ProductSmallCard from '../client/cards/prod-sml-card';
 import Layout from './Layout';
 
@@ -14,4 +14,6 @@ const ProductsList = () => {
 };
 
 export default ProductsList;
+
+
 

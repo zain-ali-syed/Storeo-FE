@@ -15,9 +15,9 @@ const CategoryCard = ({name}) => {
                     </div>
                   </div>
                   <div className="card-image">
-                    <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg"></img>
+                    <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt=""></img>
                   </div>
-                    <div class="card-content">
+                    <div className="card-content">
                     <p className="black-text">I am a very simple card. I am good at containing small bits of information.</p>
                     </div>
                 </div>

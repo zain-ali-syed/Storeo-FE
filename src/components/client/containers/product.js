@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ProductSmallCard from '../cards/prod-sml-card';
 import '../containers/product.css'
 
+// render logic to be completed
+
 export default class ProductContainer extends Component {
   render() {
     return (
@@ -16,14 +18,5 @@ export default class ProductContainer extends Component {
   }
 }
 
-{/* <div className="row">
-<div className="col s12" id="prodCont">
-  <div className="card grey lighten-3">
-    <div className="card-content">
-    <span className="card-title" id="catName">Category name</span>
-      <div className="col s6 m6 l2">
-        <ProductSmallCard />
-      </div>
-    </div>
-  </div>
-</div> */}
+
+

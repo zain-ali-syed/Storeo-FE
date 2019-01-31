@@ -18,7 +18,7 @@ const ProductCard = () => {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547302800/photo-1534972195531-d756b9bfa9f2.jpg" ></img>
+                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547302800/photo-1534972195531-d756b9bfa9f2.jpg" alt=""></img>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ const ProductCard = () => {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547296138/photo-1486684338211-1a7ced564b0d.jpg" ></img>
+                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547296138/photo-1486684338211-1a7ced564b0d.jpg" alt=""></img>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ const ProductCard = () => {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" ></img>
+                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt=""></img>
               </div>
             </div>
           </div>
