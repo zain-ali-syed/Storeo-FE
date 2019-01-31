@@ -20,15 +20,24 @@ export class Basket extends Component {
 
               <div className="col s6">
 
-                  <div className="col s12">
-                  <ProdBasket />
-                  </div>
-                  <div className="col s12">
-                  <ProdBasket />
-                  </div>
-                  <div className="col s12">
-                  <ProdBasket />
-                  </div>
+              <ul className="collection">
+                    <li className="collection-item avatar">
+                        <ProdBasket/>
+                    </li>
+
+                    <li className="collection-item avatar">
+                        <ProdBasket/>
+                    </li>
+
+                    <li className="collection-item avatar">
+                        <ProdBasket/>
+                    </li>
+
+                    <li className="collection-item avatar">
+                        <ProdBasket/>
+                    </li>
+
+                  </ul>
              
               </div>
 
@@ -39,6 +48,7 @@ export class Basket extends Component {
                   <div className="card-content">
                     <span className="card-title"></span>
                         <p className="black-text">List of basket items</p>
+                        <h6 className="black-text">Total: 331.19 EUR</h6>
                     
                         <Link to="/checkout" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left">check</i>Checkout</Link>
                         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
@@ -48,15 +58,10 @@ export class Basket extends Component {
           </div>
      
      
+         </div>
       </div>
-  </div>
 
-
-
-
-
-
-      </Layout>
+    </Layout>
     )
   }
 }

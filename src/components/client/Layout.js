@@ -17,11 +17,9 @@ class Layout extends Component {
         <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper container">
-              <Link id="logo-container" to="#" className="brand-logo">Storeo</Link>
+              <Link id="logo-container" to="/" className="brand-logo">Storeo</Link>
               <ul className="right hide-on-med-and-down">
-                <li><Link to="/">
-                <i className="material-icons white-text">home</i>
-                </Link></li>
+
                 <li><Link to="#">Login</Link></li>
                 <li><Link to="/basket">
                 <i className="material-icons white-text">shopping_cart</i>
@@ -57,6 +55,10 @@ class Layout extends Component {
             </div>
           </div>
         </footer> */}
+
+{/* <li><Link to="/">
+                <i className="material-icons white-text">home</i>
+                </Link></li> */}
 
       </React.Fragment>
     );
