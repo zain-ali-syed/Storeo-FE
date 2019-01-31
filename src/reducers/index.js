@@ -1,5 +1,5 @@
 const initState = {
-    user: { name: "", email: "", isAdmin: false, token: "" },
+    user: { first_name: "", last_name: "", email: "", isAdmin: false, password: "" },
     basket: [],
     categories: [],
     products: []
@@ -8,6 +8,10 @@ const initState = {
 const rootReducer = (state = initState, action) => {
 
     switch (action.type) {
+        case 'GET_CATEGORIES':
+        return {...state, categories: action.data};
+        case 'GET_PROD_BY_CAT_ID':
+        return {...state, products: action.data};
 
         default:
             return state;
@@ -17,3 +21,4 @@ const rootReducer = (state = initState, action) => {
 
 
 export default rootReducer;
+

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import '../cards/cat-card.css'
 
 
-const CategoryCard = ({name}) => {
+const CategoryCard = ({name, id}) => {
+  
   return (
-          <Link to="/productslist" >
+          <Link to={`/productslist/${id}`} >
               <div >
                 <div  id="catCard">
                 <div className="card hoverable">

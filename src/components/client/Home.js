@@ -7,7 +7,6 @@ import CategoryCard from '../client/cards/cat-card';
 
 export default class Home extends Component {
 
-
     render() {
     return (
         <Layout>
@@ -21,7 +20,6 @@ export default class Home extends Component {
             <p className="black-text">Category Name</p>
             <ProductContainer />
         </Layout>
-
         );
         };
     }
