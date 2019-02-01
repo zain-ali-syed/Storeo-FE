@@ -34,14 +34,12 @@ displayCategories = () => {
 
 const mapStateToProps = (state) => ({
   categories: state.categories,
-
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  getCateg: (data) => dispatch(getCateg(data)),
-})
+// const mapDispatchToProps = (dispatch) => ({
+
+// })
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(CategoryContainer);

@@ -12,12 +12,12 @@ class Home extends Component {
 
 async componentDidMount() {
     const categories = await getCategories()
-    this.props.getCateg(categories.data)
+    this.props.getCateg(categories.data);
 }
 
 displayProductByCat = () => {
     return this.props.categories.map((category, index) => {
-        if(index < maxItems ) return <div className="" key={category.id}><p className="black-text">{category.name}</p><ProductContainer {...category}/></div>
+        if(index < maxItems ) return <div className="" key={category.id}><p className="black-text">{category.name} {category.id}</p><ProductContainer {...category}/></div>
     })
   }
 
@@ -33,7 +33,6 @@ render() {
 
 const mapStateToProps = (state) => ({
     categories: state.categories,
-    
     })
     
 const mapDispatchToProps = (dispatch) => ({

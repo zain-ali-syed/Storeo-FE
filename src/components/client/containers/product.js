@@ -1,47 +1,37 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { getProductsByCatId } from '../../../helpers/api';
 import ProductSmallCard from '../cards/prod-sml-card';
-import { connect } from 'react-redux';
+
 import '../containers/product.css'
 
-// render logic to be completed
 
 const maxItems = 6;
 
+export default class ProductContainer extends Component {
 
-class ProductContainer extends Component {
+  state = {}
 
+  async componentDidMount() {
+    const products = await getProductsByCatId(this.props.id); // props !!!
+    this.setState({products: products.data});
+  }
 
-displayProducts = () => {
-
-  
-}
-
+  displayProductsByCategId = () => {
+    return this.state.products.map((product, index) => {
+      if(index < maxItems ) return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard catName={this.props.name} checkCatId={this.props.id} {...product}/></div>
+    })
+  }
 
   render() {
+    if(!this.state.products) return <div>loading</div>
     return (
       <div className="row">
-            <div className="col s6 m6 l2">
-              <ProductSmallCard />
-            </div>
-          </div>
-
-    
+            {this.displayProductsByCategId()}
+      </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  categories: state.categories,
 
-})
-
-const mapDispatchToProps = (dispatch) => ({
- 
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProductContainer);
 
 

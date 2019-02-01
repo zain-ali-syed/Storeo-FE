@@ -13,3 +13,4 @@ export const getCategories = () => {
 export const getProductsByCatId = (id) => {
     return axios.get(apiConstants.PRODUCTS_BY_CAT + `/${id}`)
 }
+
