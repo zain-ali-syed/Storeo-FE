@@ -1,7 +1,24 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Layout from '../Layout';
+import { getProductByProdId } from '../../../helpers/api';
 
-const ProductCard = () => {
+export default class ProductCard extends Component {
+
+  state = {}
+
+  async componentDidMount() {
+    const product = await getProductByProdId(this.props.match.params.id);
+    this.setState({product: product.data});
+  }
+
+  properites = () => {
+    return this.state.product.product_properties.map((property, index) => {
+      return <div key={index}><p className="black-text">{property.property_name}</p></div>
+    })
+  }
+
+  render() {
+  if(!this.state.product) return <div>loading</div>
   return (
     <Layout>
 
@@ -26,7 +43,7 @@ const ProductCard = () => {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547296138/photo-1486684338211-1a7ced564b0d.jpg" alt=""></img>
+                <img className="activator" src={this.state.product.images[0]} alt=""></img>
               </div>
             </div>
           </div>
@@ -34,7 +51,7 @@ const ProductCard = () => {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt=""></img>
+                <img className="activator" src={this.state.product.images[1]} alt=""></img>
               </div>
             </div>
           </div>
@@ -43,14 +60,18 @@ const ProductCard = () => {
       
 
       <div className="card col s12 m6">
-        <span className="card-title">Product name</span>
+        <span className="card-title">{this.state.product.name}</span>
           <div className="card-content">
-          <span className="card-title">114.99 EUR</span>
-            <p className="black-text">I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
+          <span className="card-title">{this.state.product.selling_price}</span>
+          <p className="black-text">List price: {this.state.product.price} </p>
+          <p className="black-text">Discount: {this.state.product.discount} </p>
+          <br></br>
+            <p className="black-text">{this.state.product.description} </p>
+            <br></br>
+            {this.properites()}
+            <br></br>
+             <p className="black-text"> I am a very simple card. I am good at containing small bits of information.</p>
+            <br></br>
                
                 <div className="col s12 m12">
                 
@@ -74,6 +95,7 @@ const ProductCard = () => {
   </Layout>
   );
 };
+}
 
-export default ProductCard;
+
 
