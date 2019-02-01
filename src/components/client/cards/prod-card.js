@@ -1,11 +1,15 @@
 import React, {Component} from 'react'
 import Layout from '../Layout';
+import { connect } from 'react-redux'
 import { getProductByProdId } from '../../../helpers/api';
+import { addToBasket } from '../../../actions/example.actions';
 
-export default class ProductCard extends Component {
+const qty =4; // this should be the value from the form !
 
-  state = {}
+class ProductCard extends Component {
 
+  state = {};
+  
   async componentDidMount() {
     const product = await getProductByProdId(this.props.match.params.id);
     this.setState({product: product.data});
@@ -17,8 +21,18 @@ export default class ProductCard extends Component {
     })
   }
 
+  addProdToBasket = () => {
+    if (this.state.product.qty) {
+      this.state.product.qty += qty;
+    } else {
+      this.state.product.qty = qty;
+    }
+    this.props.addToBasket(this.state)
+  }
+
   render() {
   if(!this.state.product) return <div>loading</div>
+  
   return (
     <Layout>
 
@@ -78,14 +92,14 @@ export default class ProductCard extends Component {
                 <button className="col s2 waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_more</i></button>
 
                 <div className="col s1">
-                  <p className="black-text">5</p>
+                  <p className="black-text">{qty}</p>
                 </div>
 
                 <button className="col s2 waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_less</i></button>
                 </div>
 
             <div className="card-action center">
-            <button className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left">add</i>Add to basket</button>
+            <button className="waves-effect waves-light btn blue lighten-2" onClick={this.addProdToBasket}><i className="material-icons left">add</i>Add to basket</button>
             </div>
           </div>
           </div>
@@ -97,5 +111,13 @@ export default class ProductCard extends Component {
 };
 }
 
+const mapStateToProps = (state) => ({
+  basket: state.basket
+})
 
+const mapDispatchToProps = (dispatch) => ({
+  addToBasket: (id, qty) => dispatch(addToBasket(id, qty))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard)
 

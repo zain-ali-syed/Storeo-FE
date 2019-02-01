@@ -12,13 +12,13 @@ const rootReducer = (state = initState, action) => {
         return {...state, categories: action.data};
         case 'GET_PROD_BY_CAT_ID':
         return {...state, products: action.data};
-
+        case 'ADD_TO_BASKET':
+        return {...state, basket: action.data.product};
+        // return state;
         default:
-            return state;
-
+        return state;
     }
 }
-
 
 export default rootReducer;
 

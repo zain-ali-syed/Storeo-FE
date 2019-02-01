@@ -6,10 +6,20 @@ import ProdBasket from './cards/prod-basket';
 
 export class Basket extends Component {
 
-// ProdBasket loop rendering logic goes here 
+
+showBasket = () => {
+    if (!this.props.basket) {
+    return <div><p className="black-text">BASKET EMPTY...</p></div>
+    } else {
+     return this.props.basket.map((item, index) => {
+            return <li className="collection-item avatar"><ProdBasket/></li>
+        })
+    }
+}
 
 
   render() {
+    
     return (
       <Layout>
       
@@ -21,23 +31,8 @@ export class Basket extends Component {
               <div className="col s12 m8 l6">
 
               <ul className="collection">
-                    <li className="collection-item avatar">
-                        <ProdBasket/>
-                    </li>
-
-                    <li className="collection-item avatar">
-                        <ProdBasket/>
-                    </li>
-
-                    <li className="collection-item avatar">
-                        <ProdBasket/>
-                    </li>
-
-                    <li className="collection-item avatar">
-                        <ProdBasket/>
-                    </li>
-
-                  </ul>
+                {this.showBasket()}
+             </ul>
              
               </div>
 
@@ -67,11 +62,10 @@ export class Basket extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  
+  basket: state.basket
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Basket)

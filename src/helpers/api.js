@@ -17,3 +17,4 @@ export const getProductsByCatId = (id) => {
 export const getProductByProdId = (id) => {
     return axios.get(apiConstants.PRODUCTS_BY_ID + `/${id}`)
 }
+

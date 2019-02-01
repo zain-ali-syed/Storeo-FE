@@ -36,4 +36,9 @@ export const getProdByCatId = (data) => ({
   data
 })
 
+export const addToBasket = (data) => ({
+  type: 'ADD_TO_BASKET',
+  data
+})
+
 
