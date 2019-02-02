@@ -4,19 +4,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import ProdBasket from './cards/prod-basket';
 
-export class Basket extends Component {
+class Basket extends Component {
 
+componentDidMount () {
+  
+}
 
 showBasket = () => {
-    if (!this.props.basket) {
+    if (this.props.basket.length===0) {
     return <div><p className="black-text">BASKET EMPTY...</p></div>
     } else {
+
      return this.props.basket.map((item, index) => {
-            return <li className="collection-item avatar"><ProdBasket/></li>
+            return <li className="collection-item avatar" key={index}><ProdBasket {...item}/></li>
         })
     }
 }
-
 
   render() {
     
@@ -32,10 +35,9 @@ showBasket = () => {
 
               <ul className="collection">
                 {this.showBasket()}
-             </ul>
+              </ul>
              
               </div>
-
             
               <div className="card col s12 m8 l6">
                 <span className="card-title">Your basket</span>
@@ -62,7 +64,8 @@ showBasket = () => {
 }
 
 const mapStateToProps = (state) => ({
-  basket: state.basket
+  basket: state.basket,
+  categories: state.categories
 })
 
 const mapDispatchToProps = (dispatch) => ({

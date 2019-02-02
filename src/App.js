@@ -18,7 +18,7 @@ import Orders from './components/admin/orders';
 //Client Components
 import Home from './components/client/Home';
 import Contact from './components/client/Contact';
-import { Basket } from './components/client/Basket';
+import Basket from './components/client/Basket';
 import ProductCard from './components/client/cards/prod-card';
 import ProductsList from './components/client/ProductsList';
 import Checkout from './components/client/Checkout';

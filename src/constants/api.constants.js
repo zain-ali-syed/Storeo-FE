@@ -1,12 +1,11 @@
 
-const url1 = '192.168.1.158:4000';
-const url = 'private-810e4-storeodb.apiary-mock.com';
+const url = '192.168.1.158:3000';
 
 export const apiConstants = {
-  CATEGORIES_URL: `https://${url}/categories`,
-  PRODUCTS_BY_CAT: `https://${url}/products/cat`,
+  CATEGORIES_URL: `http://${url}/categories`,
+  PRODUCTS_BY_CAT: `http://${url}/products/cat`,
   PRODUCTS_BY_ID: `http://${url}/products`,
-  PRODUCTS_URL: `https://${url}/products`
+  PRODUCTS_URL: `http://${url}/products`
 }
 
 

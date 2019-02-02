@@ -4,30 +4,33 @@ import { connect } from 'react-redux'
 import { getProductByProdId } from '../../../helpers/api';
 import { addToBasket } from '../../../actions/example.actions';
 
-const qty =4; // this should be the value from the form !
+const qty = 4; // this should be the value from the form !
 
 class ProductCard extends Component {
 
-  state = {};
+  state = {
+    product:{}
+  };
   
   async componentDidMount() {
     const product = await getProductByProdId(this.props.match.params.id);
-    this.setState({product: product.data});
+    console.log(product.data);
+    this.setState({product: {...product.data[0], quantity:0}});
+    
+
   }
 
   properites = () => {
-    return this.state.product.product_properties.map((property, index) => {
-      return <div key={index}><p className="black-text">{property.property_name}</p></div>
-    })
+    // return this.state.product.product_properties.map((property, index) => {
+    //   return <div key={index}><p className="black-text">{property.property_name}</p></div>
+    // })
   }
 
   addProdToBasket = () => {
-    if (this.state.product.qty) {
-      this.state.product.qty += qty;
-    } else {
-      this.state.product.qty = qty;
-    }
-    this.props.addToBasket(this.state)
+    // implement quantity feature !!!
+    
+    
+    this.props.addToBasket(this.state.product, 4)
   }
 
   render() {
@@ -57,7 +60,7 @@ class ProductCard extends Component {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src={this.state.product.images[0]} alt=""></img>
+                {/* <img className="activator" src={this.state.product.images[0]} alt=""></img> */}
               </div>
             </div>
           </div>
@@ -65,7 +68,7 @@ class ProductCard extends Component {
           <div className="col s3">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src={this.state.product.images[1]} alt=""></img>
+                {/* <img className="activator" src={this.state.product.images[1]} alt=""></img> */}
               </div>
             </div>
           </div>

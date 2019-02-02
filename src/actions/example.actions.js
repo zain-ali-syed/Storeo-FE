@@ -25,7 +25,6 @@
 //   },
 // });
 
-
 export const getCateg = (data) => ({
   type: 'GET_CATEGORIES',
   data
@@ -36,9 +35,10 @@ export const getProdByCatId = (data) => ({
   data
 })
 
-export const addToBasket = (data) => ({
+export const addToBasket = (product, quantityToAdd) => ({
   type: 'ADD_TO_BASKET',
-  data
+  product: product,
+  quantityToAdd: quantityToAdd
 })
 
 
