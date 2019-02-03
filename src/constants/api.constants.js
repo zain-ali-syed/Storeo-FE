@@ -1,4 +1,8 @@
+
+
 export const apiConstants = {
+
+  PRODUCTS_BY_CAT: `http://${url}/products/cat`,
   ADMIN_REGISTER_URL: 'http://localhost:3000/signup',
   LOGIN_URL: 'http://localhost:3000/login',
   USER_REGISTER_URL: 'http://localhost:3000/signup',
@@ -8,4 +12,5 @@ export const apiConstants = {
   ADMIN_CATEGORY_URL: 'http://localhost:3000/admin/categories', //POST, PUT, DELETE
   ADMIN_ORDERS_URL: 'http://localhost:3000/admin/orders'
 }
+
 

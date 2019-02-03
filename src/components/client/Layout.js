@@ -1,46 +1,49 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../client/Layout.css';
+import SideNav from './containers/SideNav';
 import M from 'materialize-css';
+import { connect } from 'react-redux';
+
+let totalBasketQty = 0;
 
 class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
+    this.totalBasketQty();
+  }
+
+ totalBasketQty = () => {
+    let subTotalBasketQty = 0;
+    this.props.basket.forEach(item => {
+      subTotalBasketQty+=item.quantity
+    });
+   totalBasketQty = subTotalBasketQty;
   }
 
   render() {
+
     return (
       <React.Fragment>
         <header>
+        <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper container">
-              <Link id="logo-container" to="#" className="brand-logo">Client Section</Link>
-
-
+              <Link id="logo-container" to="/" className="brand-logo">Storeo</Link>
               <ul className="right hide-on-med-and-down">
-                <li><Link to="/">
-                <i className="material-icons white-text">home</i>
-                </Link></li>
+
                 <li><Link to="#">Login</Link></li>
                 <li><Link to="/basket">
                 <i className="material-icons white-text">shopping_cart</i>
                 <div className="badge red" id="badge"></div>
-                <div id="badgeNbr"></div><p id="badgeText">4</p>
+                <div id="badgeNbr"></div><p id="badgeText">{totalBasketQty}</p>
                 </Link></li>
                 <li><Link to="#"></Link></li>
               </ul>
-              <ul id="nav-mobile" className="sidenav">
-                <li><Link to="#">Login</Link></li>
-                <li><Link to="#">Basket</Link></li>
-                <li><Link to="#">Contact</Link></li>
-              </ul>
-              <Link to="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
-
             </div>
           </nav>
         </header>
-
 
         <main className="row">
           <div className="col s12 m1 hide-on-small-only">
@@ -50,7 +53,10 @@ class Layout extends Component {
           <div className="col s12 m1"></div>
         </main>
 
-
+      
+        <SideNav />
+        
+        
 
         {/* <footer className="page-footer grey darken-1">
           <div className="container">
@@ -62,10 +68,25 @@ class Layout extends Component {
             </div>
           </div>
         </footer> */}
-      </ React.Fragment >
+
+{/* <li><Link to="/">
+                <i className="material-icons white-text">home</i>
+                </Link></li> */}
+
+      </React.Fragment>
     );
   }
 }
 
-export default Layout;
+const mapStateToProps = (state) => ({
+  basket: state.basket,
+})
+
+// const mapDispatchToProps = (dispatch) => ({
+
+// })
+
+export default connect(
+  mapStateToProps
+)(Layout);
 

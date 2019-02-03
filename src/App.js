@@ -20,7 +20,7 @@ import Login from './components/admin/Login';
 //Client Components
 import Home from './components/client/Home';
 import Contact from './components/client/Contact';
-import { Basket } from './components/client/Basket';
+import Basket from './components/client/Basket';
 import ProductCard from './components/client/cards/prod-card';
 import ProductsList from './components/client/ProductsList';
 import Checkout from './components/client/Checkout';
@@ -46,9 +46,9 @@ class App extends Component {
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/basket" component={Basket}></Route>
-          <Route exact path="/productcard" component={ProductCard}></Route>
-          <Route exact path="/productslist" component={ProductsList}></Route>
-          <Route exact path="/checkout" component={Checkout}></Route>
+          <Route exact path="/productcard/:id" component={ProductCard}></Route>
+          <Route  path="/productslist/:id" component={ProductsList}></Route>
+          <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
         </Switch>
       </BrowserRouter>
     );

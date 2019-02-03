@@ -1,27 +1,45 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import Layout from './Layout';
 import CategoryContainer from './containers/category';
 import ProductContainer from './containers/product';
-import { apiConstants } from '../../constants/api.constants';
+import { connect } from 'react-redux';
+import { getCategories } from '../../helpers/api'
+import { getCateg } from '../../actions/example.actions';
 
+const maxItems = 4;
 
-export default class Home extends Component {
+class Home extends Component {
 
-componentDidMount () {
-    axios.get(apiConstants.PRODUCTS_URL)
-    .then(json => console.log(json))
+async componentDidMount() {
+    const categories = await getCategories()
+    this.props.getCateg(categories.data);
 }
 
-    render() {
+displayProductByCat = () => {
+    return this.props.categories.map((category, index) => {
+        if(index < maxItems ) return <div className="" key={category.id}><p className="black-text">{category.name} {category.id}</p><ProductContainer {...category}/></div>
+    })
+  }
+
+render() {
     return (
         <Layout>
             <CategoryContainer />
-            <ProductContainer />
-            <ProductContainer />
+            {this.displayProductByCat()}
         </Layout>
-
         );
-        };
-    }
+    };
+}
 
+const mapStateToProps = (state) => ({
+    categories: state.categories,
+    })
+    
+const mapDispatchToProps = (dispatch) => ({
+    getCateg: (data) => dispatch(getCateg(data)),
+    })
+    
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+    )(Home);
