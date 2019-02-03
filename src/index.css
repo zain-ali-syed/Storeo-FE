@@ -57,6 +57,9 @@ h3{
 .large_td {
   width: 90%;
 }
+.small_td {
+  width: 90%;
+}
 
 .action_header{
   font-size:3rem;
@@ -74,4 +77,12 @@ h3{
      vertical-align: top;
  }
 
+
+ .mainHeader{
+  background-color: #f5efdc;
+ }
+
+ .errorMessage{
+   color:red;
+ }
  

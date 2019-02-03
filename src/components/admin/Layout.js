@@ -22,7 +22,7 @@ class Layout extends Component {
         <header>
           <nav className="blue-grey darken-2" role="navigation">
             <div className="nav-wrapper container">
-              <a id="logo-container" href="#" className="brand-logo">Admin Section</a>
+              <span id="logo-container" href="#" className="brand-logo">Admin Section</span>
 
               <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
               <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
@@ -42,16 +42,7 @@ class Layout extends Component {
           <div className="col s12 m2"></div>
         </main>
 
-        <footer className="page-footer blue-grey darken-3">
-          <div className="container">
-            <div className="row">
-              <div className="col l6 s12">
-                <h5 className="white-text">Company Bio</h5>
-                <p className="grey-text text-lighten-4">Lorem ipsum copy here.</p>
-              </div>
-            </div>
-          </div>
-        </footer>
+
       </ React.Fragment >
     );
   }
