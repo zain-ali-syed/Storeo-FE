@@ -1,4 +1,4 @@
-.form-style-5{
+.theForm{
 	max-width: 750px;
 	padding: 10px 20px;
 	background: #f4f7f8;
@@ -8,27 +8,27 @@
 	border-radius: 8px;
 	font-family: Verdana, "Times New Roman", Times, serif;
 }
-.form-style-5 fieldset{
+.theForm fieldset{
 	border: none;
 }
-.form-style-5 legend {
+.theForm legend {
 	font-size: 1.4em;
 	margin-bottom: 10px;
 }
-.form-style-5 label {
+.theForm label {
 	display: block;
 	margin-bottom: 8px;
 }
-.form-style-5 input[type="text"],
-.form-style-5 input[type="date"],
-.form-style-5 input[type="datetime"],
-.form-style-5 input[type="email"],
-.form-style-5 input[type="number"],
-.form-style-5 input[type="search"],
-.form-style-5 input[type="time"],
-.form-style-5 input[type="url"],
-.form-style-5 textarea,
-.form-style-5 select {
+.theForm input[type="text"],
+.theForm input[type="date"],
+.theForm input[type="datetime"],
+.theForm input[type="email"],
+.theForm input[type="number"],
+.theForm input[type="search"],
+.theForm input[type="time"],
+.theForm input[type="url"],
+.theForm textarea,
+.theForm select {
 	font-family: Verdana, "Times New Roman", Times, serif;
 	background: rgba(255,255,255,.1);
 	border: none;
@@ -48,23 +48,23 @@
 	margin-bottom: 30px;
 	
 }
-.form-style-5 input[type="text"]:focus,
-.form-style-5 input[type="date"]:focus,
-.form-style-5 input[type="datetime"]:focus,
-.form-style-5 input[type="email"]:focus,
-.form-style-5 input[type="number"]:focus,
-.form-style-5 input[type="search"]:focus,
-.form-style-5 input[type="time"]:focus,
-.form-style-5 input[type="url"]:focus,
-.form-style-5 textarea:focus,
-.form-style-5 select:focus{
+.theForm input[type="text"]:focus,
+.theForm input[type="date"]:focus,
+.theForm input[type="datetime"]:focus,
+.theForm input[type="email"]:focus,
+.theForm input[type="number"]:focus,
+.theForm input[type="search"]:focus,
+.theForm input[type="time"]:focus,
+.theForm input[type="url"]:focus,
+.theForm textarea:focus,
+.theForm select:focus{
 	background: #d2d9dd;
 }
-.form-style-5 select{
+.theForm select{
 	-webkit-appearance: menulist-button;
 	height:35px;
 }
-.form-style-5 .number {
+.theForm .number {
 	background: #1abc9c;
 	color: #fff;
 	height: 30px;
@@ -78,8 +78,8 @@
 	border-radius: 15px 15px 15px 0px;
 }
 
-.form-style-5 input[type="submit"],
-.form-style-5 input[type="button"]
+.theForm input[type="submit"],
+.theForm input[type="button"]
 {
 	position: relative;
 	display: block;
@@ -95,8 +95,8 @@
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
 }
-.form-style-5 input[type="submit"]:hover,
-.form-style-5 input[type="button"]:hover
+.theForm input[type="submit"]:hover,
+.theForm input[type="button"]:hover
 {
 	background: #109177;
 }

@@ -165,7 +165,7 @@ class ProductAddEdit extends Component {
                 <h1>Add new product</h1>
 
                 <br></br>
-                <div className="form-style-5">
+                <div className="theForm">
 
                     <fieldset>
                         <legend><span className="number">1</span>Choose your product category</legend>

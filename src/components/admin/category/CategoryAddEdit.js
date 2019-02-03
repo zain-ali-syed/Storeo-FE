@@ -86,7 +86,7 @@ class CategoryAddEdit extends Component {
                 <h1>{this.state.editMode ? "Edit category" : "Add new Category"}</h1>
 
                 <br></br>
-                <div className="form-style-5">
+                <div className="theForm">
                     <fieldset>
                         <legend><span className="number">1</span>Category Name</legend>
                     </fieldset>

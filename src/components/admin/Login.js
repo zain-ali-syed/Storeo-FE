@@ -30,7 +30,7 @@ class Login extends Component {
         console.log("state ", this.state, this.props.user)
         return (
             <Layout>
-                <div className="form-style-5">
+                <div className="theForm">
                     <fieldset>
                         <legend><span className="number"></span>Login</legend>
                         <input name="email" type="text" placeholder="Email" className="validate" value={this.state.email} onChange={this.handleChange} />

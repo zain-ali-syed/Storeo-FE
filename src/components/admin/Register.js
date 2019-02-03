@@ -31,7 +31,7 @@ class Register extends Component {
         console.log("state ", this.state)
         return (
             <Layout>
-                <div className="form-style-5">
+                <div className="theForm">
                     <fieldset>
                         <legend><span className="number"></span>Registration</legend>
                         <input name="firstname" type="text" placeholder="First name" className="validate" value={this.state.firstname} onChange={this.handleChange} />
