@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { deleteFromBasket } from '../../../actions/example.actions';
+import { deleteFromBasket, changeQuantity } from '../../../actions/example.actions';
 import { Link } from 'react-router-dom';
 
 class ProdBasket extends Component {
@@ -9,11 +9,11 @@ class ProdBasket extends Component {
     this.props.deleteFromBasket(this.props.id);
   }
 
-  changeQuantity = (qty=1) => {
+  chgQuantity = (qty=1) => {
     if (qty===-1 && this.props.quantity===1) {
     return
   } else {
-
+    this.props.changeQuantity(qty, this.props.id);
   }
 }
   
@@ -35,11 +35,11 @@ class ProdBasket extends Component {
                               <p className="black-text">I am good at containing small bits of information.</p>
                                 
                                    <div className="col s12 m12">
-                                      <a href="#"><i className="material-icons blue white-text">expand_more</i></a>
+                                      <a to="" className="btn-flat" onClick={this.chgQuantity}><i className="material-icons blue white-text">expand_more</i></a>
                                       <div className="col">
                                         <p className="black-text">{this.props.quantity}</p>
                                       </div>
-                                      <a href="#"><i className="material-icons blue white-text">expand_less</i></a>
+                                      <a to="" className="btn-flat"><i className="material-icons blue white-text">expand_less</i></a>
                                       </div>
                                    </div>
                        
@@ -59,6 +59,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteFromBasket: (product) => dispatch(deleteFromBasket(product)),
+  changeQuantity: (qty, id) => dispatch(changeQuantity(qty, id))
 })
 
 export default connect(

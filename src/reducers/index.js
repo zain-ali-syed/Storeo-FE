@@ -60,6 +60,19 @@ const rootReducer = (state = initState, action) => {
 
         return {...state, basket: tmpDelBasket};
 
+        case 'CHANGE_PRODUCT_QTY_IN_BASKET':
+
+        let tmpChngBasket = state.basket.slice();
+        
+        tmpChngBasket.forEach(basketProductEl => {
+            if (basketProductEl.id === action.id)
+            basketProductEl.quantity += action.qty;
+        })
+
+        return {...state, basket: tmpChngBasket};
+
+
+
         case "USER_LOGGED_IN":
             return { ...state, user: action.user }
         default:
