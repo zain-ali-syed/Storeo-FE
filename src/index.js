@@ -10,18 +10,20 @@ import rootReducer from './reducers';
 const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
+);
 
-  store.subscribe(() => {
-    localStorage.setItem('basket', JSON.stringify(store.getState().basket));
-    // saveState({
-    //   // authentication: store.getState().authentication,
-    //   // user: store.getState().user,
-    //   basket: store.getState().basket,
-    //   // categories: store.getState().categories,
-    //   // products: store.getState().products,
-    // });
-  });
+store.subscribe(() => {
+  localStorage.setItem('basket', JSON.stringify(store.getState().basket));
+  localStorage.setItem('user', JSON.stringify(store.getState().user));
+
+  // saveState({
+  //   // authentication: store.getState().authentication,
+  //   // user: store.getState().user,
+  //   basket: store.getState().basket,
+  //   // categories: store.getState().categories,
+  //   // products: store.getState().products,
+  // });
+});
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

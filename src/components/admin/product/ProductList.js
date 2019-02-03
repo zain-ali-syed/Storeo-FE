@@ -49,8 +49,8 @@ class ProductList extends Component {
             <table className="striped">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Description</th>
+                        <th></th>
+                        <th></th>
                         <th></th>
                     </tr>
 

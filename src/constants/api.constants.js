@@ -2,7 +2,7 @@
 
 export const apiConstants = {
 
-  PRODUCTS_BY_CAT: `http://${url}/products/cat`,
+  PRODUCTS_BY_CAT: `http://localhost:3000/products/cat`,
   ADMIN_REGISTER_URL: 'http://localhost:3000/signup',
   LOGIN_URL: 'http://localhost:3000/login',
   USER_REGISTER_URL: 'http://localhost:3000/signup',

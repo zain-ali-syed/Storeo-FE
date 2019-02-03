@@ -1,6 +1,9 @@
 import { apiConstants } from '../constants/api.constants'
 import axios from 'axios';
 
+const user = localStorage.getItem('user');
+if (user) var token = JSON.parse(user).token;
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
 
 

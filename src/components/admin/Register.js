@@ -20,15 +20,14 @@ class Register extends Component {
 
     onSubmit = async (e) => {
         try {
-            const res = await registerAdmin(this.state);
-            console.log("response ", res)
+            await registerAdmin(this.state);
+            this.props.history.push("/admin/login");
         } catch (e) {
             console.error("Error while registering new user ", e)
         }
     }
 
     render() {
-        console.log("state ", this.state)
         return (
             <Layout>
                 <div className="theForm">
