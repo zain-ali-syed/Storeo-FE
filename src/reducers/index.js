@@ -46,6 +46,7 @@ const rootReducer = (state = initState, action) => {
         return {...state, basket:[...state.basket, product]} 
         
         case 'DELETE_FROM_BASKET':
+        
         let tmpDelBasket = state.basket.slice();
      
         let inx = -1;

@@ -12,11 +12,14 @@ componentDidMount () {
   this.totalPrice();
 }
 
+componentDidUpdate () {
+  
+}
+
 showBasket = () => {
     if (this.props.basket.length===0) {
     return <div><p className="black-text">BASKET EMPTY...</p></div>
     } else {
-
      return this.props.basket.map((item, index) => {
             return <li className="collection-item avatar" key={index}><ProdBasket {...item}/></li>
         })

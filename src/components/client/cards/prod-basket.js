@@ -8,6 +8,7 @@ class ProdBasket extends Component {
   delFromBasket = () => {
     this.props.deleteFromBasket(this.props.id);
   }
+
   
   render () {
 
