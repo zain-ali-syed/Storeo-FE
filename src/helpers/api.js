@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 
-
 //COMMON ADMIN AND CLIENT APIS
 
 export const getProducts = (id) => {

@@ -9,8 +9,17 @@ class ProdBasket extends Component {
     this.props.deleteFromBasket(this.props.id);
   }
 
+  changeQuantity = (qty=1) => {
+    if (qty===-1 && this.props.quantity===1) {
+    return
+  } else {
+
+  }
+}
   
   render () {
+
+   console.log(this.props);
 
   return (
           <div className="">
@@ -18,7 +27,7 @@ class ProdBasket extends Component {
                 <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt="" className="circle"></img>
                       <span>
                         
-                      <span className="card-title">{this.props.name}</span>
+                      <Link to={`/productcard/${this.props.id}`} className="card-title">{this.props.name}</Link>
 
                             <div className="card-content">
                             <span className="card-title">{this.props.price}</span>
@@ -28,7 +37,7 @@ class ProdBasket extends Component {
                                    <div className="col s12 m12">
                                       <a href="#"><i className="material-icons blue white-text">expand_more</i></a>
                                       <div className="col">
-                                        <p className="black-text">5</p>
+                                        <p className="black-text">{this.props.quantity}</p>
                                       </div>
                                       <a href="#"><i className="material-icons blue white-text">expand_less</i></a>
                                       </div>
