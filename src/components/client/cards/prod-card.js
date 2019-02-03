@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import Layout from '../Layout';
 import { connect } from 'react-redux'
-import { getProductByProdId } from '../../../helpers/api';
+import { getProducts } from '../../../helpers/api';
 import { addToBasket } from '../../../actions/example.actions';
 
-const qty = 4; // this should be the value from the form !
+const qty = 1; // this should be the value from the form !
 
 class ProductCard extends Component {
 
@@ -13,24 +13,15 @@ class ProductCard extends Component {
   };
   
   async componentDidMount() {
-    const product = await getProductByProdId(this.props.match.params.id);
+    const product = await getProducts(this.props.match.params.id);
     
     this.setState({product: {...product.data[0], quantity:0}});
     
 
   }
 
-  properites = () => {
-    // return this.state.product.product_properties.map((property, index) => {
-    //   return <div key={index}><p className="black-text">{property.property_name}</p></div>
-    // })
-  }
-
   addProdToBasket = () => {
-    // implement quantity feature !!!
-    
-    
-    this.props.addToBasket(this.state.product, 4)
+    this.props.addToBasket(this.state.product, 1)
   }
 
   render() {
@@ -85,12 +76,12 @@ class ProductCard extends Component {
           <br></br>
             <p className="black-text">{this.state.product.description} </p>
             <br></br>
-            {this.properites()}
+          
             <br></br>
              <p className="black-text"> I am a very simple card. I am good at containing small bits of information.</p>
             <br></br>
                
-                <div className="col s12 m12">
+                {/* <div className="col s12 m12">
                 
                 <button className="col s2 waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_more</i></button>
 
@@ -99,7 +90,7 @@ class ProductCard extends Component {
                 </div>
 
                 <button className="col s2 waves-effect waves-light btn-small blue lighten-2"><i className="material-icons">expand_less</i></button>
-                </div>
+                </div> */}
 
             <div className="card-action center">
             <button className="waves-effect waves-light btn blue lighten-2" onClick={this.addProdToBasket}><i className="material-icons left">add</i>Add to basket</button>

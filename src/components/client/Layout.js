@@ -5,13 +5,12 @@ import SideNav from './containers/SideNav';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
 
-let totalBasketQty = 0;
 
 class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
-    this.totalBasketQty();
+    // this.totalBasketQty();
   }
 
  totalBasketQty = () => {
@@ -19,7 +18,7 @@ class Layout extends Component {
     this.props.basket.forEach(item => {
       subTotalBasketQty+=item.quantity
     });
-   totalBasketQty = subTotalBasketQty;
+    return subTotalBasketQty;
   }
 
   render() {
@@ -37,7 +36,7 @@ class Layout extends Component {
                 <li><Link to="/basket">
                 <i className="material-icons white-text">shopping_cart</i>
                 <div className="badge red" id="badge"></div>
-                <div id="badgeNbr"></div><p id="badgeText">{totalBasketQty}</p>
+                <div id="badgeNbr"></div><p id="badgeText">{this.totalBasketQty()}</p>
                 </Link></li>
                 <li><Link to="#"></Link></li>
               </ul>

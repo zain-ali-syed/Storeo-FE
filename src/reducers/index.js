@@ -9,7 +9,6 @@ const initState = {
     basket: basket,
     categories: [],
     products: []
-
 }
 
 const rootReducer = (state = initState, action) => {
@@ -56,12 +55,9 @@ const rootReducer = (state = initState, action) => {
             inx = tmpDelBasket.indexOf(basketProductEl)
             return inx;
         })
-        console.log('product id', action.id);
-        console.log('inx', inx);
-        const newTmpDelBasket = tmpDelBasket.splice(inx,1);
-        console.log(tmpDelBasket);
-        console.log({...state, basket:[tmpDelBasket]});
-        
+      
+        tmpDelBasket.splice(inx,1);
+
         return {...state, basket: tmpDelBasket};
 
         case "USER_LOGGED_IN":
