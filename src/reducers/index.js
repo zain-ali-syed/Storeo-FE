@@ -9,6 +9,7 @@ const initState = {
     basket: basket,
     categories: [],
     products: []
+
 }
 
 const rootReducer = (state = initState, action) => {
@@ -63,8 +64,11 @@ const rootReducer = (state = initState, action) => {
         
         return {...state, basket: tmpDelBasket};
 
+        case "USER_LOGGED_IN":
+            return { ...state, user: action.user }
         default:
-        return state;
+            return state;
+
     }
 }
 

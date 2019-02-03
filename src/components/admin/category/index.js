@@ -12,7 +12,7 @@ class Category extends Component {
                     <Link to="/admin/category/add_edit">
                         <span>
                             <i className="medium material-icons blue-grey-text text-darken-3">add_circle</i>
-                            <span className="action_header">Add new category</span>
+                            <span className="action_header">Add new category</span><br /><br />
                         </span>
                     </Link>
                     <CategoryList />
