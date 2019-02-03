@@ -3,14 +3,27 @@ import { Link } from 'react-router-dom';
 import '../client/Layout.css';
 import SideNav from './containers/SideNav';
 import M from 'materialize-css';
+import { connect } from 'react-redux';
+
+let totalBasketQty = 0;
 
 class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
+    this.totalBasketQty();
+  }
+
+ totalBasketQty = () => {
+    let subTotalBasketQty = 0;
+    this.props.basket.forEach(item => {
+      subTotalBasketQty+=item.quantity
+    });
+   totalBasketQty = subTotalBasketQty;
   }
 
   render() {
+
     return (
       <React.Fragment>
         <header>
@@ -24,7 +37,7 @@ class Layout extends Component {
                 <li><Link to="/basket">
                 <i className="material-icons white-text">shopping_cart</i>
                 <div className="badge red" id="badge"></div>
-                <div id="badgeNbr"></div><p id="badgeText">4</p>
+                <div id="badgeNbr"></div><p id="badgeText">{totalBasketQty}</p>
                 </Link></li>
                 <li><Link to="#"></Link></li>
               </ul>
@@ -65,5 +78,15 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+const mapStateToProps = (state) => ({
+  basket: state.basket,
+})
+
+// const mapDispatchToProps = (dispatch) => ({
+
+// })
+
+export default connect(
+  mapStateToProps
+)(Layout);
 

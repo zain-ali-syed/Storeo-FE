@@ -14,7 +14,7 @@ class ProductCard extends Component {
   
   async componentDidMount() {
     const product = await getProductByProdId(this.props.match.params.id);
-    console.log(product.data);
+    
     this.setState({product: {...product.data[0], quantity:0}});
     
 

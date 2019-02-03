@@ -41,4 +41,7 @@ export const addToBasket = (product, quantityToAdd) => ({
   quantityToAdd: quantityToAdd
 })
 
-
+export const deleteFromBasket = (id) => ({
+  type: 'DELETE_FROM_BASKET',
+  id
+})

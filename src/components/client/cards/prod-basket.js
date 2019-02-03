@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { deleteFromBasket } from '../../../actions/example.actions';
 import { Link } from 'react-router-dom';
 
-export default class ProdBasket extends Component {
+class ProdBasket extends Component {
+
+  delFromBasket = () => {
+    this.props.deleteFromBasket(this.props.id);
+  }
   
   render () {
-    
+
   return (
           <div className="">
 
@@ -29,11 +35,23 @@ export default class ProdBasket extends Component {
                        
                         </span>
 
-                      <br></br>
+                      <br></br> 
                       
-                      <a href="#!" className="secondary-content"><i className="material-icons blue-text">delete</i></a>
+                      <a to="" className="secondary-content btn-flat" onClick={this.delFromBasket}><i className="material-icons blue-text">delete</i></a>
           </div>
   );
   }
 };
 
+const mapStateToProps = (state) => ({
+  basket: state.basket,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  deleteFromBasket: (product) => dispatch(deleteFromBasket(product)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProdBasket);

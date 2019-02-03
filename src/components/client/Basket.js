@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import ProdBasket from './cards/prod-basket';
 
+let totalPr = 0;
+
 class Basket extends Component {
 
 componentDidMount () {
-  
+  this.totalPrice();
 }
 
 showBasket = () => {
@@ -21,8 +23,19 @@ showBasket = () => {
     }
 }
 
+totalPrice = () => {
+  let subTotalPr = 0;
+  this.props.basket.forEach(item => {
+    subTotalPr+=item.price
+  });
+  totalPr=subTotalPr;
+}
+
+
   render() {
-    
+
+
+
     return (
       <Layout>
       
@@ -45,9 +58,9 @@ showBasket = () => {
                   <div className="card-content">
                     <span className="card-title"></span>
                         <p className="black-text">List of basket items</p>
-                        <h6 className="black-text">Total: 331.19 EUR</h6>
+                        <h6 className="black-text">Total: {totalPr}</h6>
                     
-                        <Link to="/checkout" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left">check</i>Checkout</Link>
+                        <Link to={`/checkout/${totalPr}`} className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Checkout</Link>
                         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
                   </div>
               </div>

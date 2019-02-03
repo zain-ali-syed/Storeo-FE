@@ -41,7 +41,7 @@ class App extends Component {
           <Route exact path="/basket" component={Basket}></Route>
           <Route exact path="/productcard/:id" component={ProductCard}></Route>
           <Route  path="/productslist/:id" component={ProductsList}></Route>
-          <Route exact path="/checkout" component={Checkout}></Route>
+          <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
         </Switch>
       </BrowserRouter>
     );

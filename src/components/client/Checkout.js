@@ -10,7 +10,6 @@ import ProdCheckout from './cards/prod-checkout';
 
 class Checkout extends Component {
 
-// ProductSmallCard loop rendering logic goes here
 
 payWithStripe = () => {
   return (
@@ -57,6 +56,7 @@ showBasket = () => {
 
 
   render() {
+
     return (
       <Layout>
        
@@ -99,7 +99,7 @@ showBasket = () => {
                   <div className="card-content">
                     <span className="card-title"></span>
                         
-                        <h6 className="black-text">Total: 331.19 EUR</h6>
+                        <h6 className="black-text">Total: {this.props.match.params.totalPr}</h6>
                     
 
                        {this.payWithStripe()}

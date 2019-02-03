@@ -45,6 +45,22 @@ const rootReducer = (state = initState, action) => {
     
         return {...state, basket:[...state.basket, product]} 
         
+        case 'DELETE_FROM_BASKET':
+        let tmpDelBasket = state.basket.slice();
+     
+        let inx = -1;
+        tmpDelBasket.forEach(basketProductEl => {
+            if (basketProductEl.id === action.id)
+            inx = tmpDelBasket.indexOf(basketProductEl)
+            return inx;
+        })
+        console.log('product id', action.id);
+        console.log('inx', inx);
+        const newTmpDelBasket = tmpDelBasket.splice(inx,1);
+        console.log(tmpDelBasket);
+        console.log({...state, basket:[tmpDelBasket]});
+        
+        return {...state, basket: tmpDelBasket};
 
         default:
         return state;
