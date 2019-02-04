@@ -1,5 +1,6 @@
 const url1 = `192.168.1.158:3000`;
 const url = `192.168.1.149:3000`;
+const urlLuca = `192.168.1.116:3000`
 
 export const apiConstants = {
 
@@ -13,6 +14,7 @@ export const apiConstants = {
   ADMIN_CATEGORY_URL: `http://${url}/admin/categories`, //POST, PUT, DELETE
   ADMIN_ORDERS_URL: `http://${url}/admin/orders`,
   CUSTOMER_POST_NEW_ORDER: `http://${url}/orders`,
-  CUSTOMER_POST_NEW_ADDRESS: `http://${url}/address`
+  CUSTOMER_POST_NEW_ADDRESS: `http://${url}/address`,
+  PAYMENT: `http://${urlLuca}/charge`
 }
 

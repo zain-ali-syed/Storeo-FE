@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { apiConstants } from '../../../constants/api.constants'
 import { clearBasket } from '../../../actions/example.actions';
 import {postNewOrder} from '../../../helpers/api';
 
@@ -12,25 +13,23 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {complete: false};
-    // this.submit = this.submit.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
-  submit = async (ev) => {
+  async submit(ev) {
 
     let {token} = await this.props.stripe.createToken({name: "Name"});
     
-    // if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
-    
-    let response = await fetch("/charge", {
+    let response = await fetch(apiConstants.PAYMENT, {
       method: "POST",
       headers: {"Content-Type": "text/plain"},
       body: token.id
     });
     
-    this.setState({complete: true});
+    this.setState({complete: true});  // to be removed when BE connection ready
     this.submitOrder();
     this.props.clearBasket();
-       // to be removed when BE connection ready
+      
 
     if (response.ok) {
       this.setState({complete: true});
@@ -38,15 +37,20 @@ class CheckoutForm extends Component {
   }
 
 // submitOrder - to be completed!!!
+  orderBasket = () => {
+    let basket = [];
+    this.props.basket.forEach(el => {
+    basket.push({product_id: el.id, quantity: el.quantity})
+    })
+    return basket;
+  }
 
   submitOrder = () => {
+    let basket = this.orderBasket();
       postNewOrder({
         total: this.props.totalPrice,
         special_instructions: this.props.specialInstr,
-        ordered_items: [{
-          product_id: 1,
-          quantity: 5
-        }]
+        ordered_items: [basket]
       }, {headers: {'Authorization': "Bearer " + token}})
   }
 
@@ -59,7 +63,7 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    
+   
     return (
       <div className="checkout">
       <h6 className="black-text">Total: {this.totalPrice()}</h6>
