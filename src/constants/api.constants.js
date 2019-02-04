@@ -1,4 +1,5 @@
-const url = `192.168.1.158:3000`;
+const url1 = `192.168.1.158:3000`;
+const url = `192.168.1.149:3000`;
 
 export const apiConstants = {
 

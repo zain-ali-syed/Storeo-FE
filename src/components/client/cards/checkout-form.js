@@ -1,7 +1,9 @@
 
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { clearBasket } from '../../../actions/example.actions';
 
 
 class CheckoutForm extends Component {
@@ -11,22 +13,28 @@ class CheckoutForm extends Component {
     this.submit = this.submit.bind(this);
   }
 
-  async submit(ev) {
-    let {token} = await this.props.stripe.createToken({name: "Name"});
+  // async submit(ev) {
 
-    if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
+  //   let {token} = await this.props.stripe.createToken({name: "Name"});
 
-    let response = await fetch("/charge", {
-    method: "POST",
-    headers: {"Content-Type": "text/plain"},
-    body: token.id
-  });
+  //   if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
 
-  if (response.ok) {
-    this.setState({complete: true});
-  }
+  //   let response = await fetch("/charge", {
+  //   method: "POST",
+  //   headers: {"Content-Type": "text/plain"},
+  //   body: token.id
+  // });
 
+  
+  // if (response.ok) {
+  //   this.setState({complete: true});
+  // }
 
+  // }
+
+  submit = () => {
+    this.props.clearBasket();
+    this.setState({complete: true})
   }
 
   render() {
@@ -45,4 +53,12 @@ class CheckoutForm extends Component {
   }
 }
 
-export default injectStripe(CheckoutForm);
+const mapStateToProps = (state) => ({
+  basket: state.basket,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  clearBasket: () => dispatch(clearBasket())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutForm)
