@@ -12,16 +12,14 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {complete: false};
-    this.submit = this.submit.bind(this);
+    // this.submit = this.submit.bind(this);
   }
 
-  async submit(ev) {
+  submit = async (ev) => {
 
     let {token} = await this.props.stripe.createToken({name: "Name"});
     
-    console.log(token);
-
-    if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
+    // if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
     
     let response = await fetch("/charge", {
       method: "POST",
@@ -29,9 +27,10 @@ class CheckoutForm extends Component {
       body: token.id
     });
     
+    this.setState({complete: true});
     this.submitOrder();
     this.props.clearBasket();
-    this.setState({complete: true});   // to be removed when BE connection ready
+       // to be removed when BE connection ready
 
     if (response.ok) {
       this.setState({complete: true});
@@ -55,13 +54,18 @@ class CheckoutForm extends Component {
   return (this.state.complete) ? <div><p className="black-text">Purchase Complete</p></div> : <div><p className="black-text">Would you like to complete the purchase?</p></div>;
   }
 
-  render() {
+  totalPrice = () => {
+    return (this.state.complete) ? "0" : this.props.totalPrice;
+  }
 
+  render() {
+    
     return (
       <div className="checkout">
+      <h6 className="black-text">Total: {this.totalPrice()}</h6>
         {this.message()}
         <br></br>
-        <CardElement />
+          <CardElement />
         <br></br>
         <button className="waves-effect waves-light btn blue lighten-2" onClick={this.submit}><i className="material-icons left"></i>Pay now</button>
         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>

@@ -38,7 +38,6 @@ showBasket = () => {
 }
 
 handleInput = (event) => {
-event.preventDefault();
 this.setState({specialInstr: event.target.value})
 }
 
@@ -60,7 +59,7 @@ this.setState({specialInstr: event.target.value})
               <i className="material-icons prefix">mode_edit</i>
               <input placeholder="special delivery instructions" id="special_instructions" type="text" className="validate" data-length="30"
               value={this.state.specialInstr} onChange={this.handleInput}></input>
-              <label>max. 30 characters</label>
+              {/* <label>max. 30 characters</label> */}
               </div>
           </div>
     
@@ -76,7 +75,6 @@ this.setState({specialInstr: event.target.value})
                 <span className="card-title">Payment summary</span>
                   <div className="card-content">
                     <span className="card-title"></span>
-                        <h6 className="black-text">Total: {this.props.match.params.totalPr}</h6>
                        {this.payWithStripe()}
                   </div>
               </div>
