@@ -18,7 +18,6 @@ export default class ProdCheckout extends Component {
               <br></br>
               <span className="card-title">Total cost: {totalPrice}</span>
               <p className="black-text">{this.props.description}</p>
-                <p className="black-text">I am good at containing small bits of information.</p>
               </div>
 
     </div>

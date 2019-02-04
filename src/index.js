@@ -14,7 +14,6 @@ const store = createStore(
 
   store.subscribe(() => {
     localStorage.setItem('basket', JSON.stringify(store.getState().basket));
-    
     // saveState({
     //   // authentication: store.getState().authentication,
     //   // user: store.getState().user,
