@@ -1,0 +1,307 @@
+.theForm{
+	max-width: 750px;
+	padding: 10px 20px;
+	background: #f4f7f8;
+	margin: 10px auto;
+	padding: 20px;
+	background: #f4f7f8;
+	border-radius: 8px;
+	font-family: Verdana, "Times New Roman", Times, serif;
+}
+.theForm fieldset{
+	border: none;
+}
+.theForm legend {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+.theForm label {
+	display: block;
+	margin-bottom: 8px;
+}
+.theForm input[type="text"],
+.theForm input[type="date"],
+.theForm input[type="datetime"],
+.theForm input[type="email"],
+.theForm input[type="number"],
+.theForm input[type="search"],
+.theForm input[type="time"],
+.theForm input[type="url"],
+.theForm textarea,
+.theForm select {
+	font-family: Verdana, "Times New Roman", Times, serif;
+	background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	margin: 0;
+	outline: 0;
+	padding: 7px;
+	width: 100%;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#000000;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	margin-bottom: 30px;
+	
+}
+.theForm input[type="text"]:focus,
+.theForm input[type="date"]:focus,
+.theForm input[type="datetime"]:focus,
+.theForm input[type="email"]:focus,
+.theForm input[type="number"]:focus,
+.theForm input[type="search"]:focus,
+.theForm input[type="time"]:focus,
+.theForm input[type="url"]:focus,
+.theForm textarea:focus,
+.theForm select:focus{
+	background: #d2d9dd;
+}
+.theForm select{
+	-webkit-appearance: menulist-button;
+	height:35px;
+}
+.theForm .number {
+	background: #1abc9c;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 4px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+	border-radius: 15px 15px 15px 0px;
+}
+
+.theForm input[type="submit"],
+.theForm input[type="button"]
+{
+	position: relative;
+	display: block;
+	padding: 19px 39px 18px 39px;
+	color: #FFF;
+	margin: 0 auto;
+	background: #1abc9c;
+	font-size: 18px;
+	text-align: center;
+	font-style: normal;
+	width: 100%;
+	border: 1px solid #16a085;
+	border-width: 1px 1px 3px;
+	margin-bottom: 10px;
+}
+.theForm input[type="submit"]:hover,
+.theForm input[type="button"]:hover
+{
+	background: #109177;
+}
+
+::placeholder { color: rgb(170, 170, 179);
+				font-family: Verdana, "Times New Roman", Times, serif;
+				
+}
+
+
+
+.brace {
+	width: auto;
+	min-width: 35px;
+	padding-bottom: 20px;
+	font-size: 2em;
+	line-height: 2em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 15px 15px;
+	border: none;
+	background-color: transparent;
+	background-image: radial-gradient(circle at 0 0, rgba(255,255,255,0) 14.5px,grey 15.5px,grey 19.5px, rgba(255,255,255,0) 20.5px), radial-gradient(circle at 35px 0, rgba(255,255,255,0) 14.5px, grey 15.5px, grey 19.5px, rgba(255,255,255,0) 20.5px);
+	background-size: 35px 20px;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	text-transform: lowercase;
+	font-style: italic;
+	color:grey;
+	-webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+			filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+	overflow: visible;
+  }
+  .brace:before {
+	width: 30%;
+	border-top: 5px solid grey;
+	border-left: 1px solid transparent; /* play with this until you like the look of it */
+	border-top-left-radius: 20% 30px;
+	height: 100%;
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: -15px;
+	box-sizing: border-box;
+	margin-top: -5px;
+  }
+  .brace:after {
+	width: 30%;
+	border-top: 5px solid grey;
+	border-right: 1px solid transparent; /* play with this until you like the look of it */
+	border-top-right-radius: 20% 30px;
+	height: 100%;
+	content: "";
+	position: absolute;
+	top: 100%;
+	right: -15px;
+	box-sizing: border-box;
+	margin-top: -5px;
+  }
+
+  h1 {
+	text-align: center;
+	font-size: 2.5em;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color:#455a64;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+
+  .rivets:before, .rivets:after, .seal, .type {
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+  }
+  
+  .seal, .seal:before, .type {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  }
+  
+  .logo {
+	background: #000;
+	-moz-border-radius: 1.5em;
+	-webkit-border-radius: 1.5em;
+	border-radius: 1.5em;
+	color: #fff;
+	margin: 2em auto;
+	position: relative;
+	width: 7em;
+	height: 7em;
+	z-index: -2;
+  }
+  .logo:before {
+	background: #000;
+	-moz-border-radius: 1.5em;
+	-webkit-border-radius: 1.5em;
+	border-radius: 1.5em;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	-moz-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	width: 7em;
+	height: 7em;
+	z-index: -2;
+  }
+  .logo:after {
+	background: #000;
+	-moz-border-radius: 1.5em;
+	-webkit-border-radius: 1.5em;
+	border-radius: 1.5em;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	-moz-transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
+	transform: rotate(-30deg);
+	width: 7em;
+	height: 7em;
+	z-index: -2;
+  }
+  
+  .rivets {
+	width: 7em;
+	height: 7em;
+  }
+  .rivets:before, .rivets:after {
+	content: " ";
+	background: #000;
+	position: absolute;
+	top: 50%;
+	margin-top: -.25em;
+	width: .5em;
+	height: .5em;
+  }
+  .rivets:before {
+	left: -.75em;
+  }
+  .rivets:after {
+	right: -.75em;
+  }
+  
+  .seal {
+	background: #000;
+	margin-top: -3.5em;
+	margin-left: -3.5em;
+	width: 7em;
+	height: 7em;
+  }
+  .seal:before {
+	background: #0097c0 url("http://stash.rachelnabors.com/codepen/badge/brillant_trans.png") 50% 50%;
+	content: '';
+	margin-top: -1.25em;
+	margin-left: -5.25em;
+	z-index: -1;
+	width: 10.5em;
+	height: 0;
+	border: 1.25em solid transparent;
+	border-left: 0.625em solid #fff;
+	border-right: 0.625em solid #fff;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/*Fix to make the borders appear on the ribbon ends also*/
+	background-origin: border-box;
+  }
+  
+  .type {
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	-moz-transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
+	transform: rotate(-30deg);
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #0097c0 url("http://stash.rachelnabors.com/codepen/badge/brillant_trans.png") 50% 50%;
+	font-family: "Lato", sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 1em;
+	margin-top: -3em;
+	margin-left: -3em;
+	width: 6em;
+	height: 6em;
+  }
+  .type h1 {
+	font-size: 1.5em;
+	font-weight: 900;
+  }
+  .type em {
+	display: block;
+	font-size: .75em;
+	font-style: italic;
+	font-weight: 300;
+  }
+  
