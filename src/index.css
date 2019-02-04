@@ -7,6 +7,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background-image: white;
   color:black;
+  position: relative;
+  overflow: auto;
+  overscroll-behavior: none;
 }
 
 main {
@@ -40,7 +43,7 @@ i{
   color:black;
 }
 footer {
-  position:absolute;
+  position: absolute;
   bottom:0;
   width:100%;
 }

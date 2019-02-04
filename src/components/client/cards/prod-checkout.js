@@ -24,3 +24,4 @@ export default class ProdCheckout extends Component {
   );
   }
 };
+
