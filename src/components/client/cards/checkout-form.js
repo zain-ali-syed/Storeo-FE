@@ -33,6 +33,8 @@ class CheckoutForm extends Component {
 
     if (response.ok) {
       this.setState({complete: true});
+      this.submitOrder();
+      this.props.clearBasket();
     }
   }
 
@@ -52,6 +54,9 @@ class CheckoutForm extends Component {
         special_instructions: this.props.specialInstr,
         ordered_items: [basket]
       }, {headers: {'Authorization': "Bearer " + token}})
+      this.submit();
+      this.setState({complete: true})
+      this.props.clearBasket();
   }
 
   message = () => {
@@ -60,6 +65,10 @@ class CheckoutForm extends Component {
 
   totalPrice = () => {
     return (this.state.complete) ? "0" : this.props.totalPrice;
+  }
+
+  checkoutBtn = () => {
+    return (this.state.complete) ? 'disabled' : '';
   }
 
   render() {
@@ -71,7 +80,7 @@ class CheckoutForm extends Component {
         <br></br>
           <CardElement />
         <br></br>
-        <button className="waves-effect waves-light btn blue lighten-2" onClick={this.submit}><i className="material-icons left"></i>Pay now</button>
+        <button className={`waves-effect waves-light btn ${this.checkoutBtn()} blue lighten-2`} onClick={this.submitOrder}><i className="material-icons left"></i>Pay now</button>
         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
       </div>
     );
