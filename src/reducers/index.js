@@ -16,8 +16,10 @@ const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case 'GET_CATEGORIES':
         return {...state, categories: action.data};
+
         case 'GET_PROD_BY_CAT_ID':
         return {...state, products: action.data};
+
         case 'ADD_TO_BASKET':
 
         let tmpBasket = state.basket.slice();
@@ -44,6 +46,10 @@ const rootReducer = (state = initState, action) => {
         product.quantity += quantityToAdd
     
         return {...state, basket:[...state.basket, product]} 
+
+        case 'CLEAR_BASKET':
+        return {...state, basket: []}
+
         
         case 'DELETE_FROM_BASKET':
         
@@ -63,7 +69,7 @@ const rootReducer = (state = initState, action) => {
         case 'CHANGE_PRODUCT_QTY_IN_BASKET':
 
         let tmpChngBasket = state.basket.slice();
-        
+
         tmpChngBasket.forEach(basketProductEl => {
             if (basketProductEl.id === action.id)
             basketProductEl.quantity += action.qty;

@@ -9,17 +9,17 @@ class ProdBasket extends Component {
     this.props.deleteFromBasket(this.props.id);
   }
 
-  chgQuantity = (qty=1) => {
+  chgQuantity = (qty) => {
     if (qty===-1 && this.props.quantity===1) {
     return
   } else {
+    console.log('qty1', qty);
     this.props.changeQuantity(qty, this.props.id);
   }
 }
   
-  render () {
 
-   console.log(this.props);
+  render () {
 
   return (
           <div className="">
@@ -35,11 +35,11 @@ class ProdBasket extends Component {
                               <p className="black-text">I am good at containing small bits of information.</p>
                                 
                                    <div className="col s12 m12">
-                                      <a to="" className="btn-flat" onClick={this.chgQuantity}><i className="material-icons blue white-text">expand_more</i></a>
+                                      <a to="" className="btn-flat" onClick={()=>this.chgQuantity(-1)}><i className="material-icons blue white-text">expand_more</i></a>
                                       <div className="col">
                                         <p className="black-text">{this.props.quantity}</p>
                                       </div>
-                                      <a to="" className="btn-flat"><i className="material-icons blue white-text">expand_less</i></a>
+                                      <a to="" className="btn-flat"onClick={()=>this.chgQuantity(1)}><i className="material-icons blue white-text">expand_less</i></a>
                                       </div>
                                    </div>
                        

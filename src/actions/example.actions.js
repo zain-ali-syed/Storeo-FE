@@ -46,6 +46,10 @@ export const deleteFromBasket = (id) => ({
   id
 })
 
+export const clearBasket = () => ({
+  type: 'CLEAR_BASKET',
+})
+
 export const changeQuantity = (qty, id) => ({
   type: 'CHANGE_PRODUCT_QTY_IN_BASKET',
   qty: qty,
