@@ -43,7 +43,7 @@ class CheckoutForm extends Component {
   submitOrder = () => {
       postNewOrder({
         total: this.props.totalPrice,
-        special_instructions: 'Deliver after 3 pm.',
+        special_instructions: this.props.specialInstr,
         ordered_items: [{
           product_id: 1,
           quantity: 5
