@@ -1,10 +1,12 @@
-
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { clearBasket } from '../../../actions/example.actions';
+import {postNewOrder} from '../../../helpers/api';
 
+
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -27,6 +29,7 @@ class CheckoutForm extends Component {
       body: token.id
     });
     
+    this.submitOrder();
     this.props.clearBasket();
     this.setState({complete: true});   // to be removed when BE connection ready
 
@@ -35,12 +38,25 @@ class CheckoutForm extends Component {
     }
   }
 
+// submitOrder - to be completed!!!
+
+  submitOrder = () => {
+      postNewOrder({
+        total: this.props.totalPrice,
+        special_instructions: 'Deliver after 3 pm.',
+        ordered_items: [{
+          product_id: 1,
+          quantity: 5
+        }]
+      }, {headers: {'Authorization': "Bearer " + token}})
+  }
+
   message = () => {
   return (this.state.complete) ? <div><p className="black-text">Purchase Complete</p></div> : <div><p className="black-text">Would you like to complete the purchase?</p></div>;
   }
 
-    render() {
-      
+  render() {
+
     return (
       <div className="checkout">
         {this.message()}
