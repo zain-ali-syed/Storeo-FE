@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { getProducts } from '../../../helpers/api';
 import { addToBasket } from '../../../actions/example.actions';
 
-const qty = 1; // this should be the value from the form !
-
 class ProductCard extends Component {
 
   state = {

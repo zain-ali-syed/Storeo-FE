@@ -59,7 +59,7 @@ class Layout extends Component {
       <React.Fragment>
         
         <header>
-          <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+          <a href="#!" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
           {/*-- Dropdown Structure --*/}
           <ul id="dropdown1" className="dropdown-content">
@@ -68,7 +68,8 @@ class Layout extends Component {
             : this.props.categories.map((category) => {
               return  (
                 <li key={category.id}>
-                  <a 
+                  <a
+                    href="#!"
                     onClick={() => this.selectCategory(category.id, category.name)}
                     className="waves-effect"
                   >

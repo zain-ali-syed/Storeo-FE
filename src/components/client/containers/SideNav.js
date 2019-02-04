@@ -37,9 +37,9 @@ class SideNav extends Component {
             <li><div className="user-view">
               <div className="background blue lighten-2">
               </div>
-              <a href="#"><img className="circle" src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt=""></img></a>
-              <a href="#"><span className="white-text name">John Doe</span></a>
-              <a href="#"><span className="white-text email">jdandturk@gmail.com</span></a>
+              <a href="#!"><img className="circle" src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt=""></img></a>
+              <a href="#!"><span className="white-text name">John Doe</span></a>
+              <a href="#!"><span className="white-text email">jdandturk@gmail.com</span></a>
             </div></li>
             <li>
               {this.displayCategories()}

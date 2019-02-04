@@ -35,11 +35,11 @@ class ProdBasket extends Component {
                               <p className="black-text">{this.props.description}</p>
                                 
                                    <div className="col s12 m12">
-                                      <a to="" className="btn-flat" onClick={()=>this.chgQuantity(-1)}><i className="material-icons blue white-text">expand_more</i></a>
+                                      <button to="" className="btn-flat" onClick={()=>this.chgQuantity(-1)}><i className="material-icons blue white-text">expand_more</i></button>
                                       <div className="col">
                                         <p className="black-text">{this.props.quantity}</p>
                                       </div>
-                                      <a to="" className="btn-flat"onClick={()=>this.chgQuantity(1)}><i className="material-icons blue white-text">expand_less</i></a>
+                                      <button to="" className="btn-flat"onClick={()=>this.chgQuantity(1)}><i className="material-icons blue white-text">expand_less</i></button>
                                       </div>
                                    </div>
                        
@@ -47,7 +47,7 @@ class ProdBasket extends Component {
 
                       <br></br> 
                       
-                      <a to="" className="secondary-content btn-flat" onClick={this.delFromBasket}><i className="material-icons blue-text">delete</i></a>
+                      <button to="" className="secondary-content btn-flat" onClick={this.delFromBasket}><i className="material-icons blue-text">delete</i></button>
           </div>
   );
   }
