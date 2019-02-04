@@ -21,6 +21,8 @@ class ProdBasket extends Component {
 
   render () {
 
+  const totalPrice = this.props.price*this.props.quantity;
+
   return (
           <div className="">
 
@@ -30,9 +32,9 @@ class ProdBasket extends Component {
                       <Link to={`/productcard/${this.props.id}`} className="card-title">{this.props.name}</Link>
 
                             <div className="card-content">
-                            <span className="card-title">{this.props.price}</span>
-                            <p className="black-text">{this.props.description}</p>
-                              <p className="black-text">I am good at containing small bits of information.</p>
+                            <span className="card-title">Price per item: {this.props.price}</span>
+                              <p className="black-text">Total product cost: {totalPrice}</p>
+                              <p className="black-text">{this.props.description}</p>
                                 
                                    <div className="col s12 m12">
                                       <a to="" className="btn-flat" onClick={()=>this.chgQuantity(-1)}><i className="material-icons blue white-text">expand_more</i></a>
