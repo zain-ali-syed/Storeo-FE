@@ -1,63 +1,48 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../client/Layout.css';
-import SideNav from './containers/SideNav';
 import M from 'materialize-css';
-import { connect } from 'react-redux';
-
 
 class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
-    // this.totalBasketQty();
-  }
-
- totalBasketQty = () => {
-    let subTotalBasketQty = 0;
-    this.props.basket.forEach(item => {
-      subTotalBasketQty+=item.quantity
-    });
-    return subTotalBasketQty;
   }
 
   render() {
-
     return (
       <React.Fragment>
         <header>
-        <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-          <nav className="grey darken-1" role="navigation">
+          <nav className="blue-grey darken-2" role="navigation">
             <div className="nav-wrapper container">
-              <Link id="logo-container" to="/" className="brand-logo">Storeo</Link>
+              <a id="logo-container" href="#" className="brand-logo">Client Section</a>
               <ul className="right hide-on-med-and-down">
-
-                <li><Link to="#">Login</Link></li>
-                <li><Link to="/basket">
-                <i className="material-icons white-text">shopping_cart</i>
-                <div className="badge red" id="badge"></div>
-                <div id="badgeNbr"></div><p id="badgeText">{this.totalBasketQty()}</p>
-                </Link></li>
-                <li><Link to="#"></Link></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
               </ul>
+              <ul id="nav-mobile" className="sidenav">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+              </ul>
+              <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+
             </div>
+
           </nav>
+
         </header>
 
+
+
         <main className="row">
-          <div className="col s12 m1 hide-on-small-only">
+          <div className="col s12 m2 hide-on-small-only">
 
           </div>
-          <div className="col s12 m10"> {this.props.children} </div>
-          <div className="col s12 m1"></div>
+          <div className="col s12 m8"> {this.props.children} </div>
+          <div className="col s12 m2"></div>
         </main>
 
-      
-        <SideNav />
-        
-        
-
-        {/* <footer className="page-footer grey darken-1">
+        <footer className="page-footer blue-grey darken-3">
           <div className="container">
             <div className="row">
               <div className="col l6 s12">
@@ -66,26 +51,11 @@ class Layout extends Component {
               </div>
             </div>
           </div>
-        </footer> */}
-
-{/* <li><Link to="/">
-                <i className="material-icons white-text">home</i>
-                </Link></li> */}
-
-      </React.Fragment>
+        </footer>
+      </ React.Fragment >
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  basket: state.basket,
-})
-
-// const mapDispatchToProps = (dispatch) => ({
-
-// })
-
-export default connect(
-  mapStateToProps
-)(Layout);
+export default Layout;
 
