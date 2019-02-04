@@ -25,6 +25,10 @@ showBasket = () => {
     }
 }
 
+checkoutZero = () => {
+  return (this.totalPrice() === 0) ? 'disabled' : '';
+}
+
 totalPrice = () => {
   let subTotalPr = 0;
   this.props.basket.forEach(item => {
@@ -59,7 +63,7 @@ totalPrice = () => {
                         <p className="black-text">List of basket items</p>
                         <h6 className="black-text">Total: {this.totalPrice()}</h6>
                     
-                        <Link to={`/checkout/${this.totalPrice()}`} className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Checkout</Link>
+                        <Link to={`/checkout/${this.totalPrice()}`} className={`waves-effect waves-light btn ${this.checkoutZero()} blue lighten-2`}><i className="material-icons left"></i>Checkout</Link>
                         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
                   </div>
               </div>

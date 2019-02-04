@@ -22,18 +22,15 @@ const rootReducer = (state = initState, action) => {
         return {...state, products: action.data};
 
         case 'ADD_TO_BASKET':
-
         let tmpBasket = state.basket.slice();
         const product = action.product;
         const quantityToAdd = action.quantityToAdd
         let matchFound = false;
-
         if (tmpBasket.length===0) {
             product.quantity += quantityToAdd
             tmpBasket.push(product);
             return {...state, basket:[...state.basket, ...tmpBasket]} 
         }
-     
         tmpBasket.forEach(basketProduct => {
         if(basketProduct.id === product.id) { 
             basketProduct.quantity += quantityToAdd;
@@ -45,7 +42,6 @@ const rootReducer = (state = initState, action) => {
             return {...state, basket: tmpBasket}
         }
         product.quantity += quantityToAdd
-    
         return {...state, basket:[...state.basket, product]} 
 
         case 'CLEAR_BASKET':
@@ -53,42 +49,34 @@ const rootReducer = (state = initState, action) => {
 
         
         case 'DELETE_FROM_BASKET':
-        
-        let tmpDelBasket = state.basket.slice();
+        return {...state, basket: state.basket.filter(el => el.id !== action.id)}
+        // let tmpDelBasket = state.basket.slice();
      
-        let inx = -1;
-        tmpDelBasket.forEach(basketProductEl => {
-            if (basketProductEl.id === action.id)
-            inx = tmpDelBasket.indexOf(basketProductEl)
-            return inx;
-        })
-      
-        tmpDelBasket.splice(inx,1);
-
-        return {...state, basket: tmpDelBasket};
+        // let inx = -1;
+        // tmpDelBasket.forEach(basketProductEl => {
+        //     if (basketProductEl.id === action.id)
+        //     inx = tmpDelBasket.indexOf(basketProductEl)
+        //     return inx;
+        // })
+        // tmpDelBasket.splice(inx,1);
+        // return {...state, basket: tmpDelBasket};
 
         case 'CHANGE_PRODUCT_QTY_IN_BASKET':
-
-        let tmpChngBasket = state.basket.slice();
-
-        tmpChngBasket.forEach(basketProductEl => {
-            if (basketProductEl.id === action.id)
-            basketProductEl.quantity += action.qty;
-        })
-
-        return {...state, basket: tmpChngBasket};
-
-
-
-        case 'USER_LOGGED_IN':
-            return { ...state, user: action.user };
-
+            let tmpChngBasket = state.basket.slice();
+            tmpChngBasket.forEach(basketProductEl => {
+                if (basketProductEl.id === action.id)
+                    basketProductEl.quantity += action.qty;
+            });
+            return { ...state, basket: tmpChngBasket };
 
         case 'SAVE_SEARCH_RESULT':
-            return { ...state, searchResult: action.listOfProducts}
+            return { ...state, searchResult: action.listOfProducts};
+
+        case "USER_LOGGED_IN":
+            return { ...state, user: action.user };
+
         default:
             return state;
-
     }
 }
 

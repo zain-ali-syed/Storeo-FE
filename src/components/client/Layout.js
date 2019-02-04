@@ -53,9 +53,11 @@ class Layout extends Component {
   }
 
   render() {
-
+     
     return (
+
       <React.Fragment>
+        
         <header>
           <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
@@ -127,20 +129,17 @@ class Layout extends Component {
             </div>
           </nav>
         </header>
-
-        <main className="row">
-          <div className="col s12 m1 hide-on-small-only">
-
-          </div>
+ 
+        <main className="row" id="main">
+          <div className="col s12 m1 hide-on-small-only"></div>
           <div className="col s12 m10"> {this.props.children} </div>
           <div className="col s12 m1"></div>
         </main>
 
-      
-        <SideNav />
-        
-        
 
+          <SideNav />
+        
+        
         {/* <footer className="page-footer grey darken-1">
           <div className="container">
             <div className="row">
@@ -155,8 +154,9 @@ class Layout extends Component {
 {/* <li><Link to="/">
                 <i className="material-icons white-text">home</i>
                 </Link></li> */}
-
+  
       </React.Fragment>
+      
     );
   }
 }

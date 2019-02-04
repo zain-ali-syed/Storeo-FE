@@ -13,11 +13,9 @@ class ProdBasket extends Component {
     if (qty===-1 && this.props.quantity===1) {
     return
   } else {
-    console.log('qty1', qty);
     this.props.changeQuantity(qty, this.props.id);
   }
 }
-  
 
   render () {
 

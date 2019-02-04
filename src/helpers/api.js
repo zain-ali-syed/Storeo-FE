@@ -63,3 +63,7 @@ export const registerAdmin = (data) => {
     return axios.post(apiConstants.ADMIN_REGISTER_URL, data);
 }
 
+// CUSTOMER API
+export const postNewOrder = (data, header) => {
+    return axios.post(apiConstants.CUSTOMER_POST_NEW_ORDER, data, header);
+}
