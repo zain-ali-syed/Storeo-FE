@@ -55,3 +55,8 @@ export const changeQuantity = (qty, id) => ({
   qty: qty,
   id: id
 })
+
+export const saveSearchResult = (listOfProducts) => ({
+  type: 'SAVE_SEARCH_RESULT',
+  listOfProducts
+})

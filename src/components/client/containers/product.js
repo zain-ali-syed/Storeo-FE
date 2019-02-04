@@ -18,7 +18,17 @@ export default class ProductContainer extends Component {
 
   displayProductsByCategId = () => {
     return this.state.products.map((product, index) => {
-      if(index < maxItems ) return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard checkCatId={this.props.id} catName={this.props.name} {...product}/></div>
+      if (index < maxItems ) {
+        return (
+          <div 
+            className="col s6 m6 l2"
+            key={product.id}><ProductSmallCard 
+            checkCatId={this.props.id} 
+            catName={this.props.name} {...product}/>
+          </div>
+        )
+      }
+      return true;
     })
   }
 

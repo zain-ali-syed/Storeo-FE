@@ -1,4 +1,4 @@
-const url1 = `192.168.1.158:3000`;
+// const url1 = `192.168.1.158:3000`;
 const url = `192.168.1.149:3000`;
 
 export const apiConstants = {
@@ -11,7 +11,8 @@ export const apiConstants = {
   PRODUCTS_URL: `http://${url}/products`,
   ADMIN_PRODUCT_URL: `http://${url}/admin/products`, //POST, PUT, DELETE
   ADMIN_CATEGORY_URL: `http://${url}/admin/categories`, //POST, PUT, DELETE
-  ADMIN_ORDERS_URL: `http://${url}/admin/orders`
+  ADMIN_ORDERS_URL: `http://${url}/admin/orders`,
+  USER_SEARCH_PRODUCTS: `http://${url}/search`,
 }
 
 

@@ -8,7 +8,8 @@ const initState = {
     user: { first_name: "", last_name: "", email: "", isAdmin: false, password: "" },
     basket: basket,
     categories: [],
-    products: []
+    products: [],
+    searchResult: [],
 }
 
 const rootReducer = (state = initState, action) => {
@@ -79,8 +80,12 @@ const rootReducer = (state = initState, action) => {
 
 
 
-        case "USER_LOGGED_IN":
-            return { ...state, user: action.user }
+        case 'USER_LOGGED_IN':
+            return { ...state, user: action.user };
+
+
+        case 'SAVE_SEARCH_RESULT':
+            return { ...state, searchResult: action.listOfProducts}
         default:
             return state;
 
