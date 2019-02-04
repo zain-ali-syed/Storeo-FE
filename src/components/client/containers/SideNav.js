@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import './SideNav.css';
 import { getCategories } from '../../../helpers/api';
 import { getCateg } from '../../../actions/example.actions';
 import { connect } from 'react-redux';
@@ -10,16 +12,25 @@ class SideNav extends Component {
 
   async componentDidMount() {
     const categories = await getCategories()
-    this.props.getCateg(categories.data)
-}
+    this.props.getCateg(categories.data);
+
+    console.log('SIDE NAV CATEGORIES', categories);
+  }
 
   displayCategories = () => {
     return this.props.categories.map((category) => {
-        return <Link className="waves-effect" to={`/productslist/${category.id}`} key={category.id}>{category.name}</Link>
+        return( 
+          <Link 
+            className="waves-effect"
+            to={{ pathname:`/productslist/${category.id}`, state:{ categoryName: category.name}} }
+            key={category.id}>{category.name}
+          </Link>
+        )
     })
   }
 
   render() {
+    
     return (
       <div>
           <ul id="slide-out" className="sidenav">
@@ -48,7 +59,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCateg: (data) => dispatch(getCateg(data)),
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SideNav);
+)(SideNav));

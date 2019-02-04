@@ -1,7 +1,7 @@
 import { apiConstants } from '../constants/api.constants'
 import axios from 'axios';
 
-
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
 
 //COMMON ADMIN AND CLIENT APIS
 
@@ -10,6 +10,10 @@ export const getProducts = (id) => {
     return axios.get(apiConstants.PRODUCTS_URL + `/${id}`);
 }
 
+export const getSearchProducts = (searchQuery) => {
+    return axios.get(apiConstants.USER_SEARCH_PRODUCTS +`${searchQuery}`
+    );
+} 
 
 export const getProductsByCatId = (id) => {
     return axios.get(apiConstants.PRODUCTS_BY_CAT + `/${id}`)

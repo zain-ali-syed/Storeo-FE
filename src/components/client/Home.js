@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { getCategories } from '../../helpers/api'
 import { getCateg } from '../../actions/example.actions';
 
-const maxItems = 4;
+const maxItems = 6;
 
 class Home extends Component {
 
@@ -15,11 +15,19 @@ async componentDidMount() {
     this.props.getCateg(categories.data);
 }
 
-displayProductByCat = () => {
-    return this.props.categories.map((category, index) => {
-        if(index < maxItems ) return <div className="" key={category.id}><p className="black-text">{category.name} {category.id}</p><ProductContainer {...category}/></div>
-    })
-  }
+    displayProductByCat = () => {
+        return this.props.categories.map((category, index) => {
+            if (index < maxItems) {
+                return (
+                    <div className="" key={category.id}>
+                        <p className="black-text">{category.name} {category.id}</p>
+                        <ProductContainer {...category} />
+                    </div>
+                    )
+            }
+            return true;
+        })
+    }
 
 render() {
     return (

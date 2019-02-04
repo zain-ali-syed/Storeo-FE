@@ -8,7 +8,8 @@ const initState = {
     user: { first_name: "", last_name: "", email: "", isAdmin: false, password: "" },
     basket: basket,
     categories: [],
-    products: []
+    products: [],
+    searchResult: [],
 }
 
 const rootReducer = (state = initState, action) => {
@@ -61,22 +62,21 @@ const rootReducer = (state = initState, action) => {
         // return {...state, basket: tmpDelBasket};
 
         case 'CHANGE_PRODUCT_QTY_IN_BASKET':
-        let tmpChngBasket = state.basket.slice();
-        tmpChngBasket.forEach(basketProductEl => {
-            if (basketProductEl.id === action.id)
-            basketProductEl.quantity += action.qty;
-        })
-        return {...state, basket: tmpChngBasket};
+            let tmpChngBasket = state.basket.slice();
+            tmpChngBasket.forEach(basketProductEl => {
+                if (basketProductEl.id === action.id)
+                    basketProductEl.quantity += action.qty;
+            });
+            return { ...state, basket: tmpChngBasket };
 
+        case 'SAVE_SEARCH_RESULT':
+            return { ...state, searchResult: action.listOfProducts};
 
         case "USER_LOGGED_IN":
-            return { ...state, user: action.user }
-
-
+            return { ...state, user: action.user };
 
         default:
             return state;
-
     }
 }
 
