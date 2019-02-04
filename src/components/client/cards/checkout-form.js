@@ -13,36 +13,40 @@ class CheckoutForm extends Component {
     this.submit = this.submit.bind(this);
   }
 
-  // async submit(ev) {
+  async submit(ev) {
 
-  //   let {token} = await this.props.stripe.createToken({name: "Name"});
+    let {token} = await this.props.stripe.createToken({name: "Name"});
+    
+    console.log(token);
 
-  //   if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
-
-  //   let response = await fetch("/charge", {
-  //   method: "POST",
-  //   headers: {"Content-Type": "text/plain"},
-  //   body: token.id
-  // });
-
-  
-  // if (response.ok) {
-  //   this.setState({complete: true});
-  // }
-
-  // }
-
-  submit = () => {
+    if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
+    
+    let response = await fetch("/charge", {
+      method: "POST",
+      headers: {"Content-Type": "text/plain"},
+      body: token.id
+    });
+    
     this.props.clearBasket();
-    this.setState({complete: true})
+    this.setState({complete: true});   // to be removed when BE connection ready
+
+    if (response.ok) {
+      this.setState({complete: true});
+    }
   }
 
-  render() {
-    if (this.state.complete) return <p className="black-text">Purchase Complete</p>;
+  message = () => {
+  if (this.state.complete) { return <div><p className="black-text">Purchase Complete</p></div>;
+  } else {
+    return <div><p className="black-text">Would you like to complete the purchase?</p></div>;
+  }
+  }
 
+    render() {
+      
     return (
       <div className="checkout">
-        <p className="black-text">Would you like to complete the purchase?</p>
+        {this.message()}
         <br></br>
         <CardElement />
         <br></br>
@@ -61,4 +65,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearBasket: () => dispatch(clearBasket())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckoutForm)
+export default injectStripe(connect(mapStateToProps, mapDispatchToProps)(CheckoutForm))
