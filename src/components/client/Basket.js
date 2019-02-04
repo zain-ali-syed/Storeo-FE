@@ -26,13 +26,8 @@ showBasket = () => {
 }
 
 checkoutZero = () => {
-  let check = this.totalPrice();
-  if (check===0) {
-    return 'disabled' }
-      else {
-     return '';
-      }
-    }
+  return (this.totalPrice() === 0) ? 'disabled' : '';
+}
 
 totalPrice = () => {
   let subTotalPr = 0;

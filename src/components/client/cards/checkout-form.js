@@ -36,10 +36,7 @@ class CheckoutForm extends Component {
   }
 
   message = () => {
-  if (this.state.complete) { return <div><p className="black-text">Purchase Complete</p></div>;
-  } else {
-    return <div><p className="black-text">Would you like to complete the purchase?</p></div>;
-  }
+  return (this.state.complete) ? <div><p className="black-text">Purchase Complete</p></div> : <div><p className="black-text">Would you like to complete the purchase?</p></div>;
   }
 
     render() {

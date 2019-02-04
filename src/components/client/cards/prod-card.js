@@ -14,22 +14,20 @@ class ProductCard extends Component {
   
   async componentDidMount() {
     const product = await getProducts(this.props.match.params.id);
-    
     this.setState({product: {...product.data[0], quantity:0}});
-    
-
   }
 
   addProdToBasket = () => {
     this.props.addToBasket(this.state.product, 1)
+    
   }
 
   render() {
   if(!this.state.product) return <div>loading</div>
-  
-  return (
-    <Layout>
 
+  return (
+
+    <Layout>
   <div className="container">
   <div className="row">
       <div className="col s12 m6">
