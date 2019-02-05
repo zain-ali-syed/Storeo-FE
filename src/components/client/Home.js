@@ -18,7 +18,6 @@ async componentDidMount() {
 
     displayProductByCat = () => {
         return this.props.categories.map((category, index) => {
-            console.log('$$$$$$$$$$$$$$$$$$$$$', category);
                 return (
                     <div className="" key={category.id}>
                         <Link 

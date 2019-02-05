@@ -18,7 +18,6 @@ export default class ProductContainer extends Component {
   displayProductsByCategId = () => {
     console.log('PRODUCTS BY CAT ID', this.state.products);
     return this.state.products.map((product, index) => {
-      if (index < maxItems ) {
         return (
           <div 
             className="col s6 m6 l2"
@@ -30,7 +29,6 @@ export default class ProductContainer extends Component {
             />
           </div>
         )
-      }
       return true;
     })
   }
