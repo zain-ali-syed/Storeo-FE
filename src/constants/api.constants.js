@@ -19,7 +19,7 @@ export const apiConstants = {
   ADMIN_REGISTER_URL: `${serverURL}/signup`,
   ADMIN_PRODUCT_URL: `${serverURL}/admin/products`, //POST, PUT, DELETE
   ADMIN_CATEGORY_URL: `${serverURL}/admin/categories`, //POST, PUT, DELETE
-  ADMIN_ORDERS_URL: `${serverURL}/admin/orders`
+  ADMIN_ORDERS_URL: `${serverURL}/admin/orders`,
 
   PRODUCTS_BY_CAT: `http://${urlUros}/products/cat`,
   ADMIN_REGISTER_URL: `http://${urlUros}/signup`,
