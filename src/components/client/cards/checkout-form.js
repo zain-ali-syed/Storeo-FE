@@ -19,26 +19,26 @@ class CheckoutForm extends Component {
   async submit(ev) {
 
     let {token} = await this.props.stripe.createToken({name: "Name"});
+
+    if (token===undefined) return //
     
     let response = await fetch(apiConstants.PAYMENT, {
       method: "POST",
       headers: {"Content-Type": "text/plain"},
-      body: token.id
+      body: {token: token.id}
     });
-    
-    this.setState({complete: true});  // to be removed when BE connection ready
+  
+    this.setState({complete: true});
     this.submitOrder();
     this.props.clearBasket();
       
-
     if (response.ok) {
       this.setState({complete: true});
-      this.submitOrder();
       this.props.clearBasket();
+      this.props.history.push('/thankyou');
     }
   }
 
-// submitOrder - to be completed!!!
   orderBasket = () => {
     let basket = [];
     this.props.basket.forEach(el => {
@@ -54,7 +54,7 @@ class CheckoutForm extends Component {
         special_instructions: this.props.specialInstr,
         ordered_items: [basket]
       }, {headers: {'Authorization': "Bearer " + token}})
-      this.submit();
+      // this.submit();
       this.setState({complete: true})
       this.props.clearBasket();
   }
@@ -67,9 +67,9 @@ class CheckoutForm extends Component {
     return (this.state.complete) ? "0" : this.props.totalPrice;
   }
 
-  checkoutBtn = () => {
-    return (this.state.complete) ? 'disabled' : '';
-  }
+  // checkoutBtn = () => {
+  //   return (this.state.complete) ? 'disabled' : '';
+  // }
 
   render() {
    
@@ -80,7 +80,7 @@ class CheckoutForm extends Component {
         <br></br>
           <CardElement />
         <br></br>
-        <button className={`waves-effect waves-light btn ${this.checkoutBtn()} blue lighten-2`} onClick={this.submitOrder}><i className="material-icons left"></i>Pay now</button>
+        <button className={`waves-effect waves-light btn blue lighten-2`} onClick={this.submitOrder}><i className="material-icons left"></i>Pay now</button>
         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
       </div>
     );

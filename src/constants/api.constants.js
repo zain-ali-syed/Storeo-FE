@@ -1,20 +1,21 @@
-const url1 = `192.168.1.158:3000`;
-const url = `192.168.1.149:3000`;
+const urlZain = `192.168.1.158:3000`;
+const urlUros = `192.168.1.149:3000`;
 const urlLuca = `192.168.1.116:3000`
 
 export const apiConstants = {
 
-  PRODUCTS_BY_CAT: `http://${url}/products/cat`,
-  ADMIN_REGISTER_URL: `http://${url}/signup`,
-  LOGIN_URL: `http://${url}/login`,
-  USER_REGISTER_URL: `http://${url}/signup`,
-  CATEGORIES_URL: `http://${url}/categories`,
-  PRODUCTS_URL: `http://${url}/products`,
-  ADMIN_PRODUCT_URL: `http://${url}/admin/products`, //POST, PUT, DELETE
-  ADMIN_CATEGORY_URL: `http://${url}/admin/categories`, //POST, PUT, DELETE
-  ADMIN_ORDERS_URL: `http://${url}/admin/orders`,
-  CUSTOMER_POST_NEW_ORDER: `http://${url}/orders`,
-  CUSTOMER_POST_NEW_ADDRESS: `http://${url}/address`,
+  PRODUCTS_BY_CAT: `http://${urlUros}/products/cat`,
+  ADMIN_REGISTER_URL: `http://${urlUros}/signup`,
+  LOGIN_URL: `http://${urlUros}/login`,
+  USER_REGISTER_URL: `http://${urlUros}/signup`,
+  CATEGORIES_URL: `http://${urlUros}/categories`,
+  PRODUCTS_URL: `http://${urlUros}/products`,
+  ADMIN_PRODUCT_URL: `http://${urlUros}/admin/products`, //POST, PUT, DELETE
+  ADMIN_CATEGORY_URL: `http://${urlUros}/admin/categories`, //POST, PUT, DELETE
+  ADMIN_ORDERS_URL: `http://${urlUros}/admin/orders`,
+  CUSTOMER_POST_NEW_ORDER: `http://${urlUros}/orders`,
+  CUSTOMER_POST_NEW_ADDRESS: `http://${urlUros}/address`,
   PAYMENT: `http://${urlLuca}/charge`
 }
+
 
