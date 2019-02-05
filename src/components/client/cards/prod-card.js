@@ -29,7 +29,7 @@ class ProductCard extends Component {
   }
 
   renderTags = (tags) => {
-    if (!tags || !Array.isArray(tags) ) tags = [];
+    if (!tags || !Array.isArray(tags)) tags = [];
     return (
       <div className='tag-scroll'>
         {tags.map(tag => (<span className="tag" key={v1()}>{tag}</span>) )}

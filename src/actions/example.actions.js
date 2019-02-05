@@ -36,6 +36,11 @@ export const saveSearchResult = (listOfProducts) => ({
   listOfProducts
 })
 
+export const togglePaymentStatus = (status) => ({
+  type: 'TOGGLE_PAYMENT_STATUS',
+  status
+})
+
 export const userLoggedIn = (user) => ({
   type: 'USER_LOGGED_IN',
   data: user
