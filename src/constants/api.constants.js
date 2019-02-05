@@ -20,6 +20,7 @@ export const apiConstants = {
   //ORDERS AND PAYMENTS
   CUSTOMER_POST_NEW_ORDER: `${serverURL}/orders`,
   CUSTOMER_POST_NEW_ADDRESS: `${serverURL}/address`,
+
   PAYMENT: `http://${serverURL}/charge`,
 
   //ADMIN
@@ -29,5 +30,4 @@ export const apiConstants = {
   ADMIN_CATEGORY_URL: `${serverURL}/admin/categories`, //POST, PUT, DELETE
   ADMIN_ORDERS_URL: `${serverURL}/admin/orders`,
 }
-
 
