@@ -22,8 +22,13 @@ const initState = {
 const rootReducer = (state = initState, action) => {
 
     switch (action.type) {
+
         case 'USER_LOGGED_IN':
             return { ...state, user: action.data };
+
+        case 'USER_ADDRESS_ADDED':
+            return { ...state, user: { ...state.user, ...action.data } };
+
         case "LOGOUT_USER":
             return { ...state, user: defaultUser }
         case 'GET_CATEGORIES':
@@ -58,13 +63,13 @@ const rootReducer = (state = initState, action) => {
             return { ...state, basket: [...state.basket, product] }
 
         case 'CLEAR_BASKET':
-        return {...state, basket: []}
+            return { ...state, basket: [] }
 
-        
+
         case 'DELETE_FROM_BASKET':
-        return {...state, basket: state.basket.filter(el => el.id !== action.id)}
+            return { ...state, basket: state.basket.filter(el => el.id !== action.id) }
         // let tmpDelBasket = state.basket.slice();
-     
+
         // let inx = -1;
         // tmpDelBasket.forEach(basketProductEl => {
         //     if (basketProductEl.id === action.id)
@@ -83,11 +88,8 @@ const rootReducer = (state = initState, action) => {
             return { ...state, basket: tmpChngBasket };
 
         case 'SAVE_SEARCH_RESULT':
-            return { ...state, searchResult: action.listOfProducts};
+            return { ...state, searchResult: action.listOfProducts };
 
-
-        case "USER_LOGGED_IN":
-            return { ...state, user: action.user };
 
         case 'TOGGLE_PAYMENT_STATUS':
             return {...state, paymentStatus: action.status};
