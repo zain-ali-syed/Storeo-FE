@@ -12,11 +12,7 @@ class ProductCard extends Component {
 
   async componentDidMount() {
     const product = await getProducts(this.props.match.params.id);
-
-
     this.setState({ product: { ...product.data[0], quantity: 0 } });
-
-
   }
 
   properites = () => {
@@ -27,8 +23,6 @@ class ProductCard extends Component {
 
   addProdToBasket = () => {
     // implement quantity feature !!!
-
-
     this.props.addToBasket(this.state.product, 4)
   }
 
@@ -40,30 +34,20 @@ class ProductCard extends Component {
 
   addProdToBasket = () => {
     this.props.addToBasket(this.state.product, 1)
-    
   }
 
   render() {
+
   if(!this.state.product) return <div>loading</div>
 
   return (
 
-    <Layout>
-  <div className="container">
-  <div className="row">
-      <div className="col s12 m6">
-        <div className="card">
-          <div className="card-image">
-            <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt="" className="responsive-img"></img>
-          </div>
-        </div>
-
-
-    return (
       <Layout>
 
         <div className="container">
+
           <div className="row">
+          
             <div className="col s12 m6">
               <div className="card">
                 <div className="card-image">
@@ -160,8 +144,9 @@ class ProductCard extends Component {
             </div>
           </div>
         </div>
-
+                </div>
       </Layout>
+
     );
   };
 }
