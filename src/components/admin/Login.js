@@ -10,7 +10,8 @@ class Login extends Component {
 
     state = {
         email: "",
-        password: ""
+        password: "",
+        errorMessage: ""
     }
 
     handleChange = (e) => {
@@ -19,10 +20,13 @@ class Login extends Component {
 
     onSubmit = async (e) => {
         try {
-            const res = await loginUser(this.state);
-            console.log("responsse ", res.data)
+            const { email, password } = this.state;
+            console.log("sending login details ", { email, password })
+            const user = await loginUser({ email, password });
+            this.props.storeAuthentication(user.data);
+            this.props.history.push("/admin");
         } catch (e) {
-            console.error("Error while logging in user", e)
+            this.setState({ errorMessage: " I'm sorry there has been an error logging in. Please check your credentials" })
         }
     }
 
@@ -36,8 +40,8 @@ class Login extends Component {
                         <input name="email" type="text" placeholder="Email" className="validate" value={this.state.email} onChange={this.handleChange} />
                         <input name="password" type="text" placeholder="Password" className="validate" value={this.state.password} onChange={this.handleChange} />
                     </fieldset>
-                    <input type="submit" value="Register" onClick={this.onSubmit} />
-
+                    <input type="submit" value="Login" onClick={this.onSubmit} />
+                    <div className="error">{this.state.errorMessage}</div>
                 </div>
             </Layout>
         );
@@ -50,4 +54,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Login);
+const mapDispatchToProps = dispatch => {
+    return {
+        storeAuthentication: (user) => { dispatch({ type: "USER_LOGGED_IN", data: user }) }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

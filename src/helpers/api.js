@@ -1,7 +1,15 @@
 import { apiConstants } from '../constants/api.constants'
 import axios from 'axios';
 
+
+const user = localStorage.getItem('user');
+if (user) var token = JSON.parse(user).token;
+//axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+
+=======
 // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
+
 
 //COMMON ADMIN AND CLIENT APIS
 
@@ -37,6 +45,7 @@ export const postProduct = (product) => {
 }
 
 export const editProduct = (product, id) => {
+    console.log("edit product ", apiConstants.ADMIN_PRODUCT_URL + `/${id}`)
     return axios.put(apiConstants.ADMIN_PRODUCT_URL + `/${id}`, product);
 }
 

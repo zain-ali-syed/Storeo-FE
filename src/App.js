@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 import 'materialize-css/dist/css/materialize.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+//Privatise Routes
+import AdminPrivateRoute from './private_routes/AdminPrivateRoute';
+import StorePrivateRoute from './private_routes/StorePrivateRoute';
 
 
 //Admin Components
@@ -34,21 +39,24 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/admin" component={Dashboard}></Route>
-          <Route exact path="/admin/categories" component={Category}></Route>
-          <Route exact path="/admin/category/add_edit" component={CategoryAddEdit}></Route>
-          <Route exact path="/admin/category/add_edit/:id" component={CategoryAddEdit}></Route>
-          <Route exact path="/admin/products" component={Product}></Route>
-          <Route exact path="/admin/products/add" component={ProductAdd}></Route>
-          <Route exact path="/admin/products/edit/:id" component={ProductEdit}></Route>
-          <Route exact path="/admin/orders" component={Orders}></Route>
-          <Route exact path="/admin/register" component={Register}></Route>
-          <Route exact path="/admin/login" component={Login}></Route>
+          {/* Admin Routes */}
+          <AdminPrivateRoute exact path="/admin" user={this.props.user} component={Dashboard}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/categories" user={this.props.user} component={Category}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/category/add_edit" user={this.props.user} component={CategoryAddEdit}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/category/add_edit/:id" user={this.props.user} component={CategoryAddEdit}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/products" user={this.props.user} component={Product}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/products/add" user={this.props.user} component={ProductAdd}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/products/edit/:id" user={this.props.user} component={ProductEdit}></AdminPrivateRoute>
+          <AdminPrivateRoute exact path="/admin/orders" user={this.props.user} component={Orders}></AdminPrivateRoute>
+          <Route exact path="/admin/register" user={this.props.user} component={Register}></Route>
+          <Route exact path="/admin/login" user={this.props.user} component={Login}></Route>
+
+          {/* Storefront Routes */}
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/basket" component={Basket}></Route>
           <Route exact path="/productcard/:id" component={ProductCard}></Route>
-          <Route  path="/productslist/:id" component={ProductsList}></Route>
+          <Route path="/productslist/:id" component={ProductsList}></Route>
           <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
           <Route exact path="/thankyou" component={Thankyou}></Route>
         </Switch>
@@ -57,4 +65,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App);

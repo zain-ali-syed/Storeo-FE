@@ -64,6 +64,7 @@ class ProductAddEdit extends Component {
 
             //now add this new product to database 
             try {
+                console.log("Post new product object ", JSON.stringify(postObject))
                 await postProduct(postObject);
                 //now redirect to products page
                 this.props.history.push("/admin/products");
@@ -178,7 +179,7 @@ class ProductAddEdit extends Component {
                         <legend><span className="number">2</span>Product information</legend>
 
                         <input name="name" type="text" placeholder="Product name" className="validate" onChange={this.handleChange} value={this.state.name} />
-                        <input name="description" type="text" placeholder="Enter description" className="validate" onChange={this.handleChange} value={this.state.description} />
+                        <textarea style={{ height: "100px" }} name="description" type="text" placeholder="Enter description" className="validate" onChange={this.handleChange} value={this.state.description} />
                         <input name="price" type="text" placeholder="Enter Price" className="validate" onChange={this.handleChange} value={this.state.price} />
                         <input name="discount" type="text" placeholder="Enter Discount" className="validate" onChange={this.handleChange} value={this.state.discount} />
                         <input name="tags" type="text" placeholder="Enter Tags" className="validate" onChange={this.handleChange} value={this.state.tags} />
