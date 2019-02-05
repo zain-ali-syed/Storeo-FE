@@ -31,7 +31,8 @@ import ProductsList from './components/client/ProductsList';
 import Checkout from './components/client/Checkout';
 import ProductAdd from './components/admin/product/ProductAdd';
 import ProductEdit from './components/admin/product/ProductEdit';
-import Thankyou from './components/client/Thankyou';
+import Thankyou from './components/client/cards/Thankyou';
+
 
 
 class App extends Component {

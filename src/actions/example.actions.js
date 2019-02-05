@@ -60,3 +60,8 @@ export const saveSearchResult = (listOfProducts) => ({
   type: 'SAVE_SEARCH_RESULT',
   listOfProducts
 })
+
+export const togglePaymentStatus = (status) => ({
+  type: 'TOGGLE_PAYMENT_STATUS',
+  status
+})

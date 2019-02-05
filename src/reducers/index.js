@@ -16,6 +16,7 @@ const initState = {
     categories: [],
     products: [],
     searchResult: [],
+    paymentStatus: "not started",
 }
 
 const rootReducer = (state = initState, action) => {
@@ -87,6 +88,9 @@ const rootReducer = (state = initState, action) => {
 
         case "USER_LOGGED_IN":
             return { ...state, user: action.user };
+
+        case 'TOGGLE_PAYMENT_STATUS':
+            return {...state, paymentStatus: action.status};
 
         default:
             return state;

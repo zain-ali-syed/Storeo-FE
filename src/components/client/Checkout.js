@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Layout from './Layout';
 import CheckoutForm from '../client/cards/checkout-form';
 import {Elements, StripeProvider} from 'react-stripe-elements';
-import { connect } from 'react-redux'
-
+import { connect } from 'react-redux';
 import ProdCheckout from './cards/prod-checkout';
+import Thankyou from '../client/cards/Thankyou';
 
 
 class Checkout extends Component {
@@ -44,52 +44,76 @@ this.setState({specialInstr: event.target.value})
 
   render() {
 
-    return (
-      <Layout>
+const CheckoutPage = () => { 
+      return (
        
-       <div className="container">
-
-          <div className="row card col s12">
-          
-          <div className="col s6">
-          <p className="black-text center">Delivery address</p>
-          </div>
-
-          <div className="col s6">
-              <div className="input-field col s12">
-              <i className="material-icons prefix">mode_edit</i>
-              <input placeholder="special delivery instructions" id="special_instructions" type="text" className="validate" data-length="30"
-              value={this.state.specialInstr} onChange={this.handleInput}></input>
-              {/* <label>max. 30 characters</label> */}
-              </div>
-          </div>
-    
-          </div>
-          <div className="row">
-          <div className="col s12">
-              <div className="col s12 m8 l6">
-                <ul className="collection">
-                  {this.showBasket()}
-                </ul>
-              </div>
-              <div className="card col s12 m8 l6">
-                <span className="card-title">Payment summary</span>
-                  <div className="card-content">
-                    <span className="card-title"></span>
-                       {this.payWithStripe()}
-                  </div>
-              </div>
-          </div>
+      
+          <div className="container">
+     
+             <div className="row card col s12">
+             
+             <div className="col s6">
+             <p className="black-text center">Delivery address</p>
+             <p className="black-text center">4242 4242 4242 4242</p>
+             </div>
+     
+             <div className="col s6">
+                 <div className="input-field col s12">
+                 <i className="material-icons prefix blue-text" style={{fontSize: '25px'}}>mode_edit</i>
+                 <input placeholder="special delivery instructions" id="special_instructions" type="text" style={{fontSize: '14px'}} className="validate" data-length="30"
+                 value={this.state.specialInstr} onChange={this.handleInput}></input>
+                 {/* <label>max. 30 characters</label> */}
+                 </div>
+             </div>
+       
+             </div>
+             <div className="row">
+             <div className="col s12">
+                 <div className="col s12 m8 l6">
+                   <ul className="collection">
+                     {this.showBasket()}
+                   </ul>
+                 </div>
+                 <div className="card col s12 m8 l6">
+                   <span className="card-title">Payment summary</span>
+                     <div className="card-content">
+                       <span className="card-title"></span>
+                          {this.payWithStripe()}
+                     </div>
+                 </div>
+             </div>
+            </div>
          </div>
-      </div>
-      </Layout>
+         
+      )
+     }
+    
+  
+    let checkoutLife;
+      switch (this.props.paymentStatus) {
+        case 'not started':
+        checkoutLife = <CheckoutPage />;
+        break;
+        case 'completed':
+          checkoutLife = <Thankyou />;
+          break;
+        default:
+        checkoutLife = <CheckoutPage />;
+    }
+  
+    return (
+       <Layout>
+        {checkoutLife}
+       </Layout>
     )
   }
 }
 
+
 const mapStateToProps = (state) => ({
   basket: state.basket,
-  categories: state.categories
+  categories: state.categories,
+  paymentStatus: state.paymentStatus,
 })
 
 const mapDispatchToProps = (dispatch) => ({
