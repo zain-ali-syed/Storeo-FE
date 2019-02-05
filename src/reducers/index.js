@@ -16,6 +16,7 @@ const initState = {
     categories: [],
     products: [],
     searchResult: [],
+    paymentStatus: "not started",
 }
 
 const rootReducer = (state = initState, action) => {
@@ -31,7 +32,6 @@ const rootReducer = (state = initState, action) => {
         case "LOGOUT_USER":
             return { ...state, user: defaultUser }
         case 'GET_CATEGORIES':
-
             return { ...state, categories: action.data };
         case 'GET_PROD_BY_CAT_ID':
             return { ...state, products: action.data };
@@ -90,6 +90,9 @@ const rootReducer = (state = initState, action) => {
         case 'SAVE_SEARCH_RESULT':
             return { ...state, searchResult: action.listOfProducts };
 
+
+        case 'TOGGLE_PAYMENT_STATUS':
+            return {...state, paymentStatus: action.status};
 
         default:
             return state;
