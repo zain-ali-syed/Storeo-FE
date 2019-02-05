@@ -38,7 +38,7 @@ totalPrice = () => {
 }
 
   render() {
-
+  
     return (
       <Layout>
       

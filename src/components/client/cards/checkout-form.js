@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { apiConstants } from '../../../constants/api.constants'
 import { clearBasket } from '../../../actions/example.actions';
 import {postNewOrder} from '../../../helpers/api';
 
@@ -12,42 +13,51 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {complete: false};
-    // this.submit = this.submit.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
-  submit = async (ev) => {
+  async submit(ev) {
 
     let {token} = await this.props.stripe.createToken({name: "Name"});
+
+    if (token===undefined) return //
     
-    // if (token === undefined) return;    // Tomasz added this; remove if BE is completed??? //
-    
-    let response = await fetch("/charge", {
+    let response = await fetch(apiConstants.PAYMENT, {
       method: "POST",
       headers: {"Content-Type": "text/plain"},
-      body: token.id
+      body: {token: token.id}
     });
-    
+  
     this.setState({complete: true});
     this.submitOrder();
     this.props.clearBasket();
-       // to be removed when BE connection ready
-
+      
     if (response.ok) {
       this.setState({complete: true});
+      this.submitOrder();
+      this.props.clearBasket();
+      this.props.history.push('/thankyou');
     }
   }
 
-// submitOrder - to be completed!!!
+  orderBasket = () => {
+    let basket = [];
+    this.props.basket.forEach(el => {
+    basket.push({product_id: el.id, quantity: el.quantity})
+    })
+    return basket;
+  }
 
   submitOrder = () => {
+    let basket = this.orderBasket();
       postNewOrder({
         total: this.props.totalPrice,
         special_instructions: this.props.specialInstr,
-        ordered_items: [{
-          product_id: 1,
-          quantity: 5
-        }]
+        ordered_items: [basket]
       }, {headers: {'Authorization': "Bearer " + token}})
+      // this.submit();
+      this.setState({complete: true})
+      this.props.clearBasket();
   }
 
   message = () => {
@@ -58,8 +68,12 @@ class CheckoutForm extends Component {
     return (this.state.complete) ? "0" : this.props.totalPrice;
   }
 
+  // checkoutBtn = () => {
+  //   return (this.state.complete) ? 'disabled' : '';
+  // }
+
   render() {
-    
+   
     return (
       <div className="checkout">
       <h6 className="black-text">Total: {this.totalPrice()}</h6>
@@ -67,7 +81,7 @@ class CheckoutForm extends Component {
         <br></br>
           <CardElement />
         <br></br>
-        <button className="waves-effect waves-light btn blue lighten-2" onClick={this.submit}><i className="material-icons left"></i>Pay now</button>
+        <button className={`waves-effect waves-light btn blue lighten-2`} onClick={this.submitOrder}><i className="material-icons left"></i>Pay now</button>
         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
       </div>
     );

@@ -9,7 +9,9 @@ import ProdCheckout from './cards/prod-checkout';
 
 class Checkout extends Component {
 
-state = {}
+state = {
+  specialInstr: ""
+}
 
 payWithStripe = () => {
 
