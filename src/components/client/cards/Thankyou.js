@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { togglePaymentStatus } from '../../../actions/example.actions';
 
 class Thankyou extends Component {
-
+  
   componentWillUnmount () {
     this.props.togglePaymentStatus("not started");
   }
-
+  
   render () {
 
+  // this.props.togglePaymentStatus("not started");
   return (
     <div>
       <h5>Thank you for your purchase!</h5>
@@ -18,14 +19,10 @@ class Thankyou extends Component {
   );
 };
 }
-
 const mapStateToProps = (state) => ({
   paymentStatus: state.paymentStatus,
 })
-
 const mapDispatchToProps = (dispatch) => ({
   togglePaymentStatus: (status) => dispatch(togglePaymentStatus(status)),
 })
-
 export default connect(mapStateToProps, mapDispatchToProps)(Thankyou)
-

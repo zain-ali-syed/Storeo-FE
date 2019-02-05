@@ -73,6 +73,10 @@ span.search-cat-arrow-down {
   background-color: #FFF;
 }
 
+ul#dropdown1 {
+  width: auto !important;
+}
+
 
 #badgeNbr{
   text-align: center;

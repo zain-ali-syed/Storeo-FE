@@ -5,6 +5,7 @@ import { getProducts } from '../../../helpers/api';
 import { addToBasket } from '../../../actions/example.actions';
 import './prod-card.css';
 import {v1} from 'uuid'
+import { isArray } from 'util';
 
 class ProductCard extends Component {
 
@@ -53,8 +54,6 @@ class ProductCard extends Component {
   }
 
   changeCurrentImage = async (e) => {
-    console.log('CHANGE CURRENT IMAGE');
-    console.log('####', e.target.src);
     await this.setState({ currentImage: e.target.src});
   }
 
@@ -62,8 +61,6 @@ class ProductCard extends Component {
   render() {
     if (!this.state.product) return (<div>loading</div>);
     const {product, images, currentImage} = this.state;
-    
-    console.log('PRODUCT', product);
     return (
 
       <Layout>
