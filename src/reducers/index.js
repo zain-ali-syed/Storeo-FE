@@ -4,7 +4,7 @@ const myBasket = localStorage.getItem('basket');
 if (myBasket === null) basket = [];
 else basket = JSON.parse(myBasket);
 
-const defaultUser = { id: "", first_name: "", last_name: "", role: "", token: "" };
+const defaultUser = { id: "", first_name: "", last_name: "", role: "", token: "", email: "", address: "", country: "", zip: "", phone: "" };
 const myUser = localStorage.getItem('user');
 if (!myUser) user = defaultUser;
 else user = JSON.parse(myUser);
