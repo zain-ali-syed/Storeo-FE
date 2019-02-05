@@ -3,7 +3,7 @@ import { CardElement, injectStripe } from 'react-stripe-elements';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { apiConstants } from '../../../constants/api.constants'
-import { clearBasket, togglePaymentStatus } from '../../../actions/example.actions';
+import { clearBasket, togglePaymentStatus, showLastOrder } from '../../../actions/example.actions';
 import { postNewOrder } from '../../../helpers/api';
 import ProcessPayment from './ProcessPayment';
 
@@ -57,6 +57,7 @@ class CheckoutForm extends Component {
         special_instructions: this.props.specialInstr,
         ordered_items: basket
       }, {headers: {'Authorization': "Bearer " + this.props.user.token}})
+      this.props.showLastOrder(orderData);
   }
 
   message = () => {
@@ -92,12 +93,14 @@ class CheckoutForm extends Component {
 const mapStateToProps = (state) => ({
   basket: state.basket,
   paymentStatus: state.paymentStatus,
-  user: state.user
+  user: state.user,
+  lastOrder: state.lastOrder,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   clearBasket: () => dispatch(clearBasket()),
   togglePaymentStatus: (status) => dispatch(togglePaymentStatus(status)),
+  showLastOrder: (data) => dispatch(showLastOrder(data)),
 })
 
 export default injectStripe(connect(mapStateToProps, mapDispatchToProps)(CheckoutForm))
