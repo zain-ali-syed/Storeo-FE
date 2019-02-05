@@ -34,6 +34,7 @@ class CheckoutForm extends Component {
       
     if (response.ok) {
       this.setState({complete: true});
+      this.submitOrder();
       this.props.clearBasket();
       this.props.history.push('/thankyou');
     }

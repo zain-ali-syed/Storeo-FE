@@ -13,7 +13,7 @@ export const apiConstants = {
   ADMIN_PRODUCT_URL: `http://${urlUros}/admin/products`, //POST, PUT, DELETE
   ADMIN_CATEGORY_URL: `http://${urlUros}/admin/categories`, //POST, PUT, DELETE
   ADMIN_ORDERS_URL: `http://${urlUros}/admin/orders`,
-  CUSTOMER_POST_NEW_ORDER: `http://${urlUros}/orders`,
+  CUSTOMER_POST_NEW_ORDER: `http://${urlLuca}/orders`,
   CUSTOMER_POST_NEW_ADDRESS: `http://${urlUros}/address`,
   PAYMENT: `http://${urlLuca}/charge`
 }
