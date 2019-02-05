@@ -50,9 +50,9 @@ class CheckoutForm extends Component {
     return basket;
   }
 
-  submitOrder = () => {
+  submitOrder = async () => {
     let basket = this.orderBasket();
-      postNewOrder({
+    let orderData = await postNewOrder({
         total: this.props.totalPrice,
         special_instructions: this.props.specialInstr,
         ordered_items: basket
@@ -87,7 +87,6 @@ class CheckoutForm extends Component {
     );
 
   }
-
 }
 
 const mapStateToProps = (state) => ({

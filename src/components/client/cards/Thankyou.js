@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { togglePaymentStatus } from '../../../actions/example.actions';
 
-const Thankyou = () => {
+class Thankyou extends Component {
+
+  componentWillUnmount () {
+    this.props.togglePaymentStatus("not started");
+  }
+
+  render () {
+
   return (
     <div>
-      <h6>Thank you for your purchase!</h6>
-      <h7>Here are the details of your order:</h7>
+      <h5>Thank you for your purchase!</h5>
+      <h6>Here are the details of your order:</h6>
     </div>
   );
 };
+}
 
-export default Thankyou;
+const mapStateToProps = (state) => ({
+  paymentStatus: state.paymentStatus,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  togglePaymentStatus: (status) => dispatch(togglePaymentStatus(status)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Thankyou)
+
