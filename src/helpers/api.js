@@ -2,11 +2,10 @@ import { apiConstants } from '../constants/api.constants'
 import axios from 'axios';
 
 
+var token;
 const user = localStorage.getItem('user');
-if (user) var token = JSON.parse(user).token;
-//axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-
-// const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
+if (user) token = JSON.parse(user).token;
+const headers = { headers: { "Authorization": `Bearer ${token}` } };
 
 
 //COMMON ADMIN AND CLIENT APIS
@@ -17,9 +16,9 @@ export const getProducts = (id) => {
 }
 
 export const getSearchProducts = (searchQuery) => {
-    return axios.get(apiConstants.USER_SEARCH_PRODUCTS +`${searchQuery}`
+    return axios.get(apiConstants.USER_SEARCH_PRODUCTS + `${searchQuery}`
     );
-} 
+}
 
 export const getProductsByCatId = (id) => {
     return axios.get(apiConstants.PRODUCTS_BY_CAT + `/${id}`)
@@ -33,6 +32,14 @@ export const getCategories = (id) => {
 
 export const loginUser = (data) => {
     return axios.get(apiConstants.LOGIN_URL, { headers: { Authorization: "Basic " + btoa(data.email + ":" + data.password) } });
+}
+
+export const registerUser = (data) => {
+    return axios.post(apiConstants.USER_REGISTER_URL, data);
+}
+
+export const addAddress = (data) => {
+    return axios.post(apiConstants.CUSTOMER_POST_NEW_ADDRESS, data, headers);
 }
 
 

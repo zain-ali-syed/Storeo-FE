@@ -30,28 +30,28 @@ export default class ProductsList extends Component {
 
   fetchProducts = async () => {
     const products = await getProductsByCatId(this.props.match.params.id);
-    this.setState({products: products.data || []});
+    this.setState({ products: products.data || [] });
   }
-  
-  
+
+
   displayProducts = () => {
     return this.state.products.map((product) => {
-        return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard checkCatId={this.props.match.params.id} {...product}/></div>
+      return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard checkCatId={this.props.match.params.id} {...product} /></div>
     })
   }
-  
+
   render() {
 
     const { categoryName } = this.props.location.state;
 
-    if(!this.state.products) return <div>loading</div>
+    if (!this.state.products) return <div>loading</div>
     return (
       <Layout>
         <h1 className="category-name">
           {categoryName || ''}
         </h1>
         <div className="row">
-        {this.displayProducts()}
+          {this.displayProducts()}
         </div>
       </Layout>
     );

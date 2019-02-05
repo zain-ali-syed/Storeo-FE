@@ -36,11 +36,7 @@ class Layout extends Component {
                   {this.props.user.first_name + " " + this.props.user.last_name}
                 </span>
               </Link>
-              <ul className="right hide-on-med-and-down"> {this.props.user.id && this.getMenu()} </ul>
-              <ul id="nav-mobile" className="sidenav">{this.props.user.id && this.getMenu()}</ul>
-              <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
-              <span id="logo-container" href="#" className="brand-logo">Admin Section</span>
 
               <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
               <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>

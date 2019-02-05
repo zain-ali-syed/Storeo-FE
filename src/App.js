@@ -32,6 +32,13 @@ import Checkout from './components/client/Checkout';
 import ProductAdd from './components/admin/product/ProductAdd';
 import ProductEdit from './components/admin/product/ProductEdit';
 import Thankyou from './components/client/Thankyou';
+import RegisterUser from './components/client/Register';
+import LoginUser from './components/client/Login';
+import Address from './components/client/Address';
+import MyProfile from './components/client/MyProfile';
+
+
+
 
 
 class App extends Component {
@@ -59,6 +66,10 @@ class App extends Component {
           <Route path="/productslist/:id" component={ProductsList}></Route>
           <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
           <Route exact path="/thankyou" component={Thankyou}></Route>
+          <Route exact path="/register" component={RegisterUser}></Route>
+          <Route exact path="/login" component={LoginUser}></Route>
+          <StorePrivateRoute path="/address" user={this.props.user} component={Address}></StorePrivateRoute>
+          <StorePrivateRoute path="/myprofile" user={this.props.user} component={MyProfile}></StorePrivateRoute>
         </Switch>
       </BrowserRouter>
     );
