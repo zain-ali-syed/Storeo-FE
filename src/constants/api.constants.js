@@ -1,16 +1,18 @@
-
+const serverURL = "http://localhost:3000";
 
 export const apiConstants = {
+  PRODUCTS_BY_CAT: `${serverURL}/products/cat`,
+  LOGIN_URL: `${serverURL}/login`,
+  USER_REGISTER_URL: `${serverURL}/signup`,
+  CATEGORIES_URL: `${serverURL}/categories`,
+  PRODUCTS_URL: `${serverURL}/products`,
 
-  PRODUCTS_BY_CAT: `http://localhost:3000/products/cat`,
-  ADMIN_REGISTER_URL: 'http://localhost:3000/signup',
-  LOGIN_URL: 'http://localhost:3000/login',
-  USER_REGISTER_URL: 'http://localhost:3000/signup',
-  CATEGORIES_URL: 'http://localhost:3000/categories',
-  PRODUCTS_URL: 'http://localhost:3000/products',
-  ADMIN_PRODUCT_URL: 'http://localhost:3000/admin/products', //POST, PUT, DELETE
-  ADMIN_CATEGORY_URL: 'http://localhost:3000/admin/categories', //POST, PUT, DELETE
-  ADMIN_ORDERS_URL: 'http://localhost:3000/admin/orders'
+
+
+  ADMIN_REGISTER_URL: `${serverURL}/signup`,
+  ADMIN_PRODUCT_URL: `${serverURL}/admin/products`, //POST, PUT, DELETE
+  ADMIN_CATEGORY_URL: `${serverURL}/admin/categories`, //POST, PUT, DELETE
+  ADMIN_ORDERS_URL: `${serverURL}/admin/orders`
 }
 
 

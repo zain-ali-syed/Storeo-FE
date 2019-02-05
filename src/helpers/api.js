@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const user = localStorage.getItem('user');
 if (user) var token = JSON.parse(user).token;
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+//axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
 
 
@@ -37,6 +37,7 @@ export const postProduct = (product) => {
 }
 
 export const editProduct = (product, id) => {
+    console.log("edit product ", apiConstants.ADMIN_PRODUCT_URL + `/${id}`)
     return axios.put(apiConstants.ADMIN_PRODUCT_URL + `/${id}`, product);
 }
 

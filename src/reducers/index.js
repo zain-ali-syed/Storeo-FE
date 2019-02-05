@@ -4,8 +4,9 @@ const myBasket = localStorage.getItem('basket');
 if (myBasket === null) basket = [];
 else basket = JSON.parse(myBasket);
 
+const defaultUser = { id: "", first_name: "", last_name: "", role: "", token: "" };
 const myUser = localStorage.getItem('user');
-if (!myUser) user = { id: "", first_name: "", last_name: "", role: "", token: "" };
+if (!myUser) user = defaultUser;
 else user = JSON.parse(myUser);
 
 
@@ -22,6 +23,8 @@ const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case 'USER_LOGGED_IN':
             return { ...state, user: action.data };
+        case "LOGOUT_USER":
+            return { ...state, user: defaultUser }
         case 'GET_CATEGORIES':
             return { ...state, categories: action.data };
         case 'GET_PROD_BY_CAT_ID':

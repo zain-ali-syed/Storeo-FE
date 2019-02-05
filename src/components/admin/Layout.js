@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 
 class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
+    console.log("props ", this.props)
   }
+
+
 
   getMenu = () => (
     <React.Fragment>
       <li><NavLink to="/admin/products">Manage Products</NavLink></li>
       <li><NavLink to="/admin/categories">Manage Categories</NavLink></li>
       <li><NavLink to="/admin/orders">View Orders</NavLink></li>
+      <a className="waves-effect waves-light btn-small" onClick={this.props.logOut}>
+        <i className="material-icons right white-text" >forward</i>Logout
+        </a>
     </React.Fragment>
   )
 
@@ -22,10 +30,13 @@ class Layout extends Component {
         <header>
           <nav className="blue-grey darken-2" role="navigation">
             <div className="nav-wrapper container">
-              <span id="logo-container" href="#" className="brand-logo">Admin Section</span>
-
-              <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
-              <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
+              <Link to="/admin">
+                <span id="logo-container" href="#" className="brand-logo"><i className="material-icons white-text">home</i>
+                  {this.props.user.first_name + " " + this.props.user.last_name}
+                </span>
+              </Link>
+              <ul className="right hide-on-med-and-down"> {this.props.user.id && this.getMenu()} </ul>
+              <ul id="nav-mobile" className="sidenav">{this.props.user.id && this.getMenu()}</ul>
               <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
             </div>
@@ -48,5 +59,18 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logOut: () => { console.log("diaptached"); dispatch({ type: "LOGOUT_USER" }) }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
 
