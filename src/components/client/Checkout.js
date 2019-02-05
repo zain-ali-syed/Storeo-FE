@@ -54,6 +54,10 @@ const CheckoutPage = () => {
              
              <div className="col s6">
              <p className="black-text center">Delivery address</p>
+             <p className="black-text">Address: {this.props.user.address}</p>
+             <p className="black-text">Zip: {this.props.user.zip}</p>
+             <p className="black-text">Country: {this.props.user.country}</p>
+             <p className="black-text">Phone: {this.props.user.phone}</p>
              <p className="black-text center">4242 4242 4242 4242</p>
              </div>
      
@@ -114,6 +118,7 @@ const mapStateToProps = (state) => ({
   basket: state.basket,
   categories: state.categories,
   paymentStatus: state.paymentStatus,
+  user: state.user,
 })
 
 const mapDispatchToProps = (dispatch) => ({
