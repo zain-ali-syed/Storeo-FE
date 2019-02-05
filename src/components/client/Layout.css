@@ -1,23 +1,97 @@
-#badge{
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  width: 15px;
-  height: 15px;
+body {
+  background-color: #444;
 }
 
-#badgeText{
-  position: absolute;
-  top: -29px;
-  right: 29px;
-  color: white;
+.nav-wrapper {
+  display: flex;
+  padding: 0 2vw;
+  align-items: center;
 }
+
+.nav-logo {
+  flex: 4;
+}
+
+.search-field {
+  flex: 6;
+  height: 35px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex: 4;
+  padding-top:25px;
+}
+
+div.input-field {
+  display: flex;
+  justify-content: flex-start;
+}
+
+div.search-categories {
+  align-self: center;
+    background-color: #FFF;
+  height: inherit;
+  line-height: 30px;
+}
+
+.dropdown-content {
+  margin-top: 20px;
+}
+
+nav i.input-field {
+  line-height: 35px;
+  position: relative;
+}
+
+i#search-icon {
+  color: #444; 
+}
+
+.category-selection {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFF;
+  height: 35px;
+  min-width: 50px;
+  max-width: auto;
+  padding: 3px 10px;
+  border-right: 1px solid #444;
+}
+
+p.selected-cat-name {
+  color: #444;
+  line-height: 0px;
+}
+
+span.search-cat-arrow-down {
+  color: #444;
+}
+
+#search {
+  background-color: #FFF;
+}
+
 
 #badgeNbr{
-  position: absolute;
-  top: 10px;
-  right: 25px;
+  text-align: center;
+  position: relative;
+  padding: 0px;
+  line-height: 18px;
+  top: -65px;
+  left: 20px;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.787);
+  border-radius: 10px;
+}
+
+
+#badgeText{
+  right: 1px;
   color: white;
-  width: 10px;
-  height: 10px;
+  font-weight: 500;
+  font-size: 12px;
 }

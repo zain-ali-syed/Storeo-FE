@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { deleteFromBasket } from '../../../actions/example.actions';
+import { deleteFromBasket, changeQuantity } from '../../../actions/example.actions';
 import { Link } from 'react-router-dom';
 
 class ProdBasket extends Component {
@@ -9,8 +9,17 @@ class ProdBasket extends Component {
     this.props.deleteFromBasket(this.props.id);
   }
 
-  
+  chgQuantity = (qty) => {
+    if (qty===-1 && this.props.quantity===1) {
+    return
+  } else {
+    this.props.changeQuantity(qty, this.props.id);
+  }
+}
+
   render () {
+
+  const totalPrice = this.props.price*this.props.quantity;
 
   return (
           <div className="">
@@ -18,19 +27,19 @@ class ProdBasket extends Component {
                 <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt="" className="circle"></img>
                       <span>
                         
-                      <span className="card-title">{this.props.name}</span>
+                      <Link to={`/productcard/${this.props.id}`} className="card-title">{this.props.name}</Link>
 
                             <div className="card-content">
-                            <span className="card-title">{this.props.price}</span>
-                            <p className="black-text">{this.props.description}</p>
-                              <p className="black-text">I am good at containing small bits of information.</p>
+                            <span className="card-title">Price per item: {this.props.price}</span>
+                              <p className="black-text">Total product cost: {totalPrice}</p>
+                              <p className="black-text">{this.props.description}</p>
                                 
                                    <div className="col s12 m12">
-                                      <a href="#"><i className="material-icons blue white-text">expand_more</i></a>
+                                      <button to="" className="btn-flat" onClick={()=>this.chgQuantity(-1)}><i className="material-icons blue white-text">expand_more</i></button>
                                       <div className="col">
-                                        <p className="black-text">5</p>
+                                        <p className="black-text">{this.props.quantity}</p>
                                       </div>
-                                      <a href="#"><i className="material-icons blue white-text">expand_less</i></a>
+                                      <button to="" className="btn-flat"onClick={()=>this.chgQuantity(1)}><i className="material-icons blue white-text">expand_less</i></button>
                                       </div>
                                    </div>
                        
@@ -38,7 +47,7 @@ class ProdBasket extends Component {
 
                       <br></br> 
                       
-                      <a to="" className="secondary-content btn-flat" onClick={this.delFromBasket}><i className="material-icons blue-text">delete</i></a>
+                      <button to="" className="secondary-content btn-flat" onClick={this.delFromBasket}><i className="material-icons blue-text">delete</i></button>
           </div>
   );
   }
@@ -50,6 +59,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteFromBasket: (product) => dispatch(deleteFromBasket(product)),
+  changeQuantity: (qty, id) => dispatch(changeQuantity(qty, id))
 })
 
 export default connect(

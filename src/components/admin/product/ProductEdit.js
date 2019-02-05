@@ -5,7 +5,7 @@ import '../styles.css'
 import validator from 'validator';
 import M from 'materialize-css';
 import { getProducts, getCategories, editProduct } from '../../../helpers/api';
-import { FilePond, registerPlugin } from 'react-filepond';
+import { registerPlugin } from 'react-filepond';
 import { cloudinaryConstants } from '../../../constants/cloudinary.constants'
 
 import 'filepond/dist/filepond.min.css';

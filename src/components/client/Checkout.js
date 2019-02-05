@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
-import { Link } from 'react-router-dom';
 import CheckoutForm from '../client/cards/checkout-form';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import { connect } from 'react-redux'
@@ -10,36 +9,22 @@ import ProdCheckout from './cards/prod-checkout';
 
 class Checkout extends Component {
 
+state = {
+  specialInstr: ""
+}
 
 payWithStripe = () => {
+
   return (
   
     <StripeProvider apiKey="pk_test_ujoxDJZ1TJvSLNby07kJdPad">
         <div className="example">
           <Elements>
-            <CheckoutForm />
+            <CheckoutForm totalPrice={this.props.match.params.totalPr} specialInstr={this.state.specialInstr}/>
           </Elements>
         </div>
       </StripeProvider>
     );
-
-    
-
-// return (
-// <form action="your-server-side-code" method="POST">
-//   <script
-//     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-//     data-key="pk_test_ujoxDJZ1TJvSLNby07kJdPad"
-//     data-amount="999"
-//     data-name="Demo Site"
-//     data-description="Example charge"
-//     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-//     data-locale="auto"
-//     data-currency="eur">
-//   </script>
-// </form>
-// )
-
 }
 
 showBasket = () => {
@@ -53,7 +38,9 @@ showBasket = () => {
   }
 }
 
-
+handleInput = (event) => {
+this.setState({specialInstr: event.target.value})
+}
 
   render() {
 
@@ -64,58 +51,37 @@ showBasket = () => {
 
           <div className="row card col s12">
           
-          <div className="col s4">
-          <p className="black-text">Delivery address</p>
+          <div className="col s6">
+          <p className="black-text center">Delivery address</p>
           </div>
 
-          <div className="col s4">
-          <p className="black-text">Invoice address</p>
-          </div>
-
-          <div className="col s4">
-          <p className="black-text">Payment method</p>
-          </div>
-
-          
-          </div>
-
-
-          <div className="row">
-
-          <div className="col s12">
-
-              <div className="col s12 m8 l6">
-
-              <ul className="collection">
-                {this.showBasket()}
-              </ul>
-             
+          <div className="col s6">
+              <div className="input-field col s12">
+              <i className="material-icons prefix">mode_edit</i>
+              <input placeholder="special delivery instructions" id="special_instructions" type="text" className="validate" data-length="30"
+              value={this.state.specialInstr} onChange={this.handleInput}></input>
+              {/* <label>max. 30 characters</label> */}
               </div>
-
-            
+          </div>
+    
+          </div>
+          <div className="row">
+          <div className="col s12">
+              <div className="col s12 m8 l6">
+                <ul className="collection">
+                  {this.showBasket()}
+                </ul>
+              </div>
               <div className="card col s12 m8 l6">
                 <span className="card-title">Payment summary</span>
-
                   <div className="card-content">
                     <span className="card-title"></span>
-                        
-                        <h6 className="black-text">Total: {this.props.match.params.totalPr}</h6>
-                    
-
                        {this.payWithStripe()}
-
-
-                        
                   </div>
               </div>
-
           </div>
-     
-     
          </div>
       </div>
-
-
       </Layout>
     )
   }

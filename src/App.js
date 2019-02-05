@@ -31,6 +31,7 @@ import ProductsList from './components/client/ProductsList';
 import Checkout from './components/client/Checkout';
 import ProductAdd from './components/admin/product/ProductAdd';
 import ProductEdit from './components/admin/product/ProductEdit';
+import Thankyou from './components/client/Thankyou';
 
 
 class App extends Component {
@@ -57,6 +58,7 @@ class App extends Component {
           <Route exact path="/productcard/:id" component={ProductCard}></Route>
           <Route path="/productslist/:id" component={ProductsList}></Route>
           <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
+          <Route exact path="/thankyou" component={Thankyou}></Route>
         </Switch>
       </BrowserRouter>
     );
