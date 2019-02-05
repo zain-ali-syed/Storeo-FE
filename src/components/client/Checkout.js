@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
-import { Link } from 'react-router-dom';
 import CheckoutForm from '../client/cards/checkout-form';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import { connect } from 'react-redux'

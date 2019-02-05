@@ -26,7 +26,7 @@ class Layout extends Component {
 
               <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
               <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
-              <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+              <a href="#!" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
 
             </div>
 

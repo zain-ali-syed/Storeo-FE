@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../Layout';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import '../styles.css'
 import validator from 'validator';
 import { getCategories, postProduct } from '../../../helpers/api';
