@@ -9,7 +9,6 @@ body {
   color:black;
   position: relative;
   overflow: auto;
-  overscroll-behavior: none;
 }
 
 main {

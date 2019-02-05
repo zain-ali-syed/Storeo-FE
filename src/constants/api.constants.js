@@ -1,3 +1,4 @@
+
 const serverURL = "http://localhost:3000"; //simply put in your server path here
 const urlZain = `192.168.1.158:3000`;
 const urlUros = `192.168.1.149:3000`;
@@ -17,8 +18,9 @@ export const apiConstants = {
   CATEGORIES_URL: `${serverURL}/categories`,
 
   //ORDERS AND PAYMENTS
-  CUSTOMER_POST_NEW_ORDER: `http://${serverURL}/orders`,
-  CUSTOMER_POST_NEW_ADDRESS: `http://${serverURL}/address`,
+  CUSTOMER_POST_NEW_ORDER: `${serverURL}/orders`,
+  CUSTOMER_POST_NEW_ADDRESS: `${serverURL}/address`,
+
   PAYMENT: `http://${serverURL}/charge`,
 
   //ADMIN

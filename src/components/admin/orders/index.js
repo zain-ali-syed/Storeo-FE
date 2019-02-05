@@ -6,7 +6,7 @@ import Layout from '../Layout';
 const Orders = () => {
     return (
         <Layout>
-            <table class="striped">
+            <table className="striped">
                 <thead>
                     <tr>
                         <th>Order ID</th>
