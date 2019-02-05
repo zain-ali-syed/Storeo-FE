@@ -17,7 +17,7 @@ payWithStripe = () => {
 
   return (
   
-    <StripeProvider apiKey="pk_test_ujoxDJZ1TJvSLNby07kJdPad">
+    <StripeProvider apiKey="pk_test_rfSkDgPYccMxhueycrd0cHXG">
         <div className="example">
           <Elements>
             <CheckoutForm totalPrice={this.props.match.params.totalPr} specialInstr={this.state.specialInstr}/>

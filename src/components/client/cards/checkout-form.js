@@ -56,7 +56,7 @@ class CheckoutForm extends Component {
         total: this.props.totalPrice,
         special_instructions: this.props.specialInstr,
         ordered_items: basket
-      }, {headers: {'Authorization': "Bearer " + token}})
+      }, {headers: {'Authorization': "Bearer " + this.props.user.token}})
   }
 
   message = () => {
@@ -93,6 +93,7 @@ class CheckoutForm extends Component {
 const mapStateToProps = (state) => ({
   basket: state.basket,
   paymentStatus: state.paymentStatus,
+  user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({
