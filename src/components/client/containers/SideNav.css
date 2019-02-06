@@ -1,3 +1,12 @@
   .sidenav-overlay {
     opacity: 0 !important;
   }
+
+  .category-header {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: black;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 1px 1px #d0cbcb;
+  }

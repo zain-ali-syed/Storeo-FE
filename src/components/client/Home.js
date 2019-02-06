@@ -43,6 +43,9 @@ class Home extends Component {
     render() {
         return (
             <Layout>
+                <h2 className="popular-categories">
+                    Popular Categories
+                </h2>
                 <CategoryContainer />
                 {this.displayProductByCat()}
             </Layout>

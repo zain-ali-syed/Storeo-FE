@@ -34,7 +34,6 @@ class searchedProductsList extends Component {
 
   displayProducts = () => {
     const products = this.props.searchResult || [];
-    console.log('SEARCH PRODUCTS', products);
     return products.map((product) => {
       return (
         <div 
