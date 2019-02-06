@@ -9,7 +9,7 @@ class searchedProductsList extends Component {
 
   state = {
     products: [],
-    lastLocation: ''
+    lastLocation: '',
   }
 
   async componentDidMount() {
@@ -49,6 +49,7 @@ class searchedProductsList extends Component {
   render() {
 
     const {q, cat} =  this.props.match.params || '';
+    console.log('SEARCH PRODUCTS LIST', this.props.match.params)
 
     if (!this.props.searchResult || this.props.searchResult.length < 1) {
       return (

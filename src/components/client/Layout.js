@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import SideNav from './containers/SideNav';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
@@ -13,7 +13,7 @@ class Layout extends Component {
   state = {
     selectedCategoryName: undefined,
     categoryId: null,
-    queryPhrase: '',
+    q: '',
   }
 
   componentDidMount() {
@@ -35,20 +35,27 @@ class Layout extends Component {
 
   handleSearchSubmit = async (event) => {
     event.preventDefault();
-    const { queryPhrase, selectedCategoryName } = this.state;
-    let categoryQuery;
-    if (!selectedCategoryName) categoryQuery = '';
-    else categoryQuery = '&category=' + selectedCategoryName;
+    let { q, selectedCategoryName } = this.state;
+    q = q.trim().split(' ').filter(str => str.length > 0).join(' ');
+    if (!q) {
+      console.log('SEARCH', q);
+      return;
+    }
+    let categoryName;
+    if (!selectedCategoryName) categoryName = '';
+    else categoryName = '&category=' + selectedCategoryName;
 
-    const searchQuery = `?q=${queryPhrase}${categoryQuery}`;
+    const searchQuery = `?q=${q}${categoryName}`;
     let searchResult = await getSearchProducts(searchQuery);
-    this.props.saveSearchResult(searchResult.data);
+    await this.props.saveSearchResult(searchResult.data);
+
+    this.props.history.push(`/searchresult/${selectedCategoryName || 'all'}/${q}`);
 
   }
 
   handleChange = (event) => {
     event.preventDefault();
-    this.setState({ queryPhrase: event.target.value });
+    this.setState({ q: event.target.value });
   }
 
   render() {
@@ -101,7 +108,7 @@ class Layout extends Component {
 
                 <form onSubmit={this.handleSearchSubmit}>
                   <div className="input-field">
-                    <input id="search" type="search" value={this.state.queryPhrase} onChange={this.handleChange} required />
+                    <input id="search" type="search" value={this.state.q} onChange={this.handleChange} required />
 
                     <label className="label-icon" htmlFor="search">
                       <i className="material-icons input-field" id="search-icon">search</i>
@@ -190,8 +197,10 @@ const mapDispatchToProps = (dispatch) => ({
   logOut: () => { dispatch({ type: "LOGOUT_USER" }) }
 })
 
+const LayoutWithRouter = withRouter(Layout);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Layout);
+)(LayoutWithRouter);
 

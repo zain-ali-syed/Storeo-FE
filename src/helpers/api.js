@@ -21,6 +21,7 @@ export const getProducts = (id) => {
 }
 
 export const getSearchProducts = (searchQuery) => {
+    console.log('IN API FUNCTION', searchQuery);
     return axios.get(apiConstants.USER_SEARCH_PRODUCTS + `${searchQuery}`
     );
 }
