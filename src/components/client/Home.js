@@ -20,6 +20,7 @@ async componentDidMount() {
         return this.props.categories.map((category, index) => {
                 return (
                     <div className="" key={category.id}>
+                        
                         <Link 
                             to={{ pathname:`/productslist/${category.id}`, state:{ categoryName: category.name}} }
                             class="waves-effect waves-light btn">
