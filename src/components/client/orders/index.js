@@ -12,14 +12,16 @@ class Orders extends Component {
 
     async componentDidMount() {
         try {
-            this.setState({ orders: (await getOrders()).data })
+            console.log("component did mount")
+            const orders = await getOrders();
+            console.log("orders ", orders.data)
+            this.setState((currState) => ({ orders: [...currState.orders, ...orders.data] }));
         } catch (e) {
             console.log("i'm sorry error getting back orders ", e)
         }
     }
     render() {
         console.log(this.state.orders)
-        { if (this.state.orders.length === 0) return (<div>Loading</div>) }
 
         return (
             <Layout>
@@ -28,6 +30,7 @@ class Orders extends Component {
                         <legend><span className="number"></span>Previous Orders</legend>
                     </fieldset>
                     {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
+                    {!this.state.orders.length && "You have no previous orders at present"}
                 </div>
             </Layout>
         );

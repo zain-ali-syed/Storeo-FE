@@ -25,6 +25,7 @@ export const apiConstants = {
   PAYMENT: `${serverURL}/charge`,
 
   //ADMIN
+  ADMIN_GET_ORDERS: `${serverURL}/admin/orders`,
   ADMIN_LOGIN_URL: `${serverURL}/admin/login`,
   ADMIN_REGISTER_URL: `${serverURL}/admin/signup`,
   ADMIN_PRODUCT_URL: `${serverURL}/admin/products`, //POST, PUT, DELETE
