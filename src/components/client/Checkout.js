@@ -49,11 +49,9 @@ class Checkout extends Component {
 
 
         <div className="container">
-
           <div className="row card col s12">
-
             <div className="col s6">
-              <p className="black-text center">Delivery address</p>
+              <p className="card-title">Delivery address</p>
               <p className="black-text">Address: {this.props.user.address}</p>
               <p className="black-text">Zip: {this.props.user.zip}</p>
               <p className="black-text">Country: {this.props.user.country}</p>
