@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
+
 class Layout extends Component {
 
   componentDidMount() {
@@ -29,20 +30,16 @@ class Layout extends Component {
       <React.Fragment>
         <header>
           <nav className="blue-grey darken-2" role="navigation">
-            <div className="nav-wrapper container">
+            <div className="container">
+              <a id="logo-container" href="#" className={this.props.user.role === "admin" ? "brand-logo" : "brand-logo center"}>Admin Section</a>
 
-              <Link to="/admin">
-                <span id="logo-container" href="#" className="brand-logo"><i className="material-icons white-text">home</i>
-                  {this.props.user.first_name + " " + this.props.user.last_name}
-                </span>
-              </Link>
-
-
-              <ul className="right hide-on-med-and-down"> {this.getMenu()} </ul>
-              <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
-              <a href="#!" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-
-
+              {this.props.user.role === "admin" &&
+                <React.Fragment>
+                  <ul className="hide-on-med-and-down right"> {this.getMenu()} </ul>
+                  <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
+                  <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                </React.Fragment>
+              }
             </div>
 
           </nav>
