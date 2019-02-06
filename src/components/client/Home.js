@@ -6,8 +6,9 @@ import ProductContainer from "./containers/product";
 import { connect } from "react-redux";
 import { getCategories } from "../../helpers/api";
 import { getCateg } from "../../actions/example.actions";
+import './Home.css';
 
-const maxItems = 6;
+const numOfCategoriesToShow = 2;
 
 class Home extends Component {
   async componentDidMount() {
@@ -16,22 +17,26 @@ class Home extends Component {
   }
 
   displayProductByCat = () => {
-    return this.props.categories.map((category, index) => {
-      return (
-        <div className="" key={category.id}>
-          <Link
-            to={{
-              pathname: `/productslist/${category.id}`,
-              state: { categoryName: category.name }
-            }}
-            className="waves-effect waves-light btn"
-          >
-            <i className="material-icons left">open_in_new</i>
-            {category.name}
-          </Link>
-          <ProductContainer {...category} />
-        </div>
+    return this.props.categories.map((category, i) => {
+    if (i < numOfCategoriesToShow) {
+        return (
+            <div className="category-product-row" key={category.id}>
+                <Link
+                    to={{
+                        pathname: `/productslist/${category.id}`,
+                        state: { categoryName: category.name }
+                    }}
+                >
+                    <h2 className="category-header">
+                        {category.name}
+                    </h2>
+                </Link>
+                <ProductContainer {...category} />
+            </div>
       );
+    }
+    else return null;
+
     });
   };
 

@@ -1,8 +1,77 @@
-p{
-  color: white;
+div.category-card-wrapper {
+  padding: 5px 20px;
+  text-align: center;
 }
 
-#catCard {
-  min-width: 130px;
-  min-height: 300px;
+div.catCard {
+  margin: 0;
+  height: 350px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 10px 30px 10px;
+  min-height: 150px;
+  max-height: 350px;
+}
+
+h2.category-name {
+  align-self: flex-start;
+  margin: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+  height: 50px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+
+.text {
+  position: relative;
+  font-size: 14px;
+  color: black;
+  width: 100%; /* Could be anything you like. */
+}
+
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2.4em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  text-align:justify;
+}
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px; 
+  bottom: 4px;
+}
+
+p.category-description {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+p.category-bottom-link {
+  justify-self: flex-end;
+  color: rgb(21, 91, 255);
+  font-size: 13px;
+  font-weight: 400;
+  position: absolute;
+  bottom: 0;
+}
+
+div.card-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+div.category-card-image-container {
+  min-height: 150px;
+  max-height: 200px;
+  height: 50%;
+  flex: 1;
 }

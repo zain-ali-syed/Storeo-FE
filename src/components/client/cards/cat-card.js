@@ -3,25 +3,37 @@ import { Link } from 'react-router-dom';
 import '../cards/cat-card.css'
 
 
-const CategoryCard = ({name, id}) => {
-  
+const CategoryCard = (props) => {
+  const { name, id, image, description } = props;
+  console.log('CATEGORY CARD', props)
   return (
-          <Link to={{ pathname:`/productslist/${id}`, state:{ categoryName: name}} } >
-              <div >
-                <div  id="catCard">
-                <div className="card hoverable">
-                  <div className="card blue lighten-2">
-                    <div className="card-action center">
-                    <p>{name}</p>
-                    </div>
-                  </div>
-                  <div className="card-image">
-                    <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt=""></img>
-                  </div>
-                </div>
-              </div>
+    <Link to={{ pathname: `/productslist/${id}`, state: { categoryName: name } }} >
+      <div className="category-card-wrapper">
+          <div className="card hoverable catCard">
+                <h2 className="category-name">{name}</h2>
+            <div
+              className="card-image category-card-image-container"
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+
+            >
+              {/* <img src={image} alt=""></img> */}
             </div>
-          </Link>
+            <p
+              className="category-description text text-concat ellipsis"
+            >
+              {description}
+            </p>
+            <Link to="">
+              <p className="category-bottom-link">Shop now</p>
+            </Link>
+          </div>
+      </div>
+    </Link>
   );
 };
 

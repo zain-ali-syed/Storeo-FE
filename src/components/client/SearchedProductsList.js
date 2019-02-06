@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ProductSmallCard from './cards/prod-sml-card';
 import Layout from './Layout';
 import { connect } from 'react-redux';
-
+import './SearchedProductsList.css';
 
 class searchedProductsList extends Component {
 
@@ -54,18 +54,15 @@ class searchedProductsList extends Component {
     if (!this.props.searchResult || this.props.searchResult.length < 1) {
       return (
       <Layout>
-        <h6 className="category-name">
-          <b>Results for: </b> {` '${q}' in ${(cat)}` || ''}
-        </h6>
         <br/>
-        <h5>No Results</h5>
+        <h5 className="category-name">No Results</h5>
       </Layout>)
     }
     return (
       <Layout>
-        <h6 className="category-name">
-          <b>Results for: </b> {` "${q}" in ${(cat)}` || ''}
-        </h6>
+        <h5 className="category-name">
+          Results for: <p className="result-text">{` '${q}' in ${(cat).charAt(0).toUpperCase() + cat.substr(1)}` || ''}</p>
+        </h5>
         <div className="row">
           {this.displayProducts()}
         </div>
