@@ -5,7 +5,7 @@ import M from 'materialize-css';
 import { connect } from 'react-redux';
 import { getSearchProducts } from '../../helpers/api';
 import { saveSearchResult } from '../../actions/example.actions';
-import './Layout.css'
+import './Layout.css';
 
 
 class Layout extends Component {
