@@ -2,10 +2,15 @@ import { apiConstants } from '../constants/api.constants'
 import axios from 'axios';
 
 
-var token;
-const user = localStorage.getItem('user');
-if (user) token = JSON.parse(user).token;
-const headers = { headers: { "Authorization": `Bearer ${token}` } };
+
+
+export const getHeader = () => {
+    var token;
+    const user = localStorage.getItem('user');
+    if (user) token = JSON.parse(user).token;
+    return { "Authorization": `Bearer ${token}` };
+}
+
 
 
 //COMMON ADMIN AND CLIENT APIS
@@ -39,11 +44,11 @@ export const registerUser = (data) => {
 }
 
 export const addAddress = (data) => {
-    return axios.post(apiConstants.CUSTOMER_POST_NEW_ADDRESS, data, headers);
+    return axios.post(apiConstants.CUSTOMER_POST_NEW_ADDRESS, data, { headers: getHeader() });
 }
 
 export const getOrders = () => {
-    return axios.get(apiConstants.CUSTOMER_GET_ORDERS, headers);
+    return axios.get(apiConstants.CUSTOMER_GET_ORDERS, { headers: getHeader() });
 }
 
 
@@ -60,6 +65,12 @@ export const editProduct = (product, id) => {
 
 export const deleteProduct = (id) => {
     return axios.delete(apiConstants.ADMIN_PRODUCT_URL + `/${id}`);
+}
+
+//ADMIN GET ALL ORDERS
+
+export const getAllOrders = () => {
+    return axios.get(apiConstants.ADMIN_GET_ORDERS, { headers: getHeader() });
 }
 
 //ADMIN CATEGORIES ROUTES
@@ -83,5 +94,5 @@ export const registerAdmin = (data) => {
 
 // CUSTOMER API
 export const postNewOrder = (data, header) => {
-    return axios.post(apiConstants.CUSTOMER_POST_NEW_ORDER, data, header);
+    return axios.post(apiConstants.CUSTOMER_POST_NEW_ORDER, data, { headers: getHeader() });
 }
