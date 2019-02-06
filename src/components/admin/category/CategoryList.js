@@ -34,11 +34,14 @@ class CategoryList extends Component {
 
     displayCategories = () => {
         return this.state.categories.map(category => {
-            return <tr key={category.id}>
-                <td className="large_td"><h6>{category.name}</h6></td>
-                <td><Link to={`/admin/category/add_edit/${category.id}`}>
+            return <tr key={category.id} style={{ border: "1px solid #eeeeee", padding: "20px" }}>
+                <td ><img src={category.image} alt={category.name} height="80px"></img></td>
+                <td><h6 className="blue-grey-text text-darken-2" style={{ fontWeight: "500" }}>{category.name}</h6></td>
+                <td style={{ padding: "15px" }}>{category.description}</td>
+
+                <td style={{ width: "50px" }}><Link to={`/admin/category/add_edit/${category.id}`}>
                     <button className="btn-floating btn-small"><i className="material-icons center-align">edit</i></button></Link></td>
-                <td><button className="btn-floating btn-small"><i className="material-icons center-align" onClick={() => this.deleteCategoryID(category.id)}>delete</i></button></td>
+                <td style={{ width: "50px" }}><button className="btn-floating btn-small"><i className="material-icons center-align" onClick={() => this.deleteCategoryID(category.id)}>delete</i></button></td>
             </tr>
         })
     }

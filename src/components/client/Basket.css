@@ -1,0 +1,38 @@
+#basket {
+  padding: 10px 20px;
+}
+
+.basket-total-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e0e0e0;
+}
+
+#shipping-handling {
+  border-bottom: 1px solid #e0e0e0;
+  width: 80%;
+  text-align: end;
+}
+
+#summary-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 150px;
+}
+
+#checkout-btn {
+  margin-top: 20px;
+  width: 100%;
+  color: black;
+  font-weight: 500;
+}
+
+.basket-total {
+  color: #ef5350;
+}
+
+.basket-summary {
+  display: flex;
+  justify-content: space-between;
+}

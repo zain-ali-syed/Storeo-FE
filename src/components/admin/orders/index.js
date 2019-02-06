@@ -23,13 +23,8 @@ class Orders extends Component {
 
         return (
             <Layout>
-                <div className="theForm">
-                    <fieldset>
-                        <legend><span className="number"></span>All Orders</legend>
-                    </fieldset>
-                    {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
-                    {!this.state.orders.length && "You have no previous orders at present"}
-                </div>
+                {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
+                {!this.state.orders.length && "You have no previous orders at present"}
             </Layout>
         );
     }

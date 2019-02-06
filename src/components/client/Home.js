@@ -11,10 +11,10 @@ import './Home.css';
 const numOfCategoriesToShow = 2;
 
 class Home extends Component {
-  async componentDidMount() {
-    const categories = await getCategories();
-    this.props.getCateg(categories.data);
-  }
+    async componentDidMount() {
+        const categories = await getCategories();
+        this.props.getCateg(categories.data);
+    }
 
   displayProductByCat = () => {
     return this.props.categories.map((category, i) => {
@@ -40,25 +40,25 @@ class Home extends Component {
     });
   };
 
-  render() {
-    return (
-      <Layout>
-        <CategoryContainer />
-        {this.displayProductByCat()}
-      </Layout>
-    );
-  }
+    render() {
+        return (
+            <Layout>
+                <CategoryContainer />
+                {this.displayProductByCat()}
+            </Layout>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories
+    categories: state.categories
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCateg: data => dispatch(getCateg(data))
+    getCateg: data => dispatch(getCateg(data))
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Home);

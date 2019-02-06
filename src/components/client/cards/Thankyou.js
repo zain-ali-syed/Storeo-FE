@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { togglePaymentStatus, showLastOrder } from '../../../actions/example.actions';
+import './thankyou.css';
 
 class Thankyou extends Component {
   
@@ -12,29 +13,46 @@ class Thankyou extends Component {
   render () {
 
   if (!this.props.lastOrder.data) return <div>loading...</div>
-
+ 
   const product = this.props.lastOrder.data.ordered_items[0].products.map((prod)=>{
-    return <div><p className="black-text">Product: {prod}</p></div>
+    return <p className="product">{prod}</p>
   })
 
   const quantity = this.props.lastOrder.data.ordered_items[0].quantities.map((qty)=>{
-    return <div><p className="black-text">Quantity: {qty}</p></div>
+    return <p className="product center">{qty}</p>
   })
-
-  const totalPrice = this.props.lastOrder.data.ordered_items[0].prices.map((totalPr)=>{
-    return <div><p className="black-text">Total price: {totalPr}</p></div>
-  })
-
+  
   return (
-    <div>
-      <h5>Thank you for your purchase!</h5>
-      <h6>Here are the details of your order:</h6>
-      <p className="black-text">order number: {this.props.lastOrder.data.order_num}</p>
-      <p className="black-text">order date: {this.props.lastOrder.data.ordered_items[0].created_at}</p>
-      {product}
-      {quantity}
-      {totalPrice}
-    </div>
+   
+      <div className="container">
+       
+                <span><p className="title">Thank you for shopping at Storeo!</p></span>
+                        
+                      <div class="card grey lighten-2">
+                          <div class="card-content"> 
+                          <div className="orderHeader">
+                          <p className="order">order number: {this.props.lastOrder.data.order_num}</p>
+                          <p className="order">order date: {this.props.lastOrder.data.ordered_items[0].created_at.split("T")[0]}</p> 
+                          </div>
+
+
+                            <div className="row orderDets">
+                            <div className="col s12 ">
+                            <div className="col s3 table"><p>Product</p></div>
+                            <div className="col s2 table"><p className="center">Quantity</p></div>
+                              </div>
+
+                              <div className="col s12">
+                              <div className="col s3">{product}</div>
+                              <div className="col s2">{quantity}</div>
+                              </div>
+                              </div>
+                          
+                        </div>
+                    </div>
+                  
+                </div>
+   
   );
 };
 }
@@ -47,3 +65,5 @@ const mapDispatchToProps = (dispatch) => ({
   showLastOrder: (data) => dispatch(showLastOrder(data)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Thankyou)
+
+

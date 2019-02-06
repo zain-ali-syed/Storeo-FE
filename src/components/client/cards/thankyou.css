@@ -1,0 +1,36 @@
+.orderHeader{
+  margin: 0 10px 10px;
+  border-bottom: solid 1px;
+  border-bottom-color: #616161;
+  padding-bottom: 5px;
+}
+
+.orderDets{
+  font-size: 14px;
+}
+
+.product{
+  font-size: 12px;
+  color: #424242;
+}
+
+.title{
+  font-size: 25px;
+  color: #ff9100;
+  margin-bottom: 10px;
+}
+
+.order {
+  font-size: 14px;
+  font-weight: 600;
+  color: #616161;
+
+}
+
+.container{
+  width: 700px;
+}
+
+.table{
+ background-color: #bdbdbd
+}
