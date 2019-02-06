@@ -1,0 +1,14 @@
+#basket-card {
+  margin-bottom: 25px;
+}
+
+#change-qty-wrapper {
+  display: flex;
+  margin-top: 15px;
+  padding: 0 0;
+}
+
+.qty-number {
+  min-width: 40px;
+  text-align: center;
+}
