@@ -6,7 +6,7 @@ import '../cards/cat-card.css'
 const CategoryCard = ({name, id}) => {
   
   return (
-          <Link to={`/productslist/${id}`} >
+          <Link to={{ pathname:`/productslist/${id}`, state:{ categoryName: name}} } >
               <div >
                 <div  id="catCard">
                 <div className="card hoverable">
@@ -26,4 +26,3 @@ const CategoryCard = ({name, id}) => {
 };
 
 export default CategoryCard;
-

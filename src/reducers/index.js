@@ -4,7 +4,7 @@ const myBasket = localStorage.getItem('basket');
 if (myBasket === null) basket = [];
 else basket = JSON.parse(myBasket);
 
-const defaultUser = { id: "", first_name: "", last_name: "", role: "", token: "" };
+const defaultUser = { id: "", first_name: "", last_name: "", role: "", token: "", email: "", address: "", country: "", zip: "", phone: "" };
 const myUser = localStorage.getItem('user');
 if (!myUser) user = defaultUser;
 else user = JSON.parse(myUser);
@@ -16,6 +16,8 @@ const initState = {
     categories: [],
     products: [],
     searchResult: [],
+    paymentStatus: "not started",
+    lastOrder: [],
 }
 
 const rootReducer = (state = initState, action) => {
@@ -31,7 +33,6 @@ const rootReducer = (state = initState, action) => {
         case "LOGOUT_USER":
             return { ...state, user: defaultUser }
         case 'GET_CATEGORIES':
-
             return { ...state, categories: action.data };
         case 'GET_PROD_BY_CAT_ID':
             return { ...state, products: action.data };
@@ -90,6 +91,12 @@ const rootReducer = (state = initState, action) => {
         case 'SAVE_SEARCH_RESULT':
             return { ...state, searchResult: action.listOfProducts };
 
+
+        case 'TOGGLE_PAYMENT_STATUS':
+            return {...state, paymentStatus: action.status};
+
+        case 'SHOW_LAST_ORDER':
+            return {...state, lastOrder: action.data};
 
         default:
             return state;

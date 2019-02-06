@@ -8,7 +8,6 @@ import '../containers/product.css'
 const maxItems = 6;
 
 export default class ProductContainer extends Component {
-
   state = {}
 
   async componentDidMount() {
@@ -17,17 +16,19 @@ export default class ProductContainer extends Component {
   }
 
   displayProductsByCategId = () => {
+    console.log('PRODUCTS BY CAT ID', this.state.products);
     return this.state.products.map((product, index) => {
-      if (index < maxItems ) {
         return (
           <div 
             className="col s6 m6 l2"
-            key={product.id}><ProductSmallCard 
-            checkCatId={this.props.id} 
-            catName={this.props.name} {...product}/>
+            key={product.id}>
+            
+            <ProductSmallCard 
+              checkCatId={this.props.id} 
+              catName={this.props.name} {...product}
+            />
           </div>
         )
-      }
       return true;
     })
   }

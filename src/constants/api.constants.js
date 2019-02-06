@@ -1,8 +1,8 @@
 
-const serverURL = "http://localhost:3000"; //simply put in your server path here
-const urlZain = `192.168.1.158:3000`;
-const urlUros = `192.168.1.149:3000`;
-const urlLuca = `192.168.1.116:3000`;
+const serverURL = "http://192.168.1.149:3000"; //simply put in your server path here
+const urlZain = `http://192.168.1.158:3000`;
+const urlUros = `http://192.168.1.149:3000`;
+const urlLuca = `http://192.168.1.116:3000`;
 
 
 
@@ -21,14 +21,13 @@ export const apiConstants = {
   CUSTOMER_POST_NEW_ORDER: `${serverURL}/orders`,
   CUSTOMER_GET_ORDERS: `${serverURL}/orders`,
   CUSTOMER_POST_NEW_ADDRESS: `${serverURL}/address`,
-  PAYMENT: `http://${serverURL}/charge`,
+  PAYMENT: `${urlUros}/charge`,
 
   //ADMIN
   ADMIN_LOGIN_URL: `${serverURL}/admin/login`,
   ADMIN_REGISTER_URL: `${serverURL}/admin/signup`,
   ADMIN_PRODUCT_URL: `${serverURL}/admin/products`, //POST, PUT, DELETE
   ADMIN_CATEGORY_URL: `${serverURL}/admin/categories`, //POST, PUT, DELETE
-  ADMIN_ORDERS_URL: `${serverURL}/admin/orders`,
+  ADMIN_ORDERS_URL: `${urlUros}/admin/orders`,
 }
-
 

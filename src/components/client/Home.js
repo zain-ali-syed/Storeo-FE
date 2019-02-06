@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import CategoryContainer from './containers/category';
 import ProductContainer from './containers/product';
@@ -17,15 +18,18 @@ async componentDidMount() {
 
     displayProductByCat = () => {
         return this.props.categories.map((category, index) => {
-            if (index < maxItems) {
                 return (
                     <div className="" key={category.id}>
-                        <p className="black-text">{category.name} {category.id}</p>
+                        <Link 
+                            to={{ pathname:`/productslist/${category.id}`, state:{ categoryName: category.name}} }
+                            class="waves-effect waves-light btn">
+                            <i class="material-icons left">open_in_new</i>
+                            {category.name}
+                        </Link>
                         <ProductContainer {...category} />
                     </div>
                     )
-            }
-            return true;
+
         })
     }
 

@@ -42,7 +42,7 @@ export default class ProductsList extends Component {
 
   render() {
 
-    const { categoryName } = this.props.location.state;
+    const { categoryName } = this.props.location.state || '';
 
     if (!this.state.products) return <div>loading</div>
     return (

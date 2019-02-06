@@ -31,7 +31,7 @@ import ProductsList from './components/client/ProductsList';
 import Checkout from './components/client/Checkout';
 import ProductAdd from './components/admin/product/ProductAdd';
 import ProductEdit from './components/admin/product/ProductEdit';
-import Thankyou from './components/client/Thankyou';
+import Thankyou from './components/client/cards/Thankyou';
 import RegisterUser from './components/client/Register';
 import LoginUser from './components/client/Login';
 import Address from './components/client/Address';

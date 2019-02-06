@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import {CardElement, injectStripe} from 'react-stripe-elements';
+import { CardElement, injectStripe } from 'react-stripe-elements';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { apiConstants } from '../../../constants/api.constants'
-import { clearBasket } from '../../../actions/example.actions';
-import {postNewOrder} from '../../../helpers/api';
+import { clearBasket, togglePaymentStatus, showLastOrder } from '../../../actions/example.actions';
+import { postNewOrder } from '../../../helpers/api';
+import ProcessPayment from './ProcessPayment';
 
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
+const tokenUros = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
+
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FAY29kZXdvcmtzLm1lIiwiaWF0IjoxNTQ5Mjg5OTUxfQ.c7QjuPr42SZ73C4mr50vqyXpRVIKb1nM5jm84gQ1tCc';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -18,25 +21,24 @@ class CheckoutForm extends Component {
 
   async submit(ev) {
 
+    console.log('hello');
     let {token} = await this.props.stripe.createToken({name: "Name"});
-
-    if (token===undefined) return //
+    console.log('goodbye');
+    if (token===undefined) return;
     
     let response = await fetch(apiConstants.PAYMENT, {
       method: "POST",
-      headers: {"Content-Type": "text/plain"},
-      body: {token: token.id}
-    });
-  
-    this.setState({complete: true});
-    this.submitOrder();
-    this.props.clearBasket();
-      
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        amount: this.props.totalPrice,
+        token: token.id
+    })
+  });
+
     if (response.ok) {
-      this.setState({complete: true});
+      this.props.togglePaymentStatus("completed")
       this.submitOrder();
       this.props.clearBasket();
-      this.props.history.push('/thankyou');
     }
   }
 
@@ -48,16 +50,14 @@ class CheckoutForm extends Component {
     return basket;
   }
 
-  submitOrder = () => {
+  submitOrder = async () => {
     let basket = this.orderBasket();
-      postNewOrder({
+    let orderData = await postNewOrder({
         total: this.props.totalPrice,
         special_instructions: this.props.specialInstr,
-        ordered_items: [basket]
-      }, {headers: {'Authorization': "Bearer " + token}})
-      // this.submit();
-      this.setState({complete: true})
-      this.props.clearBasket();
+        ordered_items: basket
+      }, {headers: {'Authorization': "Bearer " + this.props.user.token}})
+      this.props.showLastOrder(orderData);
   }
 
   message = () => {
@@ -79,21 +79,28 @@ class CheckoutForm extends Component {
       <h6 className="black-text">Total: {this.totalPrice()}</h6>
         {this.message()}
         <br></br>
+        {/* {this.props.processingPmt === 'processing' ? <ProcessPayment/> : null } */}
           <CardElement />
         <br></br>
-        <button className={`waves-effect waves-light btn blue lighten-2`} onClick={this.submitOrder}><i className="material-icons left"></i>Pay now</button>
+        <button className={`waves-effect waves-light btn blue lighten-2`} onClick={this.submit}><i className="material-icons left"></i>Pay now</button>
         <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
       </div>
     );
+
   }
 }
 
 const mapStateToProps = (state) => ({
   basket: state.basket,
+  paymentStatus: state.paymentStatus,
+  user: state.user,
+  lastOrder: state.lastOrder,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  clearBasket: () => dispatch(clearBasket())
+  clearBasket: () => dispatch(clearBasket()),
+  togglePaymentStatus: (status) => dispatch(togglePaymentStatus(status)),
+  showLastOrder: (data) => dispatch(showLastOrder(data)),
 })
 
 export default injectStripe(connect(mapStateToProps, mapDispatchToProps)(CheckoutForm))

@@ -13,8 +13,6 @@ class SideNav extends Component {
   async componentDidMount() {
     const categories = await getCategories()
     this.props.getCateg(categories.data);
-
-    console.log('SIDE NAV CATEGORIES', categories);
   }
 
   displayCategories = () => {

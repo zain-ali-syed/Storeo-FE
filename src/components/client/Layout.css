@@ -1,5 +1,5 @@
 body {
-  background-color: #444;
+  background-color: white;
 }
 
 .nav-wrapper {
@@ -71,6 +71,10 @@ span.search-cat-arrow-down {
 
 #search {
   background-color: #FFF;
+}
+
+ul#dropdown1 {
+  width: auto !important;
 }
 
 
