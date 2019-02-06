@@ -36,7 +36,14 @@ export default class ProductsList extends Component {
 
   displayProducts = () => {
     return this.state.products.map((product) => {
-      return <div className="col s6 m6 l2" key={product.id}><ProductSmallCard checkCatId={this.props.match.params.id} {...product} /></div>
+      return (
+        <div 
+          className="col s6 m6 l3"
+          key={product.id}
+        >
+          <ProductSmallCard {...product} />
+        </div>
+        )
     })
   }
 
