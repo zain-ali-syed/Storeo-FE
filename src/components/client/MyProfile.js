@@ -35,6 +35,11 @@ const MyProfile = (props) => {
                     </fieldset>
                 }
 
+                <fieldset>
+                    <legend><span className="number">3</span>Previous Orders</legend>
+                    <p>Please <Link to="/orders">click here</Link> to view previous orders</p>
+                </fieldset>
+
             </div>
         </Layout>
     );
