@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { apiConstants } from '../../../constants/api.constants'
 import { clearBasket, togglePaymentStatus, showLastOrder } from '../../../actions/example.actions';
 import { postNewOrder } from '../../../helpers/api';
 import ProcessPayment from './ProcessPayment';
+import './checkout-form.css';
 
 
 const tokenUros = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
@@ -15,25 +16,25 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FAY29kZXdv
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {complete: false};
+    this.state = { complete: false };
     this.submit = this.submit.bind(this);
   }
 
   async submit(ev) {
 
     console.log('hello');
-    let {token} = await this.props.stripe.createToken({name: "Name"});
+    let { token } = await this.props.stripe.createToken({ name: "Name" });
     console.log('goodbye');
-    if (token===undefined) return;
-    
+    if (token === undefined) return;
+
     let response = await fetch(apiConstants.PAYMENT, {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         amount: this.props.totalPrice,
         token: token.id
-    })
-  });
+      })
+    });
 
     if (response.ok) {
       this.props.togglePaymentStatus("completed")
@@ -45,7 +46,7 @@ class CheckoutForm extends Component {
   orderBasket = () => {
     let basket = [];
     this.props.basket.forEach(el => {
-    basket.push({product_id: el.id, quantity: el.quantity})
+      basket.push({ product_id: el.id, quantity: el.quantity })
     })
     return basket;
   }
@@ -53,15 +54,15 @@ class CheckoutForm extends Component {
   submitOrder = async () => {
     let basket = this.orderBasket();
     let orderData = await postNewOrder({
-        total: this.props.totalPrice,
-        special_instructions: this.props.specialInstr,
-        ordered_items: basket
-      }, {headers: {'Authorization': "Bearer " + this.props.user.token}})
-      this.props.showLastOrder(orderData);
+      total: this.props.totalPrice,
+      special_instructions: this.props.specialInstr,
+      ordered_items: basket
+    }, { headers: { 'Authorization': "Bearer " + this.props.user.token } })
+    this.props.showLastOrder(orderData);
   }
 
   message = () => {
-  return (this.state.complete) ? <div><p className="black-text">Purchase Complete</p></div> : <div><p className="black-text">Would you like to complete the purchase?</p></div>;
+    return (this.state.complete) ? <p></p>: <p></p>;
   }
 
   totalPrice = () => {
@@ -73,17 +74,17 @@ class CheckoutForm extends Component {
   // }
 
   render() {
-   
+
     return (
       <div className="checkout">
-      <h6 className="black-text">Total: {this.totalPrice()}</h6>
+        <h6 className="black-text">Total: {this.totalPrice()}</h6>
         {this.message()}
         <br></br>
         {/* {this.props.processingPmt === 'processing' ? <ProcessPayment/> : null } */}
-          <CardElement />
+        <CardElement />
         <br></br>
-        <button className={`waves-effect waves-light btn blue lighten-2`} onClick={this.submit}><i className="material-icons left"></i>Pay now</button>
-        <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link>
+        <button id="pay-btn" className={`waves-effect waves-light btn amber`} onClick={this.submit}><i className="material-icons left"></i>Pay now</button>
+        {/* <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link> */}
       </div>
     );
 
