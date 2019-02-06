@@ -10,50 +10,50 @@ import { getCateg } from "../../actions/example.actions";
 const maxItems = 6;
 
 class Home extends Component {
-  async componentDidMount() {
-    const categories = await getCategories();
-    this.props.getCateg(categories.data);
-  }
+    async componentDidMount() {
+        const categories = await getCategories();
+        this.props.getCateg(categories.data);
+    }
 
-  displayProductByCat = () => {
-    return this.props.categories.map((category, index) => {
-      return (
-        <div className="" key={category.id}>
-          <Link
-            to={{
-              pathname: `/productslist/${category.id}`,
-              state: { categoryName: category.name }
-            }}
-            className="waves-effect waves-light btn"
-          >
-            <i className="material-icons left">open_in_new</i>
-            {category.name}
-          </Link>
-          <ProductContainer {...category} />
-        </div>
-      );
-    });
-  };
+    displayProductByCat = () => {
+        return this.props.categories.map((category, index) => {
+            return (
+                <div className="" key={category.id}>
+                    <Link
+                        to={{
+                            pathname: `/productslist/${category.id}`,
+                            state: { categoryName: category.name }
+                        }}
+                        className="waves-effect waves-light btn"
+                    >
+                        <i className="material-icons left">open_in_new</i>
+                        {category.name}
+                    </Link>
+                    <ProductContainer {...category} />
+                </div>
+            );
+        });
+    };
 
-  render() {
-    return (
-      <Layout>
-        <CategoryContainer />
-        {this.displayProductByCat()}
-      </Layout>
-    );
-  }
+    render() {
+        return (
+            <Layout>
+                <CategoryContainer />
+                {this.displayProductByCat()}
+            </Layout>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories
+    categories: state.categories
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCateg: data => dispatch(getCateg(data))
+    getCateg: data => dispatch(getCateg(data))
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Home);

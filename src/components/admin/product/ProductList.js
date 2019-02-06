@@ -33,22 +33,20 @@ class ProductList extends Component {
 
     displayProducts = () => {
         return this.state.products.map(product => {
-            return <tr key={product.id}>
-                <td><h6>{product.name}</h6></td>
-                <td >{product.description}</td>
-                <td><img src={product.images[0]} alt={product.name} height="40px"></img></td>
-                <td style={{ width: "10%" }}><Link to={`/admin/products/edit/${product.id}`}><button className="btn-floating btn-small"><i className="material-icons center-align">edit</i></button></Link></td>
-                <td style={{ width: "10%" }}> <button className="btn-floating btn-small"><i className="material-icons center-align" onClick={() => this.deleteProductID(product.id)}>delete</i></button></td>
+            return <tr key={product.id} style={{ border: "1px solid #eeeeee", padding: "20px" }}>
+                <td ><img src={product.images[0]} alt={product.name} height="80px"></img></td>
+                <td><h6 className="blue-grey-text text-darken-2" style={{ fontWeight: "500" }}>{product.name}</h6></td>
+                <td style={{ padding: "15px" }}>{product.description}</td>
+                <td style={{ width: "50px" }}><Link to={`/admin/products/edit/${product.id}`}><button className="btn-floating btn-small"><i className="material-icons center-align">edit</i></button></Link></td>
+                <td style={{ width: "50px" }}> <button className="btn-floating btn-small"><i className="material-icons center-align" onClick={() => this.deleteProductID(product.id)}>delete</i></button></td>
             </tr>
         })
     }
 
     render() {
-        console.log(this.state)
         return (
-            <table className="striped">
+            <table className="striped" >
                 <thead>
-
 
                 </thead>
                 <tbody>
