@@ -28,6 +28,7 @@ import Contact from './components/client/Contact';
 import Basket from './components/client/Basket';
 import ProductCard from './components/client/cards/prod-card';
 import ProductsList from './components/client/ProductsList';
+import searchedProductsList from './components/client/searchedProductsList'
 import Checkout from './components/client/Checkout';
 import ProductAdd from './components/admin/product/ProductAdd';
 import ProductEdit from './components/admin/product/ProductEdit';
@@ -36,6 +37,7 @@ import RegisterUser from './components/client/Register';
 import LoginUser from './components/client/Login';
 import Address from './components/client/Address';
 import MyProfile from './components/client/MyProfile';
+import MyOrders from './components/client/orders';
 
 
 
@@ -64,10 +66,12 @@ class App extends Component {
           <Route exact path="/basket" component={Basket}></Route>
           <Route exact path="/productcard/:id" component={ProductCard}></Route>
           <Route path="/productslist/:id" component={ProductsList}></Route>
+          <Route path="/searchresult/:q/:cat" component={searchedProductsList}></Route>
           <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
           <Route exact path="/thankyou" component={Thankyou}></Route>
           <Route exact path="/register" component={RegisterUser}></Route>
           <Route exact path="/login" component={LoginUser}></Route>
+          <StorePrivateRoute exact path="/orders" user={this.props.user} component={MyOrders}></StorePrivateRoute>
           <StorePrivateRoute path="/address" user={this.props.user} component={Address}></StorePrivateRoute>
           <StorePrivateRoute path="/myprofile" user={this.props.user} component={MyProfile}></StorePrivateRoute>
         </Switch>

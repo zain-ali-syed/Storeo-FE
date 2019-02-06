@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import SideNav from './containers/SideNav';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
@@ -41,9 +41,10 @@ class Layout extends Component {
 
     const searchQuery = `?q=${queryPhrase}${categoryQuery}`;
     let searchResult = await getSearchProducts(searchQuery);
-    this.props.saveSearchResult(searchResult.data);
-
+    await this.props.saveSearchResult(searchResult.data);
     console.log('STATE  $$$$$', this.props.searchResult);
+    this.props.history.push(`/searchresult/${queryPhrase}/${(selectedCategoryName || 'All Categories')}`);
+
 
   }
 
@@ -189,8 +190,10 @@ const mapDispatchToProps = (dispatch) => ({
   logOut: () => { dispatch({ type: "LOGOUT_USER" }) }
 })
 
+const withRouterLayout = withRouter(Layout);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Layout);
+)(withRouterLayout);
 
