@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SideNav from './containers/SideNav';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
 import { getSearchProducts } from '../../helpers/api';
 import { saveSearchResult } from '../../actions/example.actions';
-import './Layout.css'
+import './Layout.css';
+import logo from './../../images/logo_storeo_white.png';
 
 
 class Layout extends Component {
@@ -41,10 +42,7 @@ class Layout extends Component {
 
     const searchQuery = `?q=${queryPhrase}${categoryQuery}`;
     let searchResult = await getSearchProducts(searchQuery);
-    await this.props.saveSearchResult(searchResult.data);
-    console.log('STATE  $$$$$', this.props.searchResult);
-    this.props.history.push(`/searchresult/${queryPhrase}/${(selectedCategoryName || 'All Categories')}`);
-
+    this.props.saveSearchResult(searchResult.data);
 
   }
 
@@ -85,7 +83,9 @@ class Layout extends Component {
           <nav className="grey darken-1" role="navigation">
             <div className="nav-wrapper">
 
-              <Link id="logo-container" to="/" className="nav-logo">Storeo</Link>
+              <Link id="logo-container" to="/" className="nav-logo">
+                <img src={logo} alt="" className="responsive-img logo-image" />
+              </Link>
 
               {/*-- Dropdown Trigger --*/}
               <a href="#!" className="dropdown-trigger" data-target="dropdown1">
@@ -190,10 +190,8 @@ const mapDispatchToProps = (dispatch) => ({
   logOut: () => { dispatch({ type: "LOGOUT_USER" }) }
 })
 
-const withRouterLayout = withRouter(Layout);
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouterLayout);
+)(Layout);
 

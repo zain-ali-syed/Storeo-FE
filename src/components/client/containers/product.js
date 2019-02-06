@@ -20,16 +20,16 @@ export default class ProductContainer extends Component {
     return this.state.products.map((product, index) => {
         return (
           <div 
-            className="col s6 m6 l2"
+            className="col s6 m6 l3 productCard"
             key={product.id}>
             
-            <ProductSmallCard 
+            <ProductSmallCard
+              className="productCard"
               checkCatId={this.props.id} 
               catName={this.props.name} {...product}
             />
           </div>
         )
-      return true;
     })
   }
 

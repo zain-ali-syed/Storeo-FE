@@ -7,3 +7,21 @@
   color: black;
 }
 
+div.prodSmlCard {
+  height: 400px !important;
+}
+
+div.card-image {
+  height: 200px;
+  min-height: 100px;
+}
+
+div.card-content {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+img.product-card-image {
+  max-height: 200px !important;
+  width: auto;
+}

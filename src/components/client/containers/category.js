@@ -16,7 +16,7 @@ displayCategories = () => {
   return this.props.categories.map((category, index) => {
       if (index < maxItems ) {
         return (
-          <div className="col s12 m12 l3" key={category.id}>
+          <div className="col s12 m6 l3" key={category.id}>
             <CategoryCard {...category}/>
           </div>
         )
