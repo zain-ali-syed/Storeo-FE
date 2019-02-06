@@ -17,6 +17,7 @@ const initState = {
     products: [],
     searchResult: [],
     paymentStatus: "not started",
+    lastOrder: [],
 }
 
 const rootReducer = (state = initState, action) => {
@@ -93,6 +94,9 @@ const rootReducer = (state = initState, action) => {
 
         case 'TOGGLE_PAYMENT_STATUS':
             return {...state, paymentStatus: action.status};
+
+        case 'SHOW_LAST_ORDER':
+            return {...state, lastOrder: action.data};
 
         default:
             return state;

@@ -6,7 +6,6 @@ const urlLuca = `http://192.168.1.116:3000`;
 
 
 
-
 export const apiConstants = {
 
   //LOGIN REGISTRATION
@@ -21,6 +20,7 @@ export const apiConstants = {
 
   //ORDERS AND PAYMENTS
   CUSTOMER_POST_NEW_ORDER: `${serverURL}/orders`,
+  CUSTOMER_GET_ORDERS: `${serverURL}/orders`,
   CUSTOMER_POST_NEW_ADDRESS: `${serverURL}/address`,
   PAYMENT: `${urlUros}/charge`,
 
