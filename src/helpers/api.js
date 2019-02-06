@@ -42,6 +42,10 @@ export const addAddress = (data) => {
     return axios.post(apiConstants.CUSTOMER_POST_NEW_ADDRESS, data, headers);
 }
 
+export const getOrders = () => {
+    return axios.get(apiConstants.CUSTOMER_GET_ORDERS, headers);
+}
+
 
 
 //ADMIN PRODUCT APIS

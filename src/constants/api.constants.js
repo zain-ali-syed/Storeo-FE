@@ -18,7 +18,8 @@ export const apiConstants = {
   CATEGORIES_URL: `${serverURL}/categories`,
 
   //ORDERS AND PAYMENTS
-  CUSTOMER_POST_NEW_ORDER: `${urlUros}/orders`,
+  CUSTOMER_POST_NEW_ORDER: `${serverURL}/orders`,
+  CUSTOMER_GET_ORDERS: `${serverURL}/orders`,
   CUSTOMER_POST_NEW_ADDRESS: `${serverURL}/address`,
   PAYMENT: `${urlUros}/charge`,
 

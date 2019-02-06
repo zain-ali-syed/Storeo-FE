@@ -122,3 +122,7 @@
   p{
 		color:black;
 	}
+
+	th{
+		background-color: grey;
+	}
