@@ -48,14 +48,11 @@ class ProductList extends Component {
         return (
             <table className="striped">
                 <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+
 
                 </thead>
                 <tbody>
+                    <br />
                     {this.displayProducts()}
                 </tbody>
             </table>

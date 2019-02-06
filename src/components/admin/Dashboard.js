@@ -32,8 +32,10 @@ const Dashboard = () => {
 
                         <div className="col s12 m4">
                             <div className="icon-block center">
-                                <img src={OrdersIcon} alt="View Orders" width="100px"></img>
-                                <h5 className="center">View Orders</h5>
+                                <Link to="/admin/orders">
+                                    <img src={OrdersIcon} alt="View Orders" width="100px"></img>
+                                    <h5 className="center">View Orders</h5>
+                                </Link>
                             </div>
                         </div>
                     </div>

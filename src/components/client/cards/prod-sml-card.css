@@ -1,0 +1,51 @@
+div.card-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+div.product-card-image-container {
+  min-height: 150px;
+  max-height: 200px;
+  height: 50%;
+  flex: 1;
+}
+
+div.card-content {
+  flex: 1;
+}
+h6.product-title {
+  block-overflow: clip;
+  max-lines: 1 !important;
+}
+
+.text {
+  position: relative;
+  font-size: 14px;
+  color: black;
+  width: 100%; /* Could be anything you like. */
+}
+
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2.4em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  text-align:justify;
+}
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px; 
+  bottom: 4px;
+}
+
+p.price-tag {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  font-size: 18px;
+}

@@ -1,41 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Layout from '../Layout';
+import { getAllOrders } from '../../../helpers/api';
+import Order from './Order';
+import '../styles.css'
 
+class Orders extends Component {
 
+    state = {
+        orders: []
+    }
 
-const Orders = () => {
-    return (
-        <Layout>
-            <table className="striped">
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Item Namse</th>
-                        <th>Item Price</th>
-                    </tr>
-                </thead>
+    async componentDidMount() {
+        try {
+            const orders = await getAllOrders();
+            this.setState((currState) => ({ orders: [...currState.orders, ...orders.data] }));
+        } catch (e) {
+            console.log("i'm sorry error getting back orders ", e)
+        }
+    }
+    render() {
+        console.log(this.state.orders)
 
-                <tbody>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>$3.76</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </Layout>
-
-    );
-};
+        return (
+            <Layout>
+                <div className="theForm">
+                    <fieldset>
+                        <legend><span className="number"></span>All Orders</legend>
+                    </fieldset>
+                    {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
+                    {!this.state.orders.length && "You have no previous orders at present"}
+                </div>
+            </Layout>
+        );
+    }
+}
 
 export default Orders;
