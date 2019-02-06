@@ -8,15 +8,20 @@ const ProductSmallCard = (props) => {
   const { name, id, catName, images, description, price, discount } = props;
   return (
     <Link to={`/productcard/${id}`} >
-      <div className="card hoverable" id="prodSmlCard">
+      <div className="card hoverable prodSmlCard">
         <div className="card-action">
           <div className="card-image">
-            <img src={images[0] || mockImage} alt=""></img>
+            <img 
+              src={images[0] || mockImage}
+              alt=""
+              className="product-card-image responsive-img"
+            ></img>
           </div>
           <div className="card-content">
+            <p><span class="orange badge" data-badge-caption="€"> {price}</span></p>
             <h6 className="black-text">{name}</h6>
             <p className="black-text">{description}</p>
-            <p className="black-text"><b>Price:</b> {price}</p>
+            <p className="black-text"><b>Price:</b> {price} €</p>
           </div>
         </div>
       </div>

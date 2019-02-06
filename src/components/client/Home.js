@@ -24,7 +24,7 @@ async componentDidMount() {
                         <Link 
                             to={{ pathname:`/productslist/${category.id}`, state:{ categoryName: category.name}} }
                             class="waves-effect waves-light btn">
-                            <i class="material-icons left">open_in_new</i>
+                            <i className="material-icons left">open_in_new</i>
                             {category.name}
                         </Link>
                         <ProductContainer {...category} />
