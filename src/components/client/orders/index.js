@@ -12,9 +12,7 @@ class Orders extends Component {
 
     async componentDidMount() {
         try {
-            console.log("component did mount")
             const orders = await getOrders();
-            console.log("orders ", orders.data)
             this.setState((currState) => ({ orders: [...currState.orders, ...orders.data] }));
         } catch (e) {
             console.log("i'm sorry error getting back orders ", e)
@@ -25,8 +23,12 @@ class Orders extends Component {
 
         return (
             <Layout>
-                {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
-                {!this.state.orders.length && "You have no previous orders at present"}
+                <div className="container">
+                    <h5 style={{ color: "#000000" }}>Previous orders</h5><br />
+
+                    {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
+                    {!this.state.orders.length && "You have no previous orders at present"}
+                </div>
             </Layout>
         );
     }
