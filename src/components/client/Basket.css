@@ -1,5 +1,12 @@
+@value styles: "./../../constants/style.constants.css";
+@value themeColor, themeColorLight, accentColorBright from styles;
+
 #basket {
   padding: 10px 20px;
+}
+
+div.basket-column {
+  margin-right: 20px;
 }
 
 .basket-total-wrapper {
@@ -25,11 +32,14 @@
   margin-top: 20px;
   width: 100%;
   color: black;
+  background-color: accentColorBright;
+  font-size: 15px;
   font-weight: 500;
 }
 
 .basket-total {
-  color: #ef5350;
+  margin-top: 30px;
+  color: themeColor;
 }
 
 .basket-summary {
@@ -44,3 +54,4 @@
   align-items: center;
   height: 350px;
 }
+

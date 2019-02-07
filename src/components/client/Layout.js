@@ -68,7 +68,6 @@ class Layout extends Component {
   };
 
   render() {
-    console.log('My favourite color of all time is', styles.accentColor);
     const { first_name, id } = this.props.user;
     return (
       <React.Fragment>

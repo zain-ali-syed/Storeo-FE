@@ -1,14 +1,65 @@
+@value styles: "./../../../constants/style.constants.css";
+@value themeColor, themeColorLight from styles;
+
 #basket-card {
   margin-bottom: 25px;
 }
 
-#change-qty-wrapper {
+#change-qty-wrapper { 
   display: flex;
+  justify-content: center;
   margin-top: 15px;
   padding: 0 0;
+  margin-bottom: 0;
+}
+
+button.change-qty-button {
+  background: themeColorLight;
+  border: none;
+}
+
+button.basket-item-delete-button{
+  position: absolute;
+  top: 25px;
+  right: 15px;
+
+}
+
+button.basket-item-delete-button > i {
+  font-size: 26px;
+  color: themeColor;
 }
 
 .qty-number {
   min-width: 40px;
   text-align: center;
+}
+
+img.basket-item-card-image {
+  width: 60px;
+  height: 60px;
+  border: 2px solid themeColor;
+}
+
+div.basket-item-card {
+  padding: 20px 20px 0px 20px;
+}
+
+div.basket-item-header-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+div.basket-item-header-wrapper p {
+  margin-left: 20px;
+}
+
+p.price-tag-basket-item {
+  margin-top:20px;
+  font-size: 16px;
+}
+
+div#basket-card p.basket-item-description {
+  font-size: 14px;
+  margin-bottom: 20px;
 }

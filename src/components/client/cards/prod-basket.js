@@ -20,27 +20,31 @@ class ProdBasket extends Component {
 
   render() {
 
+    console.log('ITEM $$$$$$', this.props);
     const totalPrice = this.props.price * this.props.quantity;
+    const image = this.props.images[0] || null;
 
     return (
-      <div className="">
+      <div className="card basket-item-card">
 
-        <img src="https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg" alt="" className="circle"></img>
+        <div className="basket-item-header-wrapper">
+          <img src={image} alt="" className="circle basket-item-card-image"></img>
+          <p className="price-tag-basket-item"><b>Price: </b>{this.props.price} €</p>
+        </div>
+          <Link to={`/productcard/${this.props.id}`} className="card-title">{this.props.name}</Link>
+        
         <span>
 
-          <Link to={`/productcard/${this.props.id}`} className="card-title">{this.props.name}</Link>
-
           <div className="card-content" id="basket-card">
-            <span className="card-title">Price per item: {this.props.price}</span>
-            <p className="black-text">Total product cost: {totalPrice}</p>
-            <p className="black-text">{this.props.description}</p>
+            <p className="basket-item-description">{this.props.description}</p>
 
+            <p className="price-tag-basket-item"><b>Total:</b> {totalPrice} €</p>
             <div className="col s12 m12" id="change-qty-wrapper">
-              <div className="change-qty-button" onClick={() => this.chgQuantity(-1)}><i className="material-icons blue white-text">expand_more</i></div>
+              <button className="change-qty-button" onClick={() => this.chgQuantity(-1)}><i className="material-icons white-text">expand_more</i></button>
               <div className="qty-number">
                 <p className="black-text">{this.props.quantity}</p>
               </div>
-              <div className="change-qty-button" onClick={() => this.chgQuantity(1)}><i className="material-icons blue white-text">expand_less</i></div>
+              <button className="change-qty-button" onClick={() => this.chgQuantity(1)}><i className="material-icons white-text">expand_less</i></button>
             </div>
           </div>
 
@@ -48,7 +52,12 @@ class ProdBasket extends Component {
 
         <br></br>
 
-        <button to="" className="secondary-content btn-flat" onClick={this.delFromBasket}><i className="material-icons blue-text">delete</i></button>
+        <button 
+          className="secondary-content btn-flat basket-item-delete-button" 
+          onClick={this.delFromBasket}
+        >
+          <i className="material-icons">delete</i>
+        </button>
       </div>
     );
   }

@@ -21,7 +21,10 @@ class Basket extends Component {
       return <div className="basketcnt"><i class="material-icons grey-text large">shopping_basket</i></div>
     } else {
       return this.props.basket.map((item, index) => {
-        return <li className="collection-item avatar" key={index}><ProdBasket {...item} /></li>
+        return (
+          <div className="" key={index}>
+            <ProdBasket {...item} />
+          </div>)
       })
     }
   }
@@ -46,16 +49,15 @@ class Basket extends Component {
         <div className="container">
           <div className="row">
 
-            <div className="col s12">
+            <div className="col s12 basket-column">
 
               <div className="col s12 m8 l6">
 
-                <ul className="collection">
+                <React.Fragment className="collection">
                   {this.showBasket()}
-                </ul>
+                </React.Fragment>
 
               </div>
-
               <div className="card col s12 m8 l6" id="basket">
                 <span className="card-title">Your basket</span>
 
@@ -80,7 +82,7 @@ class Basket extends Component {
                       <h5 className="basket-total">Order total:</h5>
                     </div>
                     <div>
-                      <h5 className="basket-total">€ {this.totalPrice()}</h5>
+                      <h5 className="basket-total">{this.totalPrice()} €</h5>
                     </div>
                   </div>
 
@@ -109,4 +111,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Basket)
-
