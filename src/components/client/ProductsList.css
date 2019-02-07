@@ -5,5 +5,15 @@ h2.popular-categories {
   color: black;
   height: 50px;
   font-family: 'PT Sans', sans-serif;
-  font-size: 30px;
+  font-size: 22px;
+}
+
+h2.current-category-name {
+  align-self: flex-start;
+  margin: 10px;
+  font-weight: 500;
+  color: black;
+  height: 50px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 26px !important;
 }

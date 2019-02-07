@@ -11,6 +11,7 @@
     "filepond-plugin-image-preview": "^3.1.6",
     "material-icons": "^0.3.0",
     "materialize-css": "^1.0.0-rc.2",
+    "materialize-social": "^1.0.3",
     "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
