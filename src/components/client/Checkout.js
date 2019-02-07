@@ -29,7 +29,7 @@ class Checkout extends Component {
 
   showBasket = () => {
     if (this.props.basket.length === 0) {
-      return <div><p className="black-text">BASKET EMPTY...</p></div>
+      return <div className="basketcnt"><i class="material-icons grey-text large">shopping_basket</i></div>
     } else {
 
       return this.props.basket.map((item, index) => {
@@ -39,7 +39,11 @@ class Checkout extends Component {
   }
 
   handleInput = (event) => {
+    event.preventDefault();
+    if (event.keyCode == 13) {
     this.setState({ specialInstr: event.target.value })
+    }
+    
   }
 
   render() {
@@ -56,15 +60,16 @@ class Checkout extends Component {
               <p className="black-text">Zip: {this.props.user.zip}</p>
               <p className="black-text">Country: {this.props.user.country}</p>
               <p className="black-text">Phone: {this.props.user.phone}</p>
-              <p className="black-text center">4242 4242 4242 4242</p>
             </div>
 
             <div className="col s6">
+             
               <div className="input-field col s12">
+             
                 <i className="material-icons prefix blue-text" style={{ fontSize: '25px' }}>mode_edit</i>
-                <input placeholder="special delivery instructions" id="special_instructions" type="text" style={{ fontSize: '14px' }} className="validate" data-length="30"
-                  value={this.state.specialInstr} onChange={this.handleInput}></input>
-                {/* <label>max. 30 characters</label> */}
+             
+                <input placeholder="special delivery instructions" id="special_instructions" type="text" style={{ fontSize: '14px' }}  data-length="30" onKeyUp={this.handleInput} ></input>
+                 
               </div>
             </div>
 

@@ -21,7 +21,7 @@ class CheckoutForm extends Component {
   }
 
   async submit(ev) {
-
+    console.log(this.props.specialInstr);
     console.log('hello');
     let { token } = await this.props.stripe.createToken({ name: "Name" });
     console.log('goodbye');

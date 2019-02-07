@@ -1,3 +1,6 @@
+@value styles: "./../../constants/style.constants.css";
+@value themeColor from styles;
+
 body {
   background-color: white;
 }
@@ -6,6 +9,7 @@ body {
   display: flex;
   padding: 0 1vw 0 2vw;
   align-items: center;
+  background-color: themeColor;
 }
 
 .nav-logo {
@@ -31,7 +35,7 @@ div.input-field {
 
 div.search-categories {
   align-self: center;
-    background-color: #FFF;
+  background-color: #FFF;
   height: inherit;
   line-height: 30px;
 }
@@ -83,6 +87,7 @@ a.navbar-icons {
   margin-top: -25px;
   height: 60px;
   font-size: 14px !important;
+  text-shadow: 1px 1px #242323;
 }
 
 a.basket-icon {
@@ -141,12 +146,11 @@ img.logo-image {
 footer {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   background-color: #efefef;
   text-align: center;
   height:90px;
-
 }
 
 
@@ -222,7 +226,7 @@ footer .social a:hover {
 }
 
 .support {
-  background-color: #6dcd9a;
+  background-color: themeColor;
   font-size: 1em;
   width: 40%;
 }

@@ -6,9 +6,11 @@ import { connect } from "react-redux";
 import { getSearchProducts } from "../../helpers/api";
 import { saveSearchResult } from "../../actions/example.actions";
 import "./Layout.css";
-// import logo from "./../../images/logo_storeo_white.png";
+import logo from "./../../images/logo_storeo_white.png";
 // import logo from "./../../images/logo-new-white.png";
-import logo from "./../../images/logo-new-white2.png";
+// import logo from "./../../images/logo-new-white2.png";
+
+import styles from './../../constants/style.constants.css';
 
 
 class Layout extends Component {
@@ -66,6 +68,7 @@ class Layout extends Component {
   };
 
   render() {
+    console.log('My favourite color of all time is', styles.accentColor);
     const { first_name, id } = this.props.user;
     return (
       <React.Fragment>
@@ -206,9 +209,9 @@ class Layout extends Component {
           </div>
           <div class="social">
             <a href="#" class="support">Contact Us</a>
-            <a href="#" class="face">f</a>
-            <a href="#" class="tweet">t</a>
-            <a href="#" class="linked">in</a>
+            <a href="#" className="face">f</a>
+            <a href="#" className="tweet">t</a>
+            <a href="#" className="linked">in</a>
           </div>
         </footer>
 

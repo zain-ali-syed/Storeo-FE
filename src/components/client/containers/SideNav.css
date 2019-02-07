@@ -3,8 +3,8 @@
   }
 
   .category-header {
-    text-align: center;
     margin-bottom: 5px;
+    margin-LEFT: 15px;
     font-size: 18px;
     color: black;
     font-family: 'PT Sans', sans-serif;
