@@ -1,12 +1,17 @@
-  .sidenav-overlay {
-    opacity: 0 !important;
-  }
+@value styles: "./../../../constants/style.constants.css";
+@value themeColorLight from styles;
 
-  .category-header {
-    margin-bottom: 5px;
-    margin-LEFT: 15px;
-    font-size: 18px;
-    color: black;
-    font-family: 'PT Sans', sans-serif;
-    text-shadow: 1px 1px #d0cbcb;
-  }
+.sidenav-overlay {
+  opacity: 0 !important;
+}
+.category-header {
+  margin-bottom: 5px;
+  margin-LEFT: 15px;
+  font-size: 18px;
+  color: black;
+  font-family: 'PT Sans', sans-serif;
+}
+
+div.user-view {
+  background-color: themeColorLight;
+}

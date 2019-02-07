@@ -13,11 +13,13 @@ class Thankyou extends Component {
 
   render() {
     if (!this.props.lastOrder.data) return <div>loading...</div>
+    const {order_num} = this.props.lastOrder.data; 
 
+    console.log('THANK YOU ORDER', this.props.lastOrder.data);
     return (
       <div className="container">
         <h5>Thank you for your order. Your order details can be viewed below</h5><br />
-        <Order {...this.props.lastOrder.data.ordered_items[0]} />
+        <Order order_num={order_num} {...this.props.lastOrder.data.ordered_items[0]} />
       </div>
     );
   };

@@ -44,7 +44,7 @@ const ProductSmallCard = (props) => {
           </div>
           <div className="card-content">
             {renderDiscount(discountFixed)}
-            <h6 className="black-text product-title">{name}</h6>
+            <h6 className="black-text product-title-header">{name}</h6>
             <p className="black-text text text-concat ellipsis">{description}</p>
             {/* <p className="black-text"><b>Price:</b> {price} €</p> */}
           </div>

@@ -34,11 +34,11 @@ class SideNav extends Component {
       <div>
           <ul id="slide-out" className="sidenav">
             <li><div className="user-view">
-              <div className="background blue lighten-2">
+              <div className="sidenav-user-info-header">
               </div>
               <a href="#!"><img className="circle" src={image} alt=""></img></a>
-              <a href="#!"><span className="white-text name">{`${first_name} ${last_name}`}</span></a>
-              <a href="#!"><span className="white-text email">{email}</span></a>
+              <a href="#!"><span className="black-text name">{`${first_name} ${last_name}`}</span></a>
+              <a href="#!"><span className="black-text email">{email}</span></a>
             </div></li>
             <li>
               <h6 className="category-header">Choose Product Category</h6>
