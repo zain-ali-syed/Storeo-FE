@@ -1,6 +1,8 @@
 import React from 'react';
 import OrderItem from './OrderItem';
 import moment from 'moment';
+import '../styles.css'
+
 
 const Order = ({ order_num, order_status, products, products_id, quantities, special_instructions, created_at }) => {
 
@@ -9,7 +11,7 @@ const Order = ({ order_num, order_status, products, products_id, quantities, spe
             <table className="striped">
                 <thead style={{ backgroundColor: "#e0e0e0" }}>
                     <tr>
-                        <td className="blue-grey-text text-darken-2"><h6><b>Order Number: </b>{order_num} | <b>Date:</b> {moment(created_at).format('MMMM Do YYYY')}</h6></td>
+                        <td style={{ color: "#3E005D" }}><h7><b>Order Number: </b>{order_num} | <b>Date:</b> {moment(created_at).format('MMMM Do YYYY')}</h7></td>
                     </tr>
 
                 </thead>

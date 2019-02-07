@@ -65,7 +65,7 @@
 	height:35px;
 }
 .theForm .number {
-	background: #1abc9c;
+	background: #3E005D;
 	color: #fff;
 	height: 30px;
 	width: 30px;
@@ -86,19 +86,18 @@
 	padding: 19px 39px 18px 39px;
 	color: #FFF;
 	margin: 0 auto;
-	background: #1abc9c;
+	background: #64B5F6;
 	font-size: 18px;
 	text-align: center;
 	font-style: normal;
 	width: 100%;
-	border: 1px solid #16a085;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
 }
 .theForm input[type="submit"]:hover,
 .theForm input[type="button"]:hover
 {
-	background: #109177;
+	background: #64B5F6;
 }
 
 ::placeholder { color: rgb(170, 170, 179);
