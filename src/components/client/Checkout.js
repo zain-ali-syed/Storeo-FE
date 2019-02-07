@@ -29,7 +29,7 @@ class Checkout extends Component {
 
   showBasket = () => {
     if (this.props.basket.length === 0) {
-      return <div><p className="black-text">BASKET EMPTY...</p></div>
+      return <div className="basketcnt"><i class="material-icons grey-text large">shopping_basket</i></div>
     } else {
 
       return this.props.basket.map((item, index) => {
