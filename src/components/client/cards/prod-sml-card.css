@@ -17,7 +17,9 @@ div.product-card-image-container {
 div.card-content {
   flex: 1;
 }
-h6.product-title {
+h6.product-title-header {
+  font-size: 20px;
+  margin-bottom: 10px;
   block-overflow: clip;
   max-lines: 1 !important;
 }
