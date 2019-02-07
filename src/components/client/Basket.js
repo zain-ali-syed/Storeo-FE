@@ -84,7 +84,7 @@ class Basket extends Component {
                     </div>
                   </div>
 
-                  <Link to={`/checkout/${this.totalPrice()}`} className={`waves-effect waves-light btn ${this.checkoutZero()} amber`} id="checkout-btn"><i className="material-icons left"></i>Proceed to Checkout</Link>
+                  <Link to={`/checkout/${this.totalPrice()}`} className={`waves-effect waves-light btn ${this.checkoutZero()}`} id="checkout-btn"><i className="material-icons left"></i>Proceed to Checkout</Link>
                   {/* <Link to="/" className="waves-effect waves-light btn blue lighten-2"><i className="material-icons left"></i>Cancel</Link> */}
                 </div>
               </div>

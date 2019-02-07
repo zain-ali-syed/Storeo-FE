@@ -1,3 +1,6 @@
+@value styles: "./../../constants/style.constants.css";
+@value accentColorBright from styles;
+
 #basket {
   padding: 10px 20px;
 }
@@ -25,11 +28,13 @@
   margin-top: 20px;
   width: 100%;
   color: black;
+  background-color: accentColorBright;
   font-weight: 500;
 }
 
 .basket-total {
   color: #ef5350;
+  text-shadow: 0px 1px #5f0000
 }
 
 .basket-summary {

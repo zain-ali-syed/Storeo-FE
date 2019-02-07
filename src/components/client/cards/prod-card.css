@@ -1,3 +1,6 @@
+@value styles: "./../../../constants/style.constants.css";
+@value accentColorBright from styles;
+
 div.main-container {
   display: flex;
   flex-direction: row;
@@ -81,7 +84,7 @@ div.product-details-wrapper {
 }
 
 .tag {
-  background-color: coral;
+  background-color: accentColorBright;
   padding: 1px 7px;
   height: 20px;
   margin-right: 5px;
