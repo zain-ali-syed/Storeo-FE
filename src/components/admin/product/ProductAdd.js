@@ -159,7 +159,6 @@ class ProductAddEdit extends Component {
     }
 
     render() {
-        console.log("state ", this.state)
         return (
             <Layout>
                 <h1>Add new product</h1>

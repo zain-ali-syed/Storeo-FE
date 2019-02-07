@@ -8,7 +8,7 @@ import { getCategories } from "../../helpers/api";
 import { getCateg } from "../../actions/example.actions";
 import './Home.css';
 
-const numOfCategoriesToShow = 2;
+const numOfCategoriesToShow = 4;
 
 class Home extends Component {
     async componentDidMount() {
@@ -16,29 +16,29 @@ class Home extends Component {
         this.props.getCateg(categories.data);
     }
 
-  displayProductByCat = () => {
-    return this.props.categories.map((category, i) => {
-    if (i < numOfCategoriesToShow) {
-        return (
-            <div className="category-product-row" key={category.id}>
-                <Link
-                    to={{
-                        pathname: `/productslist/${category.id}`,
-                        state: { categoryName: category.name }
-                    }}
-                >
-                    <h2 className="category-header">
-                        {category.name}
-                    </h2>
-                </Link>
-                <ProductContainer {...category} />
-            </div>
-      );
-    }
-    else return null;
+    displayProductByCat = () => {
+        return this.props.categories.map((category, i) => {
+            if (i < numOfCategoriesToShow) {
+                return (
+                    <div className="category-product-row" key={category.id}>
+                        <Link
+                            to={{
+                                pathname: `/productslist/${category.id}`,
+                                state: { categoryName: category.name }
+                            }}
+                        >
+                            <h2 className="category-header">
+                                {category.name}
+                            </h2>
+                        </Link>
+                        <ProductContainer {...category} />
+                    </div>
+                );
+            }
+            else return null;
 
-    });
-  };
+        });
+    };
 
     render() {
         return (

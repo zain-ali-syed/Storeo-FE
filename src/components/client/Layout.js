@@ -86,20 +86,20 @@ class Layout extends Component {
             {!this.props.categories
               ? []
               : this.props.categories.map(category => {
-                  return (
-                    <li key={category.id}>
-                      <a
-                        href="#!"
-                        onClick={() =>
-                          this.selectCategory(category.id, category.name)
-                        }
-                        className="waves-effect category-search-list-item"
-                      >
-                        {category.name}
-                      </a>
-                    </li>
-                  );
-                })}
+                return (
+                  <li key={category.id}>
+                    <a
+                      href="#!"
+                      onClick={() =>
+                        this.selectCategory(category.id, category.name)
+                      }
+                      className="waves-effect category-search-list-item"
+                    >
+                      {category.name}
+                    </a>
+                  </li>
+                );
+              })}
           </ul>
 
           <nav className="grey darken-1" role="navigation">
@@ -147,22 +147,22 @@ class Layout extends Component {
               <div className="action-buttons">
                 <ul className="hide-on-med-and-down">
                   <li>
-                  {id ? 
-                  (<Link 
-                      className="navbar-icons"
-                      to="/myprofile">
-                      <i 
-                        className="profile-icon material-icons left white-text"
-                      >
-                            account_circle</i>
-                      {first_name.charAt(0).toUpperCase() +
-                        first_name.slice(0, 8)}
-                    </Link>)
-                    : null
-                  }
+                    {id ?
+                      (<Link
+                        className="navbar-icons"
+                        to="/myprofile">
+                        <i
+                          className="profile-icon material-icons left white-text"
+                        >
+                          account_circle</i>
+                        {first_name.charAt(0).toUpperCase() +
+                          first_name.slice(0, 8)}
+                      </Link>)
+                      : null
+                    }
                   </li>
                   <li>
-                    <Link 
+                    <Link
                       className="navbar-icons basket-icon"
                       to="/basket">
 
@@ -178,13 +178,13 @@ class Layout extends Component {
                         className="navbar-icons"
                         to="/login">Login/Register</Link>
                     ) : (
-                      <React.Fragment>
-                        <a className="navbar-icons logout-icon" onClick={this.props.logOut}>
-                          <i className="material-icons right white-text">
-                            exit_to_app</i>Logout
+                        <React.Fragment>
+                          <a className="navbar-icons logout-icon" onClick={this.props.logOut}>
+                            <i className="material-icons right white-text">
+                              exit_to_app</i>Logout
                         </a>
-                      </React.Fragment>
-                    )}
+                        </React.Fragment>
+                      )}
                   </li>
 
                 </ul>
@@ -193,13 +193,24 @@ class Layout extends Component {
           </nav>
         </header>
 
-        <main className="row" id="main">
+        <main className="row" id="main" style={{ marginBottom: "100px" }}>
           <div className="col s12 m1 hide-on-small-only" />
           <div className="col s12 m10"> {this.props.children} </div>
           <div className="col s12 m1" />
         </main>
 
         <SideNav />
+        <footer>
+          <div class="copyright">
+            <p>Copyright 2019 - Storeo</p>
+          </div>
+          <div class="social">
+            <a href="#" class="support">Contact Us</a>
+            <a href="#" class="face">f</a>
+            <a href="#" class="tweet">t</a>
+            <a href="#" class="linked">in</a>
+          </div>
+        </footer>
 
         {/* <footer className="page-footer grey darken-1">
           <div className="container">
