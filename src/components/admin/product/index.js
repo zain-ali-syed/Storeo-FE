@@ -6,12 +6,13 @@ import Layout from '../Layout';
 
 
 
+
 class Product extends Component {
 
     render() {
         return (
             <Layout>
-                <div>
+                <div style={{ marginBottom: "100px" }}>
                     <span>
                         <i className="medium material-icons blue-grey-text text-darken-3">add_circle</i>
                         <Link to="/admin/products/add">

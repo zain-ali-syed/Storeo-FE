@@ -16,7 +16,7 @@ const Dashboard = () => {
                             <div className="icon-block center">
                                 <Link to="/admin/categories">
                                     <img src={CategoryIcon} alt="Manage Categories" width="100px"></img>
-                                    <h5 className="center">Manage Categories</h5>
+                                    <h6 className="center">Manage Categories</h6>
                                 </Link>
                             </div>
                         </div>
@@ -25,7 +25,7 @@ const Dashboard = () => {
                             <div className="icon-block center">
                                 <Link to="/admin/products">
                                     <img src={ProductsIcon} alt="Manage Products" width="100px"></img>
-                                    <h5 className="center">Manage Products</h5>
+                                    <h6 className="center">Manage Products</h6>
                                 </Link>
                             </div>
                         </div>
@@ -34,7 +34,7 @@ const Dashboard = () => {
                             <div className="icon-block center">
                                 <Link to="/admin/orders">
                                     <img src={OrdersIcon} alt="View Orders" width="100px"></img>
-                                    <h5 className="center">View Orders</h5>
+                                    <h6 className="center">View Orders</h6>
                                 </Link>
                             </div>
                         </div>
