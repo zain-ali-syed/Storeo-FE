@@ -11,8 +11,12 @@ const ProductSmallCard = (props) => {
     if (discountNum >= 1) {
       return (
         <p>
-          <span class="orange badge" data-badge-caption="%"> ↓ {discountNum}
-          </span>
+          <span class="discount-label">
+            <span className="discount-text">
+              discount  
+            </span> {discountNum} %</span>
+          {/* <span class="badge" data-badge-caption="%"> ↓ {discountNum}
+          </span> */}
         </p>
       )
     }

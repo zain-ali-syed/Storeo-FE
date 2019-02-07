@@ -9,7 +9,7 @@ export default class ProductsList extends Component {
 
   state = {
     products: [],
-    lastLocation: ''
+    lastLocation: '',
   }
 
   shouldComponentUpdate() {
@@ -54,7 +54,7 @@ export default class ProductsList extends Component {
     if (!this.state.products) return <div>loading</div>
     return (
       <Layout>
-        <h2 className="product-list-category-name">
+        <h2 className="current-category-name">
           {categoryName || ''}
         </h2>
         <div className="row">

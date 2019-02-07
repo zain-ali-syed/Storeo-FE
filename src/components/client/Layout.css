@@ -1,3 +1,6 @@
+@value styles: "./../../constants/style.constants.css";
+@value themeColor from styles;
+
 body {
   background-color: white;
 }
@@ -6,6 +9,7 @@ body {
   display: flex;
   padding: 0 1vw 0 2vw;
   align-items: center;
+  background-color: themeColor;
 }
 
 .nav-logo {
@@ -31,7 +35,7 @@ div.input-field {
 
 div.search-categories {
   align-self: center;
-    background-color: #FFF;
+  background-color: #FFF;
   height: inherit;
   line-height: 30px;
 }
