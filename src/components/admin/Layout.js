@@ -30,8 +30,8 @@ class Layout extends Component {
       <React.Fragment>
         <header>
           <nav className="blue-grey darken-2" role="navigation">
-            <div className="container">
-              <a id="logo-container" href="#" className={this.props.user.role === "admin" ? "brand-logo" : "brand-logo center"}>Admin Section</a>
+            <div>
+              <a style={{ paddingLeft: "20px" }} id="logo-container" href="#" className={this.props.user.role === "admin" ? "brand-logo" : "brand-logo center"}>Admin Section</a>
 
               {this.props.user.role === "admin" &&
                 <React.Fragment>
