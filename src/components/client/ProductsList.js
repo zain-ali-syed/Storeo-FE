@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { getProductsByCatId } from '../../helpers/api'
 import ProductSmallCard from '../client/cards/prod-sml-card';
 import Layout from './Layout';
-
+import './ProductsList.css';
 
 export default class ProductsList extends Component {
 
@@ -54,9 +54,9 @@ export default class ProductsList extends Component {
     if (!this.state.products) return <div>loading</div>
     return (
       <Layout>
-        <h1 className="category-name">
+        <h2 className="product-list-category-name">
           {categoryName || ''}
-        </h1>
+        </h2>
         <div className="row">
           {this.displayProducts()}
         </div>

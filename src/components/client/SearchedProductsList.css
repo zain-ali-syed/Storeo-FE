@@ -1,0 +1,18 @@
+.category-name {
+  align-self: flex-start;
+  margin: 10px;
+  font-weight: 500;
+  color: black;
+  height: 50px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+h5 {
+  font-size: 32px;
+}
+
+p.result-text {
+  display: inline;
+  margin-left: 22px;
+  font-size: 24px;
+}

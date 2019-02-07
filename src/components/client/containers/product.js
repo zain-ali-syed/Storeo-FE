@@ -5,7 +5,7 @@ import ProductSmallCard from '../cards/prod-sml-card';
 import '../containers/product.css'
 
 
-const maxItems = 6;
+const numOfProductsToShow = 4;
 
 export default class ProductContainer extends Component {
   state = {}
@@ -17,7 +17,8 @@ export default class ProductContainer extends Component {
 
   displayProductsByCategId = () => {
     console.log('PRODUCTS BY CAT ID', this.state.products);
-    return this.state.products.map((product, index) => {
+    return this.state.products.map((product, i) => {
+      if (i < numOfProductsToShow) {
         return (
           <div 
             className="col s6 m6 l3 productCard"
@@ -29,7 +30,8 @@ export default class ProductContainer extends Component {
               catName={this.props.name} {...product}
             />
           </div>
-        )
+        );
+      } else return null;
     })
   }
 

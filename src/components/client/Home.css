@@ -1,0 +1,9 @@
+h2.category-header {
+  align-self: flex-start;
+  margin-bottom: 5px;
+  margin-top: 40px;
+  font-size: 30px;
+  color: black;
+  font-family: 'PT Sans', sans-serif;
+  text-shadow: 1px 1px #d0cbcb;
+}

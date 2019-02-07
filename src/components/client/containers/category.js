@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-  import CategoryCard from '../cards/cat-card';
+import CategoryCard from '../cards/cat-card';
 
+import './category.css';
 
 const maxItems = 4;
 
@@ -16,7 +17,10 @@ displayCategories = () => {
   return this.props.categories.map((category, index) => {
       if (index < maxItems ) {
         return (
-          <div className="col s12 m6 l3" key={category.id}>
+          <div 
+            className="col s12 m6 l3 categoryCard" 
+            key={category.id}
+          >
             <CategoryCard {...category}/>
           </div>
         )
