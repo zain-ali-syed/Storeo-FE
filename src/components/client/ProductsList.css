@@ -1,9 +1,9 @@
-h2.product-list-category-name {
+h2.popular-categories {
   align-self: flex-start;
   margin: 10px;
   font-weight: 500;
   color: black;
   height: 50px;
   font-family: 'PT Sans', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
 }
