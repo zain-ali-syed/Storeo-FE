@@ -85,7 +85,7 @@ class ProductCard extends Component {
             {(product)
               ? (
                 <div>
-                  <h4 className="product-name">{product.name}</h4>
+                  <h4 className="product-name-title">{product.name}</h4>
                   <p className="product-property-name">
                     Price: <span className="text">{product.price}</span>
                   </p>
