@@ -41,6 +41,14 @@ class Basket extends Component {
     return subTotalPr;
   }
 
+  totalItems = () => {
+    let totalItems = 0;
+    this.props.basket.forEach(item => {
+      totalItems += item.quantity;
+    });
+    return totalItems;
+  }
+
   render() {
 
     return (
@@ -70,7 +78,7 @@ class Basket extends Component {
                       <p className="black-text">Tax to be collected: </p>
                     </div>
                     <div id="summary-amounts">
-                      <p className="black-text">€ {this.totalPrice()}</p>
+                      <p className="black-text"> {this.totalItems()}</p>
                       <p className="black-text" id="shipping-handling">€ 0.00</p>
                       <p className="black-text">€ 0.00</p>
                       <p className="black-text">€ {this.totalPrice()}</p>

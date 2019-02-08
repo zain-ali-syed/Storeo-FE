@@ -77,9 +77,9 @@ class Checkout extends Component {
           <div className="row">
             <div className="col s12">
               <div className="col s12 m8 l6">
-                <ul className="collection">
+                {/* <ul className="collection">
                   {this.showBasket()}
-                </ul>
+                </ul> */}
               </div>
               <div className="card col s12 m8 l6" id="payment-form">
                 <span className="card-title">Payment summary</span>

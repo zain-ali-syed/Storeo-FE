@@ -158,7 +158,7 @@ class Layout extends Component {
                         >
                           account_circle</i>
                         {first_name.charAt(0).toUpperCase() +
-                          first_name.slice(0, 8)}
+                          first_name.slice(1, 8)}
                       </Link>)
                       : null
                     }

@@ -77,7 +77,7 @@ class CheckoutForm extends Component {
 
     return (
       <div className="checkout">
-        <h6 className="black-text">Total: {this.totalPrice()}</h6>
+        <h6 className="black-text">Total: {this.totalPrice()} €</h6>
         {this.message()}
         <br></br>
         {/* {this.props.processingPmt === 'processing' ? <ProcessPayment/> : null } */}
