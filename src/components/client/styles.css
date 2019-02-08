@@ -102,11 +102,7 @@
 .theForm input[type="submit"]:hover,
 .theForm input[type="button"]:hover
 {
-<<<<<<< HEAD
-	background: #64B5F6;
-=======
 	background: #5E147D;
->>>>>>> 7acb214c96a9a31cf050212b32e6bc543e5f19ce
 }
 
 ::placeholder { color: rgb(170, 170, 179);

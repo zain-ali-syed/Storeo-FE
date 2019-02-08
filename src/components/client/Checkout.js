@@ -29,7 +29,7 @@ class Checkout extends Component {
 
   showBasket = () => {
     if (this.props.basket.length === 0) {
-      return <div className="basketcnt"><i class="material-icons grey-text large">shopping_basket</i></div>
+      return <div className="basketcnt"><i className="material-icons grey-text large">shopping_basket</i></div>
     } else {
 
       return this.props.basket.map((item, index) => {
@@ -77,9 +77,9 @@ class Checkout extends Component {
           <div className="row">
             <div className="col s12">
               <div className="col s12 m8 l6">
-                <ul className="collection">
+                {/* <ul className="collection">
                   {this.showBasket()}
-                </ul>
+                </ul> */}
               </div>
               <div className="card col s12 m8 l6" id="payment-form">
                 <span className="card-title">Payment summary</span>
