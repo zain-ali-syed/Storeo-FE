@@ -9,12 +9,12 @@ Storeo is an open-source, Javascript/SQL e-commerce package that allows business
 Storeo, provides developers with a prebuilt back-end infrustructure, including database creation queries, database seeding, complete server structure and dual front-end including Admin and Client sections. 
 
 ## Screenshots
-![Storeo Screenshots](Storeo_Frontend/images/homepage.png)
-![Storeo Screenshots](Storeo_Frontend/images/headphones.png)
-![Storeo Screenshots](Storeo_Frontend/images/basket.png)
-![Storeo Screenshots](Storeo_Frontend/images/admin_section1.png)
-![Storeo Screenshots](Storeo_Frontend/images/admin_section2.png)
-![Storeo Screenshots](Storeo_Frontend/images/admin_section3.png)
+![Storeo Screenshots](/images/homepage.png)
+![Storeo Screenshots](/images/headphones.png)
+![Storeo Screenshots](/images/basket.png)
+![Storeo Screenshots](/images/admin_section1.png)
+![Storeo Screenshots](/images/admin_section2.png)
+![Storeo Screenshots](/images/admin_section3.png)
 
 ## Tech Stack
 
