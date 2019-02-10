@@ -1,4 +1,6 @@
-![Storeo Logo](/images/storeo_logo.png)
+<div>
+  ![Storeo Logo](/images/storeo_logo.png)
+</div
 
 # Storeo - FE
 
@@ -13,7 +15,6 @@ Storeo, provides developers with a prebuilt back-end infrustructure, including d
 ![Storeo Screenshots](/images/headphones.png)
 ![Storeo Screenshots](/images/basket.png)
 ![Storeo Screenshots](/images/admin_section1.png)
-![Storeo Screenshots](/images/admin_section2.png)
 ![Storeo Screenshots](/images/admin_section3.png)
 
 ## Tech Stack
