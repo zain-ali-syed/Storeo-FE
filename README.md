@@ -1,5 +1,6 @@
-<img src="/images/storeo_logo.png">
-
+<p>
+  <img src="/images/storeo_logo.png">
+</p>
 
 # Storeo - FE
 
