@@ -1,7 +1,3 @@
-<p>
-  <img src="/images/storeo_logo.png">
-</p>
-
 <div align="center">
  <img width="auto" height="200" src="/images/storeo_logo.png" ></img>
 </div>
@@ -13,13 +9,6 @@
 Storeo is an open-source, Javascript/SQL e-commerce package that allows businesses and developers to easily create and manage their e-commerce stores.
 
 Storeo, provides developers with a prebuilt back-end infrustructure, including database creation queries, database seeding, complete server structure and dual front-end including Admin and Client sections. 
-
-## Screenshots
-![Storeo Screenshots](/images/homepage.png)
-![Storeo Screenshots](/images/headphones.png)
-![Storeo Screenshots](/images/basket.png)
-![Storeo Screenshots](/images/admin_section1.png)
-![Storeo Screenshots](/images/admin_section3.png)
 
 ## Tech Stack
 
@@ -36,6 +25,14 @@ Storeo, provides developers with a prebuilt back-end infrustructure, including d
 * [JWT](https://jwt.io/) 
 * [Faker.js](https://github.com/Marak/faker.js)
 
+
+
+## Screenshots
+![Storeo Screenshots](/images/homepage.png)
+![Storeo Screenshots](/images/headphones.png)
+![Storeo Screenshots](/images/basket.png)
+![Storeo Screenshots](/images/admin_section1.png)
+![Storeo Screenshots](/images/admin_section3.png)
 
 
 ## Getting Started
