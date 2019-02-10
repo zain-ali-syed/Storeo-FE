@@ -1,6 +1,5 @@
-<div>
-  ![Storeo Logo](/images/storeo_logo.png)
-</div>
+<img src="/images/storeo_logo.png">
+
 
 # Storeo - FE
 
