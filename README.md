@@ -2,6 +2,10 @@
   <img src="/images/storeo_logo.png">
 </p>
 
+<div align="center">
+ <img width="auto" height="200" src="/images/storeo_logo.png" ></img>
+</div>
+
 # Storeo - FE
 
 
