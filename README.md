@@ -56,9 +56,9 @@ npm start
 **Admin Login** page endpoint: `/admin/login`.
 
 ## Contributors
-* Christian Francia - [ctfrancia](https://github.com/ctfrancia)
-* Uros C - [ross-u](https://github.com/ross-u)
-* Zain Sayed - [zain-ali-syed](https://github.com/zain-ali-syed)
-* Tomasz Gasienica - [Casprovy](https://github.com/Casprovy)
-* Luca Panzavolta - [LucaPanzavolta](https://github.com/LucaPanzavolta)
+* Zain Sayed - [zain-ali-syed](https://github.com/zain-ali-syed) - [Linkedin](https://www.linkedin.com/in/zain-syed-7257927/)
+* Uros C - [ross-u](https://github.com/ross-u) - [Linkedin](https://www.linkedin.com/in/uros-cirkovic)
+* Luca Panzavolta - [LucaPanzavolta](https://github.com/LucaPanzavolta) - [Linkedin](https://www.linkedin.com/in/lucapanzavolta)
+* Tomasz Gasienica - [Casprovy](https://github.com/Casprovy) - [Linkedin](https://www.linkedin.com/in/tomasz-g%C4%85sienica-szostak-cfa-279b175/)
+* Christian Francia - [ctfrancia](https://github.com/ctfrancia) - [Linkedin](https://www.linkedin.com/in/ctfrancia/)
 
