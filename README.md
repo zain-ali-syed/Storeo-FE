@@ -7,24 +7,7 @@ Storeo is an open-source, Javascript/SQL e-commerce package that allows business
 
 Storeo, provides developers with a prebuilt back-end infrustructure, including database creation queries, database seeding, complete server structure and dual front-end including Admin and Client sections. 
 
-## Tech Stack
 
-### Front-end
-* [React](https://facebook.github.io/react-native/)
-* [Redux](https://redux.js.org/)
-* [Materiallize CSS](https://expo.io/)
-
-### Back-end: [Storeo-server](https://github.com/ctfrancia/Storeo-server)
-* [Node.js](https://nodejs.org/en/)
-* [Express](https://expressjs.com/)
-* [MySQL](https://www.mysql.com/)
-* [Sequelize](http://docs.sequelizejs.com/)
-* [JWT](https://jwt.io/) 
-* [Faker.js](https://github.com/Marak/faker.js)
-
-
-
-## Screenshots
 ![Storeo Screenshots](/images/homepage.png)
 ![Storeo Screenshots](/images/headphones.png)
 ![Storeo Screenshots](/images/basket.png)
@@ -51,6 +34,23 @@ npm start
 **User Login** page endpoint: `/login`.
 
 **Admin Login** page endpoint: `/admin/login`.
+
+
+## Tech Stack
+
+### Front-end
+* [React](https://facebook.github.io/react-native/)
+* [Redux](https://redux.js.org/)
+* [Materiallize CSS](https://expo.io/)
+
+### Back-end: [Storeo-server](https://github.com/ctfrancia/Storeo-server)
+* [Node.js](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [MySQL](https://www.mysql.com/)
+* [Sequelize](http://docs.sequelizejs.com/)
+* [JWT](https://jwt.io/) 
+* [Faker.js](https://github.com/Marak/faker.js)
+
 
 ## Contributors
 * Zain Sayed - [zain-ali-syed](https://github.com/zain-ali-syed) - [Linkedin](https://www.linkedin.com/in/zain-syed-7257927/)
