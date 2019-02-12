@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../cards/cat-card.css'
+import '../cards/category-card.css'
 
 
 const CategoryCard = (props) => {

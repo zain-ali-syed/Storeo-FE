@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteFromBasket, changeQuantity } from '../../../actions/example.actions';
+import { deleteFromBasket, changeQuantity } from '../../../actions/actions';
 import { Link } from 'react-router-dom';
-import './prod-basket.css';
+import './product-basket.css';
 
 class ProdBasket extends Component {
 

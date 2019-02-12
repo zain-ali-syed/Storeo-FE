@@ -4,7 +4,6 @@ import { registerAdmin } from '../../helpers/api';
 
 import './styles.css'
 
-
 class Register extends Component {
 
     state = {
@@ -14,16 +13,16 @@ class Register extends Component {
         password: ""
     }
 
-    handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
     }
 
-    onSubmit = async (e) => {
+    onSubmit = async (event) => {
         try {
             await registerAdmin(this.state);
             this.props.history.push("/admin/login");
-        } catch (e) {
-            console.error("Error while registering new user ", e)
+        } catch (err) {
+            console.error("Error while registering new user ", err)
         }
     }
 

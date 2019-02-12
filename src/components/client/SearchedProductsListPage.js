@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import ProductSmallCard from './cards/prod-sml-card';
-import Layout from './Layout';
+import ProductSmallCard from './cards/product-small-card';
+import Layout from './LayoutPage';
 import { connect } from 'react-redux';
-import './SearchedProductsList.css';
+import './SearchedProductsListPage.css';
 
 class searchedProductsList extends Component {
 

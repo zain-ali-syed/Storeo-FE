@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Layout from './Layout';
+import Layout from './LayoutPage';
 import { loginUser } from '../../helpers/api';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
-import { userLoggedIn } from '../../actions/example.actions';
+import { userLoggedIn } from '../../actions/actions';
 
 
 import './styles.css'

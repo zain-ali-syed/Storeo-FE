@@ -20,7 +20,7 @@ class Layout extends Component {
       <li><NavLink to="/admin/products">Manage Products</NavLink></li>
       <li><NavLink to="/admin/categories">Manage Categories</NavLink></li>
       <li><NavLink to="/admin/orders">View Orders</NavLink></li>
-      <a className="waves-effect waves-light btn-small" onClick={this.props.logOut}>
+      <a className="waves-effect waves-light btn-small" onClick={this.props.logOut} href="#!">
         <i className="material-icons right white-text" >forward</i>Logout
         </a>
     </React.Fragment>
@@ -38,7 +38,7 @@ class Layout extends Component {
                 <React.Fragment>
                   <ul className="hide-on-med-and-down right"> {this.getMenu()} </ul>
                   <ul id="nav-mobile" className="sidenav">{this.getMenu()}</ul>
-                  <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                  <a href="#!" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 </React.Fragment>
               }
             </div>
@@ -60,10 +60,10 @@ class Layout extends Component {
             <p>Copyright 2019 - Storeo</p>
           </div>
           <div class="social">
-            <a href="#" class="support">Contact Us</a>
-            <a href="#" class="face">f</a>
-            <a href="#" class="tweet">t</a>
-            <a href="#" class="linked">in</a>
+            <a href="#!" class="support">Contact Us</a>
+            <a href="#!" class="face">f</a>
+            <a href="#!" class="tweet">t</a>
+            <a href="#!" class="linked">in</a>
           </div>
         </footer>
       </ React.Fragment >

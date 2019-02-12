@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import Layout from '../Layout';
+import Layout from './LayoutPage';
 import { connect } from 'react-redux'
-import { getProducts } from '../../../helpers/api';
-import { addToBasket } from '../../../actions/example.actions';
-import './prod-card.css';
+import { getProducts } from '../../helpers/api';
+import { addToBasket } from '../../actions/actions';
+import './ProductDetailsPage.css';
 import {v1} from 'uuid'
-import { isArray } from 'util';
 
-class ProductCard extends Component {
+class ProductDetailsPage extends Component {
 
   state = {
     product: {},
@@ -73,7 +72,7 @@ class ProductCard extends Component {
               {(images && images.length > 0)
                 ? images.map(image => (
                   <div onClick={this.changeCurrentImage} key={v1()}>
-                    <img src={image} className="mini-image" />
+                    <img alt="" src={image} className="mini-image" />
                   </div>
                     ))
                 : <p>No images</p>
@@ -128,5 +127,5 @@ const mapDispatchToProps = (dispatch) => ({
   addToBasket: (id, qty) => dispatch(addToBasket(id, qty))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductCard)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailsPage)
 
