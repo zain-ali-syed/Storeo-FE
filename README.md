@@ -3,9 +3,6 @@
 </div>
 
 # Storeo - FE
-
-
-## What is Storeo?
 Storeo is an open-source, Javascript/SQL e-commerce package that allows businesses and developers to easily create and manage their e-commerce stores.
 
 Storeo, provides developers with a prebuilt back-end infrustructure, including database creation queries, database seeding, complete server structure and dual front-end including Admin and Client sections. 
