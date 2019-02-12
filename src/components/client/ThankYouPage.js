@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { togglePaymentStatus, showLastOrder } from '../../../actions/example.actions';
-import Order from '../orders/Order.js';
-import './thankyou.css';
+import { togglePaymentStatus, showLastOrder } from './../../actions/actions';
+import Order from './cards/previous-orders-entry.js';
+import './ThankYouPage.css';
 
-class Thankyou extends Component {
+class ThankYouPage extends Component {
 
   componentWillUnmount() {
     this.props.togglePaymentStatus("not started");
@@ -15,7 +15,6 @@ class Thankyou extends Component {
     if (!this.props.lastOrder.data) return <div>loading...</div>
     const {order_num} = this.props.lastOrder.data; 
 
-    console.log('THANK YOU ORDER', this.props.lastOrder.data);
     return (
       <div className="container">
         <h5>Thank you for your order. Your order details can be viewed below</h5><br />
@@ -32,6 +31,6 @@ const mapDispatchToProps = (dispatch) => ({
   togglePaymentStatus: (status) => dispatch(togglePaymentStatus(status)),
   showLastOrder: (data) => dispatch(showLastOrder(data)),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Thankyou)
+export default connect(mapStateToProps, mapDispatchToProps)(ThankYouPage)
 
 

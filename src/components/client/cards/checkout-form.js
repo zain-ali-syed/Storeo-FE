@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
 import { apiConstants } from '../../../constants/api.constants'
-import { clearBasket, togglePaymentStatus, showLastOrder } from '../../../actions/example.actions';
+import { clearBasket, togglePaymentStatus, showLastOrder } from '../../../actions/actions';
 import { postNewOrder } from '../../../helpers/api';
-import ProcessPayment from './ProcessPayment';
 import './checkout-form.css';
 
-
-const tokenUros = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc3NAcm9zcy5jb20iLCJpYXQiOjE1NDkyMTA4Mzh9.cFY9LqcDXFQjPqoSQlS3LTP5YnzmUHiMI1sH5w9vN9Q';
-
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FAY29kZXdvcmtzLm1lIiwiaWF0IjoxNTQ5Mjg5OTUxfQ.c7QjuPr42SZ73C4mr50vqyXpRVIKb1nM5jm84gQ1tCc';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -80,7 +74,7 @@ class CheckoutForm extends Component {
         <h6 className="black-text">Total: {this.totalPrice()} €</h6>
         {this.message()}
         <br></br>
-        {/* {this.props.processingPmt === 'processing' ? <ProcessPayment/> : null } */}
+
         <CardElement />
         <br></br>
         <button id="pay-btn" className={`waves-effect waves-light btn amber`} onClick={this.submit}><i className="material-icons left"></i>Pay now</button>

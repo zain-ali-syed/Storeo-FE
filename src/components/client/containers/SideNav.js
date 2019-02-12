@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './SideNav.css';
 import { getCategories } from '../../../helpers/api';
-import { getCateg } from '../../../actions/example.actions';
+import { getCateg } from '../../../actions/actions';
 import { connect } from 'react-redux';
 
 

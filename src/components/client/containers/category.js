@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import CategoryCard from '../cards/cat-card';
+import CategoryCard from '../cards/category-card';
 
 import './category.css';
 

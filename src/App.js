@@ -8,36 +8,36 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //Privatise Routes
-import AdminPrivateRoute from './private_routes/AdminPrivateRoute';
-import StorePrivateRoute from './private_routes/StorePrivateRoute';
+import AdminPrivateRoute from './helpers/private_routes/AdminPrivateRoute';
+import StorePrivateRoute from './helpers/private_routes/StorePrivateRoute';
 
 
 //Admin Components
-import Dashboard from './components/admin/Dashboard';
+import Dashboard from './components/admin/DashboardPage';
 import Category from './components/admin/category';
 import CategoryAddEdit from './components/admin/category/CategoryAddEdit';
 import Product from './components/admin/product';
 import Orders from './components/admin/orders';
-import Register from './components/admin/Register';
-import Login from './components/admin/Login';
+import Register from './components/admin/RegisterPage';
+import Login from './components/admin/LoginPage';
 
 
 //Client Components
-import Home from './components/client/Home';
-import Contact from './components/client/Contact';
-import Basket from './components/client/Basket';
-import ProductCard from './components/client/cards/prod-card';
-import ProductsList from './components/client/ProductsList';
-import SearchedProductsList from './components/client/SearchedProductsList'
-import Checkout from './components/client/Checkout';
+import Home from './components/client/HomePage';
+import Contact from './components/client/ContactPage';
+import Basket from './components/client/BasketPage';
+import ProductDetailsPage from './components/client/ProductDetailsPage';
+import ProductsList from './components/client/ProductsListPage';
+import SearchedProductsList from './components/client/SearchedProductsListPage'
+import Checkout from './components/client/CheckoutPage';
 import ProductAdd from './components/admin/product/ProductAdd';
 import ProductEdit from './components/admin/product/ProductEdit';
-import Thankyou from './components/client/cards/Thankyou';
-import RegisterUser from './components/client/Register';
-import LoginUser from './components/client/Login';
-import Address from './components/client/Address';
-import MyProfile from './components/client/MyProfile';
-import MyOrders from './components/client/orders';
+import ThankYouPage from './components/client/ThankYouPage';
+import RegisterUser from './components/client/RegisterPage';
+import LoginUser from './components/client/LoginPage';
+import Address from './components/client/AddressPage';
+import MyProfile from './components/client/ProfilePage';
+import MyOrders from './components/client/PreviousOrdersPage';
 
 
 
@@ -64,11 +64,11 @@ class App extends Component {
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/basket" component={Basket}></Route>
-          <Route exact path="/productcard/:id" component={ProductCard}></Route>
+          <Route exact path="/productcard/:id" component={ProductDetailsPage}></Route>
           <Route path="/productslist/:id" component={ProductsList}></Route>
           <Route path="/searchresult/:cat/:q" component={SearchedProductsList}></Route>
           <Route exact path="/checkout/:totalPr" component={Checkout}></Route>
-          <Route exact path="/thankyou" component={Thankyou}></Route>
+          <Route exact path="/thankyou" component={ThankYouPage}></Route>
           <Route exact path="/register" component={RegisterUser}></Route>
           <Route exact path="/login" component={LoginUser}></Route>
           <StorePrivateRoute exact path="/orders" user={this.props.user} component={MyOrders}></StorePrivateRoute>

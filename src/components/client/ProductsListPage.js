@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { getProductsByCatId } from '../../helpers/api'
-import ProductSmallCard from '../client/cards/prod-sml-card';
-import Layout from './Layout';
-import './ProductsList.css';
+import ProductSmallCard from './cards/product-small-card';
+import Layout from './LayoutPage';
+import './ProductsListPage.css';
 
 export default class ProductsList extends Component {
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Layout from './Layout';
+import Layout from './LayoutPage';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import ProdBasket from './cards/prod-basket';
-import './Basket.css';
+import ProdBasket from './cards/product-basket';
+import './BasketPage.css';
 
 class Basket extends Component {
 

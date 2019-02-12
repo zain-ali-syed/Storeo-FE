@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Layout from './Layout';
-import CheckoutForm from '../client/cards/checkout-form';
+import Layout from './LayoutPage';
+import CheckoutForm from './cards/checkout-form';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import { connect } from 'react-redux';
-import ProdCheckout from './cards/prod-checkout';
-import Thankyou from '../client/cards/Thankyou';
-import './Checkout.css';
+import ProdCheckout from './cards/product-checkout';
+import ThankYouPage from './ThankYouPage';
+import './CheckoutPage.css';
 
 class Checkout extends Component {
 
@@ -40,7 +40,7 @@ class Checkout extends Component {
 
   handleInput = (event) => {
     event.preventDefault();
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
     this.setState({ specialInstr: event.target.value })
     }
     
@@ -102,7 +102,7 @@ class Checkout extends Component {
         checkoutLife = <CheckoutPage />;
         break;
       case 'completed':
-        checkoutLife = <Thankyou />;
+        checkoutLife = <ThankYouPage/>;
         break;
       default:
         checkoutLife = <CheckoutPage />;

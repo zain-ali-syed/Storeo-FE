@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './prod-sml-card.css';
+import './product-small-card.css';
 
 const mockImage = "https://res.cloudinary.com/ohcash/image/upload/v1547303384/photo-1529940340007-8ef64abc360a.jpg";
 
@@ -21,7 +21,7 @@ const ProductSmallCard = (props) => {
       )
     }
   }
-  const { name, id, catName, images, description, price, discount } = props;
+  const { name, id, images, description, price, discount } = props;
   const discountFixed = Math.floor(discount);
   return (
     <Link to={`/productcard/${id}`} >
