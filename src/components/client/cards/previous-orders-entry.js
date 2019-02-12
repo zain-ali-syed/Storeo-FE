@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderItem from './OrderItem';
+import OrderItem from './previous-order-item';
 import moment from 'moment';
 import '../styles.css'
 

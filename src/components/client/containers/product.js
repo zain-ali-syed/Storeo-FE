@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getProductsByCatId } from '../../../helpers/api';
-import ProductSmallCard from '../cards/prod-sml-card';
+import ProductSmallCard from '../cards/product-small-card';
 
 import '../containers/product.css'
 

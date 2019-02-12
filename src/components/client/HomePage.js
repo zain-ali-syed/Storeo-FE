@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Layout from "./Layout";
+import Layout from "./LayoutPage";
 import CategoryContainer from "./containers/category";
 import ProductContainer from "./containers/product";
 import { connect } from "react-redux";
 import { getCategories } from "../../helpers/api";
-import { getCateg } from "../../actions/example.actions";
-import './Home.css';
+import { getCateg } from "../../actions/actions";
+import './HomePage.css';
 
 const numOfCategoriesToShow = 4;
 

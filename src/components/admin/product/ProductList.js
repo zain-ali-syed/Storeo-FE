@@ -64,8 +64,6 @@ class ProductList extends Component {
 
     render() {
 
-        const { open } = this.state;
-
         return (
             <React.Fragment>
                 <table className="striped" >

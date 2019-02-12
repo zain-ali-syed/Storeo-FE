@@ -4,13 +4,9 @@ import SideNav from "./containers/SideNav";
 import M from "materialize-css";
 import { connect } from "react-redux";
 import { getSearchProducts } from "../../helpers/api";
-import { saveSearchResult } from "../../actions/example.actions";
-import "./Layout.css";
+import { saveSearchResult } from "../../actions/actions";
+import "./LayoutPage.css";
 import logo from "./../../images/logo_storeo_white.png";
-// import logo from "./../../images/logo-new-white.png";
-// import logo from "./../../images/logo-new-white2.png";
-
-import styles from './../../constants/style.constants.css';
 
 
 class Layout extends Component {
@@ -22,7 +18,6 @@ class Layout extends Component {
 
   componentDidMount() {
     M.AutoInit();
-    // this.totalBasketQty();
   }
 
   totalBasketQty = () => {
@@ -181,7 +176,7 @@ class Layout extends Component {
                         to="/login">Login/Register</Link>
                     ) : (
                         <React.Fragment>
-                          <a className="navbar-icons logout-icon" onClick={this.props.logOut}>
+                          <a href="#!" className="navbar-icons logout-icon" onClick={this.props.logOut}>
                             <i className="material-icons right white-text">
                               exit_to_app</i>Logout
                         </a>
@@ -207,10 +202,10 @@ class Layout extends Component {
             <p>Copyright 2019 - Storeo</p>
           </div>
           <div class="social">
-            <a href="#" class="support">Contact Us</a>
-            <a href="#" className="face">f</a>
-            <a href="#" className="tweet">t</a>
-            <a href="#" className="linked">in</a>
+            <a href="#!" class="support">Contact Us</a>
+            <a href="#!" className="face">f</a>
+            <a href="#!" className="tweet">t</a>
+            <a href="#!" className="linked">in</a>
           </div>
         </footer>
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout from './Layout';
+import Layout from './LayoutPage';
 import { registerUser } from '../../helpers/api';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';

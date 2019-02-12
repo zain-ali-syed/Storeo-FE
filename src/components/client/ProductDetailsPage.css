@@ -1,4 +1,4 @@
-@value styles: "./../../../constants/style.constants.css";
+@value styles: "./../../constants/style.constants.css";
 @value accentColorBright from styles;
 
 div.main-container {

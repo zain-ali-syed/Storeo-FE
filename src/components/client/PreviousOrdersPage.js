@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Layout from '../Layout';
-import { getOrders } from '../../../helpers/api';
-import Order from './Order';
-import '../styles.css'
+import Layout from './LayoutPage';
+import { getOrders } from '../../helpers/api';
+import OrderListEntry from './cards/previous-orders-entry';
+import './styles.css'
 
 class Orders extends Component {
 
@@ -19,14 +19,12 @@ class Orders extends Component {
         }
     }
     render() {
-        console.log(this.state.orders)
-
         return (
             <Layout>
                 <div className="container">
                     <h5 style={{ color: "#000000" }}>Previous orders</h5><br />
 
-                    {this.state.orders.map(order => (<Order {...order} key={order.order_num} />))}
+                    {this.state.orders.map(order => (<OrderListEntry {...order} key={order.order_num} />))}
                     {!this.state.orders.length && "You have no previous orders at present"}
                 </div>
             </Layout>
